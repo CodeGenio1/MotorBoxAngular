@@ -1,0 +1,276 @@
+
+.sec-padding{
+    padding: 70px 0px;
+}
+
+/* *********************************************Banner************************************************** */
+
+.banner{
+    background-image: url(/assets/images/car-1.jpg);
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+
+}
+.banner-content-main{
+    width: 50%;
+    margin: 0 auto;
+    height: 80vh;
+    position: relative;
+    @media only screen and (max-width: 551px) {
+        width: 70%;
+    }
+}
+.banner-content{
+    background-color: #2f6370cf;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 50px 0px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @media only screen and (max-width: 767px) {
+        padding: 32px 0px;
+    }
+}
+.banner-content h1{
+    color: #fff;
+    font-size: 50px;
+    font-family: "Lato", sans-serif !important;
+    margin-bottom: 20px ;
+    @media only screen and (max-width: 1160px) {
+        font-size: 43px;
+    }
+    @media only screen and (max-width: 1080px) {
+        font-size: 35px;
+    }
+    @media only screen and (max-width: 876px) {
+        font-size: 30px;
+    }
+    @media only screen and (max-width: 767px) {
+        font-size: 24px;
+    }
+    @media only screen and (max-width: 650px) {
+        font-size: 20px;
+    }
+}
+.banner-content p{
+    margin-bottom: 20px;
+}
+.banner-content{
+    color: #fff;
+    font-family: "Lato", sans-serif !important;
+}
+.banner-content button{
+    border: none;
+    background-color: #c9e165;
+    padding: 10px 50px;
+    color: #3d402e !important;
+    font-weight: 700;
+}
+.banner-content::before{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 103px;
+    height: 117px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -3px;
+    left: -60px;
+    @media only screen and (max-width: 767px) {
+        width: 85px;
+    }
+    @media only screen and (max-width: 551px) {
+        width: 70px;
+        left: -50px
+    }
+}
+.banner-content::after{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 79px;
+    height: 110px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    top: -9px;
+    right: -41px;
+    @media only screen and (max-width: 551px) {
+        width: 63px;
+        top: -32px;
+    }
+
+
+}
+
+/* *********************************************Wounder************************************************** */
+.wounder{
+    background: #eeeff1;
+}
+.wounder-title h3{
+    color: #2c666f;
+    font-weight: 800;
+    text-align: center;
+    font-size: 33px;
+    margin-bottom: 70px;
+}
+
+.wounder-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+    width: calc(100% + 60px);
+    margin-left: -60px;
+
+    .post-main{
+        background-color: white;
+        border-radius: 20px;
+        // box-shadow: 0 0 15px 1px rgb(0 0 0 / 20%);
+        padding: 60px 23px 25px 23px;
+        text-align: center;
+        box-shadow:0px 0px 65px -4px rgb(0 0 0 / 9%);
+    
+        width: calc(33.33% - 60px);
+        margin-left: 60px;
+        @media only screen and (max-width: 991px) {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+    }
+    .post-content img{
+        width: 150px;
+    }
+    .post-inner-content{
+        margin-top: 35px;
+    }
+    .post-inner-content h4{
+        margin-bottom: 14px;
+        color: #2c666f;
+        font-weight: 600;
+        font-size: 16px;
+        font-family: 'Lato', sans-serif !important;
+        font-weight: 900;
+    }
+    .post-inner-content p{
+        font-size: 14px;
+        color: #4a4a4a;
+    }
+    
+}
+
+
+
+
+/* *********************************************Choose************************************************** */
+.choose{
+    background: #eeeff1;
+}
+.choose-title h1{
+    color: #2c666f;
+    font-weight: 800;
+    text-align: center;
+    font-size: 33px;
+    margin-bottom: 70px;
+}
+.choose-image{
+    background-image: url(/assets/images/choose-2.jpg);
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+.choose-image::before{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 172px;
+    height: 129px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: 0px;
+    left: -17px;
+}
+.choose-image::after{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 157px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    top: 0px;
+    right: -50px;
+}
+
+
+.choose-image-right{
+    background-image: url(/assets/images/car-1.jpg);
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+}
+.choose-image-right::before{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 172px;
+    height: 129px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: 0px;
+    left: -17px;
+}
+.choose-image-right::after{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 157px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    top: 0px;
+    right: -50px;
+}
+.choose-content{
+    margin-top: 50px;
+}
+.choose-content h4{
+    margin-bottom: 14px;
+    color: #2c666f;
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 900;
+    font-size: 18px;
+    @media only screen and (max-width: 767px) {
+        text-align: center;
+    }
+}
+.choose-content p{
+    color: #4a4a4a;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif !important;
+    @media only screen and (max-width: 767px) {
+        text-align: justify;
+    }
+
+}
+.mg-top{
+    margin-top: 100px;
+    @media only screen and (max-width: 767px) {
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,55 @@
+<div class="signup-bg">
+  <img src="./assets/images/logo.png" alt="" [routerLink]="['/home']">
+  <div class="mid-box-main">
+    <div class="class-mid">
+      <div class="form-main">
+        <h5>Welcome!</h5>
+        <p>Sign in to your account</p>
+        <form name="loginForm" [formGroup]="loginForm" novalidate id="form-login">
+    
+          <div class="st-line">
+            <div class="row mb-3">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <label>Email ID </label> <span class="star-error">*</span>
+                <input type="text" class="form-control" formControlName="email" placeholder="example@gmail.com">
+                <p class="custom-error"
+                  *ngIf="loginForm.get('email').hasError('required') && (loginForm.get('email').touched || isError)">
+                  Email ID is required.
+                </p>
+              </div>
+    
+            </div>
+    
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <label>Password</label><span class="star-error">*</span>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                <p class="custom-error"
+                  *ngIf="loginForm.get('password').hasError('required') && (loginForm.get('password').touched || isError)">
+                  Password is required.
+                </p>
+              </div>
+            </div>
+          </div>
+    
+          <p class="forget-line" [routerLink]="['/forget-password']"> <b>Forget password?</b> </p>
+    
+          <div class="term-condition">
+            <p> <span> <input type="checkbox" class="mr-2"> </span> Keep me login</p>
+    
+          </div>
+    
+          <div class="btn-box">
+            <button type="submit" class="button-primary" (click)="login()">Sign In</button>
+          </div>
+    
+          <p class="mb-0"> <b class="fc-primary have-ac-p " [routerLink]="['/sign-up']">Don't have acount? Sign Up</b> </p>
+    
+    
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<p-toast></p-toast>

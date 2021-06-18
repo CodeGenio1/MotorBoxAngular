@@ -1,0 +1,210 @@
+.selection-main {
+    background: #E8EEEF;
+    display   : table;
+    width     : 100%;
+    overflow  : hidden;
+    height:calc(100vh - 86px);
+    position  : relative;
+    padding-bottom: 30px;
+    @media only screen and (max-width: 1920px) and (min-width: 1700px) {
+        height  : calc(100vh - 119px);
+        position: relative;
+    }
+
+    &::before {
+        content          : "";
+        background-image : url('../../../../assets/images/green-arrow.png');
+        position         : absolute;
+        height           : 191px;
+        width            : 171px;
+        background-size  : cover;
+        background-repeat: no-repeat;
+        left             : -84px;
+        top              : 57px;
+
+        @media only screen and (max-width: 1920px) and (min-width: 1700px) {
+            height: 229px;
+            width : 212px;
+            left  : -84px;
+            top   : 197px;
+        }
+    }
+
+    .selection-middle-box {
+        width  : 60%;
+        margin : auto;
+        display: table;
+
+        &::after {
+            content          : "";
+            background-image : url('../../../../assets/images/green-arrow.png');
+            position         : absolute;
+            height           : 244px;
+            width            : 271px;
+            background-size  : cover;
+            background-repeat: no-repeat;
+            right            : -105px;
+            bottom           : 0;
+            z-index: 0;
+
+            @media only screen and (max-width: 1920px) and (min-width: 1700px) {
+                position: absolute;
+                height  : 309px;
+                width   : 351px;
+                right   : -105px;
+                bottom  : 0;
+            }
+        }
+
+        .mid-box {
+            display       : table-cell;
+            vertical-align: middle;
+
+            .selection-item {
+                width     : 40%;
+                float     : left;
+                position  : relative;
+                margin-top: 60px;
+                transition: 0.5s;
+                z-index: 9;
+                &::before {
+                    content      : "";
+                    position     : absolute;
+                    height       : 100%;
+                    width        : 100%;
+                    height       : 100%;
+                    width        : 100%;
+                    background   : #2f655ad1;
+                    top          : 0;
+                    border-radius: 16px;
+                }
+
+                figure {
+                    margin         : 0;
+                    width          : 100%;
+                    background-size: cover;
+                    border-radius  : 16px;
+                    display        : table;
+                    height         : 433px;
+
+                    .selection-content {
+                        display       : table-cell;
+                        vertical-align: middle;
+                        text-align    : center;
+                        position      : relative;
+
+                        h6 {
+                            color      : white;
+                            font-size  : 18px;
+                            font-weight: 700;
+                            font-family: 'Lato', sans-serif;
+
+                            @media only screen and (max-width: 1920px) and (min-width: 1700px) {
+                                font-size  : 30px;
+                                font-weight: bold;
+                            }
+                        }
+
+                        h3 {
+                            color      : white;
+                            font-weight: 600;
+                            margin-top : 28px;
+                            font-family: 'Lato', sans-serif;
+                            font-size  : 32px;
+
+                            @media only screen and (max-width: 1920px) and (min-width: 1700px) {
+                                font-size  : 50px;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+
+                    @media only screen and (max-width: 1920px) and (min-width: 1700px) {
+                        height: 500px;
+                    }
+                }
+
+                &:hover {
+                    cursor       : pointer;
+                    box-shadow   : -1px 13px 20px 0px #0000002b;
+                    border-radius: 16px;
+                    transition   : 0.5s;
+                }
+            }
+
+            .or-box {
+                text-align: center;
+                width     : 20%;
+                float     : left;
+                margin-top: 60px;
+                height    : 433px;
+                display   : table;
+
+                @media only screen and (max-width: 1920px) and (min-width: 1700px) {
+                    height: 500px;
+                }
+
+                h5 {
+                    display       : table-cell;
+                    vertical-align: middle;
+                    color         : #2C666E;
+                    font-weight   : 600;
+                    font-size     : 20px;
+                    font-family   : 'Lato', sans-serif;
+
+                    @media only screen and (max-width: 1920px) and (min-width: 1700px) {
+                        font-weight: 30px;
+                    }
+                }
+            }
+        }
+
+        @media only screen and (max-width: 1920px) and (min-width: 1700px) {
+            width  : 71%;
+            margin : auto;
+            display: table;
+            height : 100%;
+        }
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .selection-main .selection-middle-box{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .selection-main .selection-middle-box{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .selection-main .selection-middle-box{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 641px) {
+    .selection-main{
+        height: calc(100vh - 65px);
+    }
+  .selection-main .selection-middle-box .mid-box .selection-item{
+      width: 100%;
+      margin-top: 30px;
+  }
+  .selection-main .selection-middle-box .mid-box .selection-item figure{
+      height: 150px;
+  }
+  .selection-main .selection-middle-box .mid-box .selection-item figure .selection-content h3{
+   color: white;
+        font-weight: 600;
+        margin-top: 0px;
+        font-family: "Lato", sans-serif;
+        font-size: 25px;
+  }
+  .selection-main .selection-middle-box .mid-box .or-box{
+      width: 100%;
+      height: 20px;
+      margin-top: 30px;
+  }
+}

@@ -1,0 +1,165 @@
+header {
+    padding   : 22px 0px;
+    position  : relative;
+    width     : 100%;
+    background: transparent;
+    background: #e9eef1;
+
+    img {
+        width: 105px;
+    }
+
+    nav {
+        ul {
+            list-style-type: none;
+            text-align     : right;
+            margin         : 0;
+
+            li {
+                display: inline;
+                padding: 0px 14px;
+
+                a {
+                    font-size  : 13px;
+                    color      : #00000082;
+                    font-weight: 600;
+                    font-family: 'Lato', sans-serif;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                }
+
+                button {
+                    padding      : 7px 21px;
+                    border-radius: 5px;
+                    font-size    : 14px;
+                    font-weight  : bold;
+                    border       : 1px solid #000;
+                    color        : black;
+                    font-family  : "Lato", sans-serif;
+                    font-weight  : 400;
+                    text-align   : center;
+                }
+
+                .chat-btn {
+                    .fa-comments {
+                        margin-right: 5px;
+                    }
+
+                    padding      : 7px 21px;
+                    border-radius: 5px;
+                    font-size    : 14px;
+                    font-weight  : bold;
+                    border       : 1px solid #000;
+                    color        : black;
+                    font-family  : "Lato",
+                    sans-serif;
+                    font-weight: 400;
+                    text-align : center;
+                }
+
+                .vehicle-btn {
+                    background: #2d626a;
+                    color     : white;
+                    padding   : 7px 21px;
+                    border: 1px solid #2d626a;
+                    i {
+                        height        : 25px;
+                        width         : 25px;
+                        border        : 1px solid white;
+                        /* padding-top: 3px; */
+                        border-radius : 50%;
+                        text-align    : center;
+                        line-height   : 1.8;
+                        padding-left  : 1px;
+                    }
+                }
+
+                .user-btn {
+                    background: #d8d8d8;
+                    border    : 1px solid transparent;
+                    padding   : 7px 7px;
+
+                    .fa-user {
+                        height       : 25px;
+                        width        : 25px;
+                        border       : 1px solid;
+                        border-radius: 50%;
+                        text-align   : center;
+                        padding-top  : 3px;
+                        font-size    : 16px;
+                        background   : black;
+                        color        : white;
+                    }
+
+                    h6 {
+                        font-size    : 12px;
+                        font-weight  : 700;
+                        margin       : 0;
+                        line-height  : 0.2;
+                        margin-bottom: 3px;
+                    }
+
+                    span {
+                        background   : black;
+                        color        : white;
+                        font-size    : 9px;
+                        border-radius: 9px;
+                        padding      : 0px 5px;
+                    }
+                }
+
+                .sub-menu {
+                    display      : block;
+                    width        : 20%;
+                    right        : 21px;
+                    position     : absolute;
+                    background   : white;
+                    top          : 55px;
+                    z-index      : 9;
+                    /* padding   : 12px; */
+                    border-radius: 5px;
+                    text-align   : center;
+                    box-shadow   : 0px 0px 13px 2px #00000047;
+                    transition   : 0.5s;
+
+                    li {
+                        display      : block;
+                        width        : 100%;
+                        border-bottom: 1px solid rgb(185, 185, 185);
+                        padding      : 9px 0;
+                        font-family  : 'Lato', sans-serif !important;
+                        transition: 0.5s;
+                        z-index: 1;
+                        &:hover {
+                            cursor    : pointer;
+                            background: #2c676f;
+                            color     : white;
+                            transition: 0.5s;
+
+                        }
+                    }
+
+                    .last {
+                        border-bottom: none;
+                    }
+
+                    &::before {
+                        content   : "";
+                        position  : absolute;
+                        width     : 20px;
+                        height    : 20px;
+                        background: white;
+                        transform : rotate(45deg);
+                        right     : 14px;
+                        top       : -6px;
+                        z-index: -1;
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,206 @@
+    <app-buyer-header></app-buyer-header>
+<div class="banner">
+  <div class="container-fluid">
+      <div class="banner-main">
+          <div class="limit-ban">
+            <div class="row">
+              <div class="col-lg-7 pr-0">
+                  <div class="form">
+                      <div class="form-title">
+                          <h2>Search For Your Perfect Car</h2>
+                      </div>
+                      <div class="row">
+                          <div class="col-lg-4 mg-tb">
+                              <div class="make-inpt">                                  
+                                  <select class="" >
+                                      <option> Select Make  </option>
+                                      <option> AUDI </option>
+                                      <option> BMW</option>
+                                      <option> CHEVROLET</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 mg-tb">
+                              <div class="make-inpt">                                 
+                                  <select class="" >
+                                    <option> Select Model  </option>
+                                    <optgroup label="AUDI">
+                                        <option> 100 </option>
+
+                                    </optgroup>
+                                    <optgroup label="BMW">
+                                        <option>  1 Series </option>
+                                    </optgroup>
+                                    <optgroup label="Chevrolet">
+                                        <option> 1500 Extended Cab</option>
+                                    </optgroup>
+                                    
+                                </select>
+                              </div>
+                          </div>
+
+                          <div class="col-lg-4 mg-tb">
+                              <div class="make-inpt">
+                                  
+                                  <select class="" >
+                                    <option> Select Year  </option>
+                                    <option> 2021 </option>
+                                    <option> 2020</option>
+                                    <option> 2019</option>
+                                    <option> 2018</option>
+                                    <option> 2017</option>
+                                    <option> 2016</option>
+                                    <option> 2015</option>
+                                    <option> 2014</option>
+                                    <option> 2013</option>
+                                    <option> 2012</option>
+                                    <option> 2011</option>
+                                    <option> 2010</option>
+                                </select>
+                              </div>
+                          </div>
+
+                          <div class="col-lg-12">
+                              <div class="chck-bx">
+                                  <div class="row">
+                                      <div class="col-md-4 p-0">
+                                        <input type="checkbox">
+                                        Manufacture Approved
+                                      </div>
+                                      <div class="col-md-4">
+                                        <input type="checkbox">
+                                        Recommended Dealer
+                                      </div>
+                                      <div class="col-md-4 text-right">
+                                        <div (click)="openDialog()" style="cursor: pointer; text-decoration: underline;">
+                                            More Filters
+                                        </div>                                        
+                                      </div>
+                                  </div>
+                                  
+                                  
+                              </div>
+                          </div>
+
+                          <div class="col-lg-12 offset-lg-2">
+                              <div class="butn">
+                                  <button [routerLink]="[ '/buyer/advance-filter' ]">Search</button>
+                              </div>
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-5 pl-0 bg-white">
+                  <div class="post-main">
+                      <div class="post-content">
+                          <h2>Post Your Requirements</h2>
+                          <p> <i class="fa fa-angle-right"></i> Let Us Do The Work For You</p>
+                          <p> <i class="fa fa-angle-right"></i> set Your a Receive Offers in Minutes</p>
+                          <div class="post-butn">
+                              <button (click)="openRequirmentDailoge()">Post Your Requirements</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<section class="wounder sec-padding">
+  <div class="container">
+      <div class="wounder-title">
+          <h3>Wounder how it works?</h3>
+      </div>
+      <div class="wounder-box">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="post-main">
+                    <div class="post-content">
+                        <img src="./assets/images/work-1.png" alt="" width="126">
+                        <div class="post-inner-content">
+                        <h4>Post Your Vehicle</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi doloremque tempora earum natus minus quae facilis corporis exercitationem harum, soluta nobis aperiam at deleniti tempore illum dolor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-3">
+                <div class="post-main">
+                    <div class="post-content">
+                        <img src="./assets/images/work-3.png" alt="" style="width: 195px;">
+                        <div class="post-inner-content">
+                        <h4>Post Your Vehicle</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi doloremque tempora earum natus minus quae facilis corporis exercitationem harum, soluta nobis aperiam at deleniti tempore illum dolor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-3">
+              <div class="post-main">
+                  <div class="post-content">
+                      <img src="./assets/images/work-2.png" alt="" style="width: 117px;">
+                      <div class="post-inner-content">
+                      <h4>Post Your Vehicle</h4>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi doloremque tempora earum natus minus quae facilis corporis exercitationem harum, soluta nobis aperiam at deleniti tempore illum dolor.</p>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3">
+  
+              <div class="post-main">
+                  <div class="post-content">
+                      <img src="./assets/images/work-4.png" alt="" style="width: 150px;">
+                      <div class="post-inner-content">
+                      <h4>Post Your Vehicle</h4>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi doloremque tempora earum natus minus quae facilis corporis exercitationem harum, soluta nobis aperiam at deleniti tempore illum dolor.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="choose sec-padding">
+  <div class="container">
+      <div class="choose-title">
+          <h1>Why Choose Us?</h1>
+      </div>
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="choose-image">
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="choose-content">
+                  <h4>Search For  your Car</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius quae cum accusantium expedita! Iusto laborum, debitis minus ullam animi, ab optio unde pariatur modi iure, laboriosam ipsa fugit quae deserunt atque consequatur sint commodi? Temporibus cumque iure asperiores ut nam vel nemo at. Reprehenderit eaque illo cumque fugiat incidunt nostrum.</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod doloribus, quae dignissimos nobis accusamus, deleniti eius, maiores voluptatibus voluptate iusto odio quisquam alias dolore debitis quia maxime minus adipisci id beatae corporis quasi dolorum aperiam veritatis officia! Consequuntur, necessitatibus nobis.</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="row mg-top">
+          <div class="col-lg-6">
+              <div class="choose-content">
+                  <h4>Search For  your Car</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius quae cum accusantium expedita! Iusto laborum, debitis minus ullam animi, ab optio unde pariatur modi iure, laboriosam ipsa fugit quae deserunt atque consequatur sint commodi? Temporibus cumque iure asperiores ut nam vel nemo at. Reprehenderit eaque illo cumque fugiat incidunt nostrum.</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod doloribus, quae dignissimos nobis accusamus, deleniti eius, maiores voluptatibus voluptate iusto odio quisquam alias dolore debitis quia maxime minus adipisci id beatae corporis quasi dolorum aperiam veritatis officia! Consequuntur, necessitatibus nobis.</p>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <div class="choose-image-right">
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<app-buyer-footer></app-buyer-footer>

@@ -1,0 +1,74 @@
+<p-toast></p-toast>
+<div class="forget-bg">
+  
+  <!-- <img src="./assets/images/logo.png" alt="" [routerLink]="['/home']" class="top-logo"> -->
+  <div class="login-page">
+    <i mat-button mat-dialog-close class="fa fa-times"></i>
+    <h5>Post Requirment!</h5>
+    <form name="loginForm" [formGroup]="myForm" novalidate id="form-signup">
+
+      <div class="form">
+        <div class="login-form">
+          <div class="row">
+            <div class="col-md-6">
+              <label>Car Age </label><span class="star-error">*</span>
+              <input type="text" formControlName="carAge" placeholder="Car Age" />
+              <p class="custom-error"
+              *ngIf="myForm.get('carAge').hasError('required') && (myForm.get('carAge').touched || isError)">
+              Car Age is required.
+            </p>
+            </div>
+
+            <div class="col-md-6">
+              <label>color </label><span class="star-error">*</span>
+              <input type="text" formControlName="color" placeholder="color" />
+              <p class="custom-error"
+              *ngIf="myForm.get('color').hasError('required') && (myForm.get('color').touched || isError)">
+              Color is required.
+            </p>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label>Capacity </label><span class="star-error">*</span>
+              <input type="text" formControlName="capacity" placeholder="Capacity" />
+              <p class="custom-error"
+              *ngIf="myForm.get('capacity').hasError('required') && (myForm.get('capacity').touched || isError)">
+              Capacity is required.
+            </p>
+            </div>
+
+            <div class="col-md-6">
+              <label>Fuel Type </label><span class="star-error">*</span>
+              <input type="text" formControlName="fuelType" placeholder="Fuel Type" />
+              <p class="custom-error"
+                *ngIf="myForm.get('fuelType').hasError('required') && (myForm.get('fuelType').touched || isError)">
+                Fuel Type is required.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12">
+              <label>Preferences </label><span class="star-error">*</span>
+              <input type="text" formControlName="preferences" placeholder="Preferences" />
+              <p class="custom-error"
+                *ngIf="myForm.get('preferences').hasError('required') && (myForm.get('preferences').touched || isError)">
+                Preferences is required.
+              </p>
+            </div>
+
+          </div>
+
+
+          <button type="submit" (click)="PostRequirement()">Submit</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

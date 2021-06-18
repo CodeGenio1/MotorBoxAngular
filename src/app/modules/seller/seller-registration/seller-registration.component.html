@@ -1,0 +1,739 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <img src="./../../../assets/images/logo.png" alt="" [routerLink]="['/seller/home']">
+      </div>
+      <div class="col-md-10">
+        <nav>
+          <ul>
+            <li [routerLink]="['/buyer/advance-filter']"><a>Browse</a></li>
+            <li [routerLink]="['/about-us']"><a>About Us</a></li>
+            <li [routerLink]="['/contact-us']"><a>Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="mobile-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-4">
+        <a href="" [routerLink]="['/seller/home']"> <img src="./../../../assets/images/logo.png" alt=""></a>
+      </div>
+      <div class="col-md-8 col-sm-8 col-8">
+        <div class="mobile-wrapper">
+          <div class="mobile mobile-one">
+            <div class="header">
+              <div class="menu-toggle">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+            </div>
+            <div class="mobile-nav">
+              <p class="mob-close"> <i class="fa fa-times nav-close"></i> </p>
+              <ul>
+                <li [routerLink]="['/buyer/home']" class="nav-close"><a>Browse</a></li>
+                <li [routerLink]="['/about-us']" class="nav-close"><a>About Us</a></li>
+                <li [routerLink]="['/contact-us']" class="nav-close"><a>Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="registration-main">
+  <div class="header-box">
+    <h6>Post A Vehicle</h6>
+    <p><span> <i class="fa fa-info"></i> Once you submit this information you can change it by contacting our
+        admin</span></p>
+  </div>
+  <form id="msform">
+    <!-- progressbar -->
+    <ul id="progressbar">
+      <li [ngClass]="{'active': currentTab >= 1}" (click)="showNew(1)"> <i class="fa fa-car"></i> <span>Vehicel
+          Regisration</span></li>
+      <li [ngClass]="{'active': currentTab >= 2}" (click)="showNew(2)"> <i class="fa fa-clipboard"></i> <span>SMMT
+          Details</span></li>
+      <li [ngClass]="{'active': currentTab >= 3}" (click)="showNew(3)"> <i class="fa  fa-info"></i> <span>Technicle
+          information</span></li>
+      <li [ngClass]="{'active': currentTab >= 4}" (click)="showNew(4)"> <i class="fa fa-image"></i><span> Additional
+          Information</span></li>
+      <li [ngClass]="{'active': currentTab >= 5}" (click)="showNew(5)"> <i class="fa fa-id-card"></i> <span>Contactl
+          Details</span></li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset *ngIf="currentTab == 1">
+      <form>
+
+        <h6 class="form-heading">Vehicle Registration</h6>
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>KM Number</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Make</p>
+            <select class="">
+              <option> Make </option>
+              <option> AUDI </option>
+              <option> BMW</option>
+              <option> CHEVROLET</option>
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>VRM</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Full VIN / Chassis</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Engine number</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>First registered</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>First registered UK</p>
+            <input type="date" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Year manufacture</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Colour</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Gearbox</p>
+            <input type="text" name="" id="">
+          </div>
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Forward gears</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Gearbox type</p>
+            <input type="text" name="" id="">
+          </div>
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Fuel</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Engine capacity</p>
+            <input type="text" name="" id="">
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Door plan</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Seating capacity</p>
+            <input type="text" name="" id="">
+          </div>
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>CO2</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Date scrapped</p>
+            <input type="date" name="" id="">
+          </div>
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Kerb weight</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>VIN last 5</p>
+            <input type="date" name="" id="">
+          </div>
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Scrapped</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Exported</p>
+            <input type="date" name="" id="">
+          </div>
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Date exported</p>
+            <input type="date" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Imported</p>
+            <input type="date" name="" id="">
+          </div>
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Imported Non EU</p>
+            <input type="date" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Euro status</p>
+            <input type="date" name="" id="">
+          </div>
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Driven Axle</p>
+            <input type="date" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Type approval</p>
+            <input type="date" name="" id="">
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Driven Axle</p>
+            <input type="date" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Vehicle Class</p>
+            <input type="date" name="" id="">
+          </div>
+        </div>
+
+
+
+      </form>
+      <button type="button" name="next" class="next button-primary" (click)="currentTab = currentTab+1">Next</button>
+    </fieldset>
+
+    <fieldset *ngIf="currentTab == 2">
+      <form>
+
+        <h6 class="form-heading">SMMT Details</h6>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>SMMT Marque</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>SMMT Range</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Model Variant</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Series</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Gearbox</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>No of Gears</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Country of origin</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Fuel</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Engine size</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Body</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>No of doors</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Model start date</p>
+            <input type="date" name="" id="">
+          </div>
+
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>System setup date</p>
+            <input type="date" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Termination datee</p>
+            <input type="date" name="" id="">
+          </div>
+
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Drive type</p>
+            <input type="date" name="" id="">
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </form>
+
+      <button type="button" name="next" class="next button-primary" (click)="currentTab = currentTab+1">Next</button>
+    </fieldset>
+
+    <fieldset *ngIf="currentTab == 3">
+      <form>
+
+        <h6 class="form-heading">Technicle Information</h6>
+        <p class="form-sub-heading"> Weight And Demensions</p>
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Kerb weight</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Gross Weight</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Lenght</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Height</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Width</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Body Capacity</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Fuel Capacity</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <p class="form-sub-heading"> Performance</p>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Power Bhp</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Power kw</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Peek Power</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Torque FtLB</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Torque Nm</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Peak Torque</p>
+            <input type="date" name="" id="">
+          </div>
+
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Max Speed</p>
+            <input type="date" name="" id="">
+          </div>
+
+        </div>
+
+
+        <p class="form-sub-heading"> Engine Technicle</p>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Engine Code</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Engine Manufacturer</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Cylinder</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Valves/cyl</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Strok</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Bour</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Arrengment</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Cam Type</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <p>Engine</p>
+            <input type="text" name="" id="">
+          </div>
+
+          <div class="col-md-6">
+            <p>Aspiration</p>
+            <input type="text" name="" id="">
+          </div>
+
+        </div>
+
+
+
+
+
+      </form>
+
+      <button type="button" name="next" class="next button-primary" (click)="currentTab = currentTab+1">Next</button>
+    </fieldset>
+
+    <fieldset *ngIf="currentTab == 4">
+      <form class="dummy">
+        <h6 class="form-heading">Additional Information </h6>
+
+
+        <p class="form-sub-heading">Upload Image </p>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p>Thumbnail Image</p>
+            <div class="thumbnail-image">
+              <figure style="background-image: url({{thumbnail != '' ? thumbnail:'./assets/images/click-image.png'}} );">
+                <i _ngcontent-fpu-c279="" class="fa fa-times"></i>
+                <input type="file" (change)="onThumbnailChange($event)">
+              </figure>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row mt-4 mb-3">
+          <div class="col-md-12 mt-4">
+            <p>Additional Image</p>
+            <div class="addional-image">
+              <figure class="main-image">
+                <div class="row">
+                  <div class="col-md-2 col-sm-3 col-6 pr-0" *ngFor="let url of images">
+                    <div class="upload-image-box" >
+                      <figure class="addional-item"  style="background-image: url({{url}});">
+                        <i class="fa fa-times"></i>
+                      </figure>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 col-sm-3 col-6 pr-0">
+                    <div class="upload-image-box">
+                      <figure class="additional-show-image"
+                        style="background-image: url('./assets/images/click-image.png');">
+                        <input type="file" multiple="" (change)="onFileChange($event)">
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row mb-1">
+              <div class="col-md-12">
+                <p>Overall Condition</p>
+              </div>
+              <div class="col-md-12 text-left">
+                <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                  <li (click)="countStar(star)"><i class="fa fa-star "></i></li>
+                </ul>
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="row mb-1">
+              <div class="col-md-12">
+                <p>Expected Price</p>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button type="button" name="next" class="next button-primary" (click)="currentTab = currentTab+1">Next</button>
+    </fieldset>
+
+    <fieldset *ngIf="currentTab == 5">
+      <form [formGroup]="myForm" novalidate id="form-signup">
+        <h6 class="form-heading">Contact Detail </h6>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p>Email ID</p>
+            <input type="text" formControlName="email" placeholder="example@gmail.com" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <p>Name</p>
+            <input type="text" formControlName="fullName" placeholder="Name" class="form-control">
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p>Phone Number</p>
+            <input type="text" class="form-control" formControlName="phoneNumber" placeholder="example@gmail.com">
+          </div>
+
+          <div class="col-md-6">
+            <p>Date Of Birth</p>
+            <input type="date" class="form-control" formControlName="dateOfBirth" >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p>Password</p>
+            <input type="password" formControlName="password" class="form-control" placeholder="example@gmail.com">
+          </div>
+
+          <div class="col-md-6">
+            <p>Confirm Password</p>
+            <input type="password" formControlName="confirmPassword" class="form-control" placeholder="example@gmail.com">
+          </div>
+
+        </div>
+
+
+        <div class="term-condition">
+          <p> <span> <input type="checkbox" style="width: 4%;"> </span> I agree with the <span style="color: #326b73;">
+              <b>Terms and
+                conditions</b>
+            </span></p>
+
+        </div>
+
+
+      </form>
+
+
+      <div class="btn-box">
+        <button class="button-primary" (click)="signUp()" type="submit">Sign Up</button>
+      </div>
+    </fieldset>
+
+
+  </form>
+</div>

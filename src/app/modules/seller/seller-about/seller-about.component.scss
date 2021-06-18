@@ -1,0 +1,170 @@
+// Inner Banner Start
+
+.main_innner_banner {
+    .hero-sec {
+        img {
+            width: 100%;
+        }
+
+        .banner_content {
+            top      : 57%;
+            left     : 100px;
+            position : absolute;
+            width    : calc(100% - 100px);
+            transform: translatey(-50%);
+
+            h1 {
+                font-size     : 54px;
+                font-weight   : 800;
+                color         : #c9e265;
+                text-transform: uppercase;
+                font-family   : 'Lato', sans-serif;
+            }
+
+            span {
+                font-size     : 14px;
+                font-weight   : 600;
+                color         : #c9e265;
+                text-transform: uppercase;
+                font-family   : 'Lato', sans-serif;
+
+                a {
+                    text-decoration: none;
+                    color          : #c9e265;
+                    font-family    : 'Lato', sans-serif;
+                    margin-right   : 4px;
+
+                    &:hover {
+                        background: #30676f;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// About Start //
+
+.main_about_sec {
+    z-index         : -1;
+    position        : relative;
+    padding-bottom  : 31px;
+    background-color: #fbf9fa;
+
+    &:before {
+        top             : -39px;
+        z-index         : -1;
+        content         : '';
+        left            : -210px;
+        height          : 107%;
+        width           : 590px;
+        position        : absolute;
+        transform       : skewX(23deg);
+        background-color: #30676f6b;
+    }
+
+    .about_img {
+        height         : 330px;
+        margin-top     : 60px;
+        position       : relative;
+        background-size: cover;
+
+        &:before {
+            content : '';
+            top     : -25px;
+            width   : 100%;
+            z-index : -1;
+            right   : -30px;
+            height  : 100%;
+            position: absolute;
+            border  : 1px solid #30676f;
+        }
+    }
+
+    .about_ctn {
+        width     : 67%;
+        float     : right;
+        text-align: right;
+
+        h4 {
+            font-size  : 46px;
+            line-height: 1.2;
+            color      : #30676f;
+            font-family: 'Lato', sans-serif;
+        }
+
+        h6 {
+            font-size     : 48px;
+            font-weight   : 300;
+            padding-bottom: 10px;
+            color         : #30676f;
+            font-family   : 'Lato', sans-serif;
+        }
+
+        p {
+ 
+            color: #000;
+            font-size: 16px;
+            line-height: 1.8;
+            padding-bottom: 30px;
+            font-family: "Lato", sans-serif;
+            text-align: justify;
+            letter-spacing: 0px;
+        
+        }
+
+        .left_btn {
+            color           : white;
+            font-size       : 14px;
+            margin-right    : 16px;
+            padding         : 12px 18px;
+            position        : relative;
+            background-color: yellowgreen;
+            font-family     : 'Lato', sans-serif;
+
+            &:before {
+                top             : 0;
+                right           : -6px;
+                width           : 14px;
+                content         : '';
+                height          : 100%;
+                position        : absolute;
+                transform       : skewX(-20deg);
+                background-color: #30676f6b;
+            }
+        }
+
+        .right_btn {
+            background   : var(--secondary-color) !important;
+            color        : #676161 !important;
+            font-size    : 12px;
+            padding      : 10px 68px;
+            border       : 1px solid transparent !important;
+            border-radius: 4px;
+            font-family  : 'Lato', sans-serif;
+
+            &:before {
+                top                : 0;
+                left               : -7px;
+                width              : 14px;
+                // content         : '';
+                height             : 100%;
+                position           : absolute;
+                transform          : skewX(-20deg);
+                background-color   : #30676f6b;
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.sec-padding {
+    padding: 80px 0;
+}
+
+// About End //

@@ -1,0 +1,282 @@
+.sec-padding {
+    padding: 70px 0px;
+}
+
+/* ******************************************Form******************************************** */
+.selection-main {
+
+    // background: #e9eef1;
+    // // height: 100vh;
+    // display: table;
+    // width: 100%;
+    // padding: 80px 0px;
+    // background: #e9eef1;
+    // display: table;
+    // width: 100%;
+    // padding: 80px 0px;
+    // padding-top: 20px;
+    .form-main {
+        width : 100%;
+        margin: auto;
+    }
+
+    .form-head {
+        padding                : 15px 15px 0px;
+        background             : #2c676f;
+        border-top-left-radius : 5px;
+        border-top-right-radius: 5px;
+        padding-top            : 0;
+
+    }
+
+    .form-head .form-inner-head {
+        background-color: #2c676f;
+        position        : relative;
+        padding         : 10px 0px;
+        border-bottom   : 2px solid #59878e;
+    }
+
+    .form-head .form-inner-head h4 {
+        display: inline-block;
+        color  : #eff3f4;
+        margin : 0;
+    }
+
+    .form-head .form-inner-head i {
+        position: absolute;
+        right   : 20px;
+        top     : 14px;
+    }
+
+    .form-head .form-inner-head i {
+        color    : #eff3f4;
+        font-size: 22px;
+    }
+
+    .form-head .package {
+        color       : #eff3f4;
+        padding-left: 15px;
+    }
+
+    .form-head .package p {
+        margin: 0;
+    }
+
+    .form-head .head-price {
+        height       : 100%;
+        padding-right: 15px;
+    }
+
+    .form-head .head-price p {
+        margin         : 0;
+        height         : 100%;
+        display        : flex;
+        align-items    : center;
+        justify-content: flex-end;
+        font-size      : 21px;
+        font-weight    : 600;
+        color          : #eff3f4;
+    }
+
+    .pd-tb {
+        padding: 20px 0px;
+    }
+
+    .payment-detail {
+        background-color          : #fff;
+        padding                   : 30px 15px;
+        border-bottom-left-radius : 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .payment-title {
+        color        : #3d3d3d;
+        margin-bottom: 30px;
+    }
+
+    form label {
+        display    : block;
+        color      : #3d3d3d;
+        font-weight: 600;
+        font-size  : 17px;
+    }
+
+    form input {
+        width        : 100%;
+        padding      : 10px;
+        border-radius: 5px;
+        border       : 1px solid #bcbcbc;
+        margin-bottom: 20px;
+        color        : #c0c0c0;
+    }
+
+    form input::placeholder {
+        color: #c0c0c0;
+    }
+
+    form .frm-button button {
+        width           : 100%;
+        border          : none;
+        background-color: #2c676f;
+        color           : #eff3f4;
+        padding         : 12px 0px;
+        border-radius   : 8px;
+    }
+}
+
+.fa-times {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.con-head {
+    padding       : 0px 5px !important;
+    color         : white !important;
+    border-bottom : 2px solid #ffffff59 !important;
+    padding-bottom: 9px !important;
+    margin        : 0px 15px !important;
+
+    h4 {
+        font-weight: 900;
+        font-family: "Lato", sans-serif !important;
+    }
+}
+
+.con-head-bot {
+    margin     : 0px 15px !important;
+    color      : white !important;
+    padding-top: 21px !important;
+
+    h5 {
+        font-size  : 18px;
+        font-family: "Lato", sans-serif !important;
+    }
+
+    p {
+        text-align : left !important;
+        font-size  : 13px !important;
+        margin-top : 7px !important;
+        font-weight: 400 !important;
+        font-family: "Lato", sans-serif !important;
+    }
+    .price{
+        font-family: "Lato", sans-serif !important;
+
+        text-align: right !important;
+        font-size: 21px !important;
+        font-weight: 700 !important;
+        // padding-top: 8px !important;
+        margin-top: 0 !important;
+
+    }
+}
+
+// ziczag border
+
+#d-wrapper {
+    background-color: #fff;
+}
+
+#d-wrapper * {
+
+    margin : 0;
+    padding: 0;
+}
+
+#d-wrapper div.sep {
+    min-height: 200px;
+    padding   : 32px 0;
+
+}
+
+#d-wrapper .zig-zag-top:before {
+    background:
+        linear-gradient(-45deg, #30676f 16px, red 16px, blue 16px, transparent 0),
+        linear-gradient(45deg, #30676f 16px, transparent 0);
+    background-position: left top;
+    background-repeat  : repeat-x;
+    background-size    : 22px 32px;
+    content            : " ";
+    display            : block;
+
+    height: 32px;
+    width : 100%;
+
+    position: relative;
+    bottom  : 64px;
+    left    : 0;
+}
+
+#d-wrapper div>* {
+    // margin: 0 40px;
+}
+
+#d-wrapper .zig-zag-bottom {
+    margin    : 32px 0;
+    margin-top: 0;
+    background: #30676f;
+}
+
+#d-wrapper .zig-zag-top {
+    margin       : 32px 0;
+    margin-bottom: 0;
+    background   : #30676f
+}
+
+#d-wrapper .zig-zag-bottom,
+#d-wrapper .zig-zag-top {
+    padding: 14px 0;
+    padding-bottom: 0;
+}
+
+#d-wrapper p,
+#d-wrapper h1 {
+    font-size  : 2em;
+    text-align : center;
+    color      : #fff;
+    font-weight: 900;
+
+}
+
+#d-wrapper div.sep p,
+#d-wrapper div.sep h1 {
+    text-shadow: 1px 1px 0 #888, 2px 2px 0 #888, 3px 3px 0 #888, 4px 4px 0 #888, 5px 5px 0 #888;
+    color      : #fff;
+}
+
+#d-wrapper h1 {
+    font-size: 4em;
+}
+
+#d-wrapper .zig-zag-bottom:after {
+    background:
+        linear-gradient(-45deg, transparent 16px, #30676f 0),
+        linear-gradient(45deg, transparent 16px, #30676f 0);
+    background-repeat  : repeat-x;
+    background-position: left bottom;
+    background-size    : 22px 32px;
+    content            : "";
+    display            : block;
+
+    width : 100%;
+    height: 32px;
+
+    position: relative;
+    top: 12px;
+    left    : 0px;
+}
+
+#d-wrapper p {
+    text-align: center;
+}
+
+#d-wrapper p:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.sub-main{
+    width: 40%;
+    margin: auto;
+    background: white;
+}

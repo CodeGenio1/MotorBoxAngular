@@ -1,0 +1,606 @@
+
+.sec-padding {
+    padding: 70px 0px;
+}
+
+/* ******************************************Form******************************************** */
+.banner {
+    background-image   : url(../../../../assets/images/banner.jpg);
+    width              : 100%;
+    height             : 100vh;
+    background-size    : cover;
+    background-position: top;
+}
+
+.banner-main {
+    height     : 100vh;
+    display    : flex;
+    align-items: center;
+}
+
+.limit-ban {
+    width : 90%;
+    margin: auto;
+}
+
+.form-title h2 {
+    color     : #fff;
+    text-align: center;
+}
+
+.form {
+    background-color         : #18464ccf;
+    padding                  : 60px 70px;
+    position                 : relative;
+    overflow                 : hidden;
+    border-top-left-radius   : 10px;
+    border-bottom-left-radius: 10px;
+    padding-top              : 39px;
+}
+
+.form::before {
+    content          : "";
+    position         : absolute;
+    background-image : url(../../../../assets/images/arrow.png);
+    width            : 130px;
+    height           : 150px;
+    background-repeat: no-repeat;
+    background-size  : cover;
+    top              : 17px;
+    left             : -47px;
+}
+
+.make-inpt select {
+    border       : none;
+    border-radius: 5px;
+    padding      : 12px 10px;
+    width        : 100%;
+    width        : 91%;
+    margin       : auto 8px;
+}
+
+.mg-tb {
+    margin: 19px 0px 0px 0px;
+}
+
+.chck-bx {
+    color : #fff;
+    margin: 20px 45px 20px 10px;
+    margin-right: 12px;
+}
+
+.butn button {
+    background-color: #c9e165;
+    border          : none;
+    padding         : 10px 80px;
+    border-radius   : 5px;
+    text-align      : center;
+}
+
+.post-main {
+    background-color          : #ffffff;
+    padding                   : 32px 0px 0px 0px;
+    border-top-right-radius   : 10px;
+    border-bottom-right-radius: 10px;
+    display                   : flex;
+    justify-content           : center;
+}
+
+.post-main .post-content h2 {
+    color        : #434343;
+    margin-bottom: 30px;
+}
+
+.post-main .post-content p i {
+    color       : #2c676f;
+    font-size   : 20px;
+    margin-right: 5px;
+
+}
+
+.post-main .post-content p {
+    color    : #5b5b5b;
+    font-size: 15px;
+}
+
+.post-main .post-butn {
+    text-align: center;
+    text-align: center;
+    margin-top: 33px;
+
+}
+
+.post-main .post-butn button {
+    background-color: #2c676f;
+    border          : none;
+    color           : #fff;
+    padding         : 10px 30px;
+    font-weight     : 600;
+    border-radius   : 5px;
+    font-size       : 17px;
+}
+
+/* ******************************************Subbmitted******************************************** */
+.subbmit {
+    background: #efefef;
+
+    .submit-container {
+        width : 90%;
+        margin: auto;
+    }
+}
+
+.subbmit-title h4 {
+    color        : #3e3e3e;
+    margin-bottom: 30px;
+    font-weight  : 900;
+    font-size    : 21px;
+    font-family  : "Lato", sans-serif !important;
+}
+
+.tesla-main {
+    padding         : 12px 20px;
+    border-radius   : 8px;
+    background-color: #fff;
+    margin          : 0px 10px;
+    margin-bottom   : 20px;
+}
+
+.tesla-content .tesla-head {
+    display      : flex;
+    align-items  : center;
+    margin-bottom: 20px;
+}
+
+.tesla-content .tesla-head h5 {
+    width      : 80%;
+    color      : #3e3e3e;
+    font-weight: 900;
+    font-size  : 18px;
+    font-family: "Lato", sans-serif !important;
+}
+
+.tesla-content .tesla-head button i {
+    color       : #3e3e3e;
+    margin-right: 10px;
+    margin-top  : 3px;
+}
+
+.tesla-content .tesla-head button {
+    margin-right : 50px;
+    border       : none;
+    padding      : 7px 23px;
+    display      : flex;
+    border-radius: 4px;
+}
+
+.tesla-content .tesla-head span a i {
+    color    : #eb7170;
+    font-size: 19px;
+}
+
+.fuel p {
+    color        : #9a9a9a;
+    margin-bottom: 5px;
+    font-size    : 12px;
+    text-align   : left;
+}
+
+.fuel h5 {
+    color      : #3e3e3e;
+    margin     : 0;
+    font-size  : 14px;
+    text-align : left;
+    font-weight: 900;
+    font-family: "Lato", sans-serif !important;
+
+}
+
+.pd-right {
+    padding-left: 70px;
+}
+
+.tesla-spec .blue {
+    position: relative;
+}
+
+.tesla-spec .blue p {
+    color        : #9a9a9a;
+    margin-bottom: 10px;
+    font-size    : 13px;
+    text-align   : left;
+}
+
+.tesla-spec .blue h5 {
+    color      : #3e3e3e;
+    margin     : 0;
+    font-size  : 14px;
+    text-align : left;
+    font-weight: 900;
+    font-family: "Lato", sans-serif !important;
+}
+
+.tesla-spec .blue h5::before {
+    content         : "";
+    position        : absolute;
+    width           : 20px;
+    height          : 20px;
+    border-radius   : 50%;
+    background-color: #3da7f5;
+    top             : 25px;
+    right           : 050px;
+}
+
+.date {
+    width      : 100%;
+    display    : flex;
+    align-items: center;
+    margin-top : 9px
+}
+
+.date .view-1 {
+    width    : 50%;
+    float    : left;
+    color    : #9a9a9a;
+    font-size: 10px;
+}
+
+.date .view-2 {
+    width     : 50%;
+    float     : left;
+    color     : #9a9a9a;
+    text-align: right;
+}
+
+.date .view-1 a i {
+    color: #c4c4c4;
+}
+
+.date p {
+    color    : #9a9a9a;
+    font-size: 10px;
+}
+
+.date .view-2 a i {
+    color: #9d9d9d;
+}
+
+.mg-top {
+    margin-top: 40px;
+}
+
+.butn {
+    text-align: center;
+}
+
+.offer {
+    background    : #efefef;
+    padding-bottom: 30px;
+
+    .offer-container {
+        width : 90%;
+        margin: auto;
+
+        .offer-title {
+            h4 {
+                color        : #3e3e3e;
+                margin-bottom: 30px;
+                font-weight  : 900;
+                font-size    : 21px;
+                font-family  : "Lato", sans-serif !important;
+            }
+        }
+
+        .submitted-main-row {
+            margin-bottom: 40px;
+
+            .image-box {
+                figure {
+                    margin         : 0;
+                    position       : absolute;
+                    top            : 25px;
+                    background-size: cover;
+                    /* height      : 100px; */
+                    width          : 127%;
+                    height         : 87px;
+                    z-index        : 11;
+                    border-radius  : 10px;
+                    right          : -38px;
+                }
+            }
+
+            .offer-main {
+                background   : white;
+                padding      : 20px 20px;
+                padding-left : 75px;
+                border-radius: 10px;
+
+                .car-name {
+                    margin     : 0;
+                    font-size  : 19px;
+                    font-weight: 900;
+                    font-family: 'Lato', sans-serif !important;
+                }
+
+                .posted-time {
+                    margin        : 0;
+                    font-size     : 9px;
+                    color         : #80808082;
+                    // margin-top : 7px;
+                    font-family   : 'Lato', sans-serif;
+                }
+
+                .light-text {
+                    margin     : 0;
+                    color      : #8080807d;
+                    font-family: 'Lato', sans-serif;
+                }
+
+                .dark-text {
+                    margin     : 0;
+                    font-family: 'Lato', sans-serif;
+                }
+
+                .price-box {
+                    height      : 100%;
+                    border-left : 1px solid #d6d6d6;
+                    text-align  : center;
+                    display     : table;
+                    width       : 100%;
+                    border-right: 1px solid #d6d6d6;
+
+                    .price-middle-box {
+                        display       : table-cell;
+                        vertical-align: middle;
+                        text-align    : left;
+
+                        padding: 0 30px;
+
+
+                        h6 {
+                            font-size  : 14px;
+                            font-family: 'Lato', sans-serif !important;
+                            color      : #316872;
+                            font-weight: 900;
+                        }
+
+                        h4 {
+                            font-size  : 23px;
+                            font-family: 'Lato', sans-serif !important;
+                            color      : #316872;
+                            font-weight: 900;
+                        }
+                    }
+                }
+
+                .last-section {
+                    text-align: left;
+                    text-align: left;
+                    padding: 0px 30px;
+                    padding-right: 25px;
+
+                    p {
+                        // margin: 0;
+                        font-family: 'Lato', sans-serif !important;
+                        color      : black;
+                        font-weight: 900;
+                    }
+                    .pap-name{
+                        font-family: "Lato", sans-serif !important;
+                        color: #316872;
+                        font-weight: 400;
+                    }
+
+                    h6 {
+                        font-family: "Lato", sans-serif !important;
+                        color      : black;
+                        font-weight: 500;
+                        font-size  : 19px;
+                    }
+
+                button {
+                    border: 1px solid #c5bebe;
+                    padding: 8px 9px;
+                    background: white;
+                    border-radius: 5px;
+                    margin: 9px;
+                    width: 100%;
+                    color: #c5bebe;
+                    font-family: "Lato", sans-serif;
+                    position: relative;
+                    font-size: 13px;
+                    background: #316872;
+                    color: white;
+                    font-weight: 800;
+
+                    i {
+                        position: absolute;
+                        left    : 8px;
+                        top     : 10px;
+                    }
+
+                    .fa-times {
+                        height       : 20px;
+                        width        : 20px;
+                        border       : 1px solid;
+                        border-radius: 50%;
+                        line-height  : 1.4;
+                    }
+                }
+                .remove-btn{
+                    border: 1px solid #316872;
+                    padding: 8px 9px;
+                    background: white;
+                    border-radius: 5px;
+                    margin: 9px;
+                    width: 100%;
+                    color: #c5bebe;
+                    font-family: "Lato", sans-serif;
+                    position: relative;
+                    font-size: 13px;
+                    background: white;
+                    color: #316872;
+                    font-weight: 800;
+                    margin-left: 22px;
+                }
+            }
+        }
+    }
+}
+}
+
+.bg-white {
+    background: white;
+}
+
+
+
+/* *********************************************Wounder************************************************** */
+.wounder{
+    background: #eeeff1;
+}
+.wounder-title h3{
+    color: #2c666f;
+    font-weight: 800;
+    text-align: center;
+    font-size: 33px;
+    margin-bottom: 70px;
+}
+
+.wounder-box{
+    margin-left: -60px;
+
+    .post-main{
+        background-color: white;
+        border-radius: 20px;
+        // box-shadow: 0 0 15px 1px rgb(0 0 0 / 20%);
+        padding: 14px;
+        text-align: center;
+        box-shadow:0px 0px 65px -4px rgb(0 0 0 / 9%);
+        // margin-left: 60px;
+    }
+    .post-inner-content{
+        margin-top: 35px;
+    }
+    .post-inner-content h4{
+        margin-bottom: 14px;
+        color: #2c666f;
+        font-weight: 600;
+        font-size: 16px;
+        font-family: 'Lato', sans-serif !important;
+        font-weight: 900;
+    }
+    .post-inner-content p{
+        font-size: 14px;
+        color: #4a4a4a;
+    }
+    
+}
+
+
+/* *********************************************Choose************************************************** */
+.choose{
+    background: #eeeff1;
+}
+.choose-title h1{
+    color: #2c666f;
+    font-weight: 800;
+    text-align: center;
+    font-size: 33px;
+    margin-bottom: 70px;
+}
+.choose-image{
+    background-image: url(/assets/images/choose-2.jpg);
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.choose-image::before{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 172px;
+    height: 129px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: 0px;
+    left: -17px;
+}
+.choose-image::after{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 157px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    top: 0px;
+    right: -50px;
+}
+
+
+.choose-image-right{
+    background-image: url(/assets/images/car-1.jpg);
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+}
+.choose-image-right::before{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 172px;
+    height: 129px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: 0px;
+    left: -17px;
+}
+.choose-image-right::after{
+    content: "";
+    position: absolute;
+    background-image: url(/assets/images/green-arrow.png);
+    width: 157px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    top: 0px;
+    right: -50px;
+}
+.choose-content{
+    margin-top: 50px;
+}
+.choose-content h4{
+    margin-bottom: 14px;
+    color: #2c666f;
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 900;
+    font-size: 18px;
+
+}
+.choose-content p{
+    color: #4a4a4a;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif !important;
+
+}
+.mg-top{
+    margin-top: 100px;
+}
+
+
+
+
+
+

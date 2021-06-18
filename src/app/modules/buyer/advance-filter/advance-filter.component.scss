@@ -1,0 +1,412 @@
+.advance-filter-main {
+    background-color: #eff0f2;
+    padding-top     : 85px;
+    width           : 100%;
+    display         : table;
+
+    .advance-filter-left {
+        width         : 20%;
+        float         : left;
+        background    : #dbe2e4;
+        padding       : 43px 35px;
+        padding-bottom: 100px;
+
+        .main-title {
+            font-size  : 17px;
+            font-family: "Lato", sans-serif !important;
+            font-weight: 900;
+        }
+
+        p {
+            font-family: 'Lato', sans-serif;
+        }
+
+        input[type=text] {
+            background   : white;
+            border       : 1px solid transparent;
+            padding      : 9px 8px;
+            width        : 100%;
+            border-radius: 8px;
+            color        : #00000073;
+            margin-bottom: 10px;
+            font-family  : "Lato", sans-serif !important;
+
+            &::placeholder {
+                color: #00000073;
+
+                font-size: 12px;
+            }
+        }
+
+        input[type=date] {
+            background   : white;
+            border       : 1px solid transparent;
+            padding      : 9px 8px;
+            width        : 100%;
+            border-radius: 8px;
+            color        : #00000073;
+            margin-bottom: 10px;
+            font-family  : "Lato", sans-serif !important;
+
+            &::placeholder {
+                color: #00000073;
+
+                font-size: 12px;
+            }
+        }
+
+        select {
+            background   : white;
+            color        : #00000073;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-weight  : 600;
+            font-family  : "Lato", sans-serif !important;
+
+            &::placeholder {
+                color      : black;
+                font-family: "Lato", sans-serif !important;
+
+
+            }
+        }
+    }
+
+    .advance-filter-right {
+        width  : 80%;
+        float  : left;
+        padding: 30px;
+
+        .found-para {
+            color      : #b7b7b7;
+            font-family: "Lato", sans-serif !important;
+
+        }
+
+        label {
+            font-size: 13px !important;
+        }
+
+        select {
+            background   : white;
+            border       : 1px solid white;
+            border-radius: 8px;
+            font-family  : "Lato", sans-serif !important;
+            color        : #b7b7b7 !important;
+
+        }
+
+        .submitted-main-row {
+            margin-bottom: 10px;
+            margin-top   : 30px;
+
+            .image-box {
+                figure {
+                    margin         : 0;
+                    position       : absolute;
+                    top            : 25px;
+                    background-size: cover;
+                    width          : 193%;
+                    height         : 109px;
+                    z-index        : 11;
+                    border-radius  : 10px;
+                    right          : -94px;
+                }
+
+                figure:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .offer-main {
+                background   : #fafafa;
+                padding      : 20px 20px;
+                padding-left : 60px;
+                border-radius: 10px;
+                padding-left : 128px;
+                box-shadow   : 0px 0px 12px 1px #0000000d;
+                margin-bottom: 20px;
+
+                .car-name {
+                    margin          : 0;
+                    font-size       : 19px;
+                    font-weight     : 900;
+                    // margin-bottom: 10px;
+                    font-family     : "Lato", sans-serif !important;
+                    margin-right    : 17px;
+
+                }
+
+                .car-bot {
+                    color      : #2f666f;
+                    font-family: "Lato", sans-serif !important;
+                    font-size  : 11px;
+
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+
+                .car-mod {
+                    border-left : 1px solid #8080806b;
+                    margin      : 0;
+                    padding     : 3px 11px;
+                    text-align  : center;
+                    border-right: 1px solid #8080806b;
+                    font-family : 'Lato', sans-serif !important;
+
+
+                }
+
+                .view-para {
+                    font-family: "Lato", sans-serif !important;
+                    margin     : 1px 17px;
+                    font-size  : 15px;
+                    color      : grey;
+
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+
+                .ver-span {
+                    background    : #1d77ff9e;
+                    color         : white;
+                    padding       : 3px 23px;
+                    font-size     : 11px;
+                    border-radius : 17px;
+                    padding-bottom: 0;
+                    font-weight   : 900;
+                    font-family   : "Lato", sans-serif !important;
+
+                }
+
+                .posted-time {
+                    margin     : 0;
+                    font-size  : 11px;
+                    color      : #8080807d;
+                    font-family: "Lato", sans-serif !important;
+
+                }
+
+                .light-text {
+                    margin: 0;
+                    color : #8080807d;
+                }
+
+                .dark-text {
+                    margin: 0;
+                }
+
+                .price-box {
+                    height    : 100%;
+                    text-align: center;
+                    display   : table;
+                    width     : 100%;
+
+                    .price-middle-box {
+                        display       : table-cell;
+                        vertical-align: middle;
+                        text-align    : left;
+
+                        h6 {
+                            color      : #2f666f;
+                            font-family: "Lato", sans-serif !important;
+
+                            font-size  : 17px;
+                            font-weight: 900;
+                            margin     : 0;
+                        }
+
+                        h4 {
+                            color      : #2f666f;
+                            font-family: "Lato", sans-serif !important;
+
+                            font-size  : 21px;
+                            font-weight: 900;
+                        }
+
+                        .chat-btn {
+                            padding      : 11px 13px;
+                            background   : #2f666f;
+                            font-family  : 'Lato', sans-serif;
+                            color        : white;
+                            border       : 1px solid transparent;
+                            border-radius: 4px;
+
+                            i {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+
+                .last-section {
+                    text-align: center;
+
+                    p {
+                        // margin: 0;
+                    }
+
+                    h6 {
+                        font-size    : 12px;
+                        margin-bottom: 12px;
+                    }
+
+                    button {
+                        border       : 1px solid #c5bebe;
+                        padding      : 5px 30px;
+                        background   : white;
+                        border-radius: 2px;
+                        margin       : 9px;
+                        width        : 50%;
+                        color        : #c5bebe;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sub-btn {
+    background   : #d6d6d6f1;
+    color        : black;
+    font-size    : 17px;
+    padding      : 12px 59px;
+    border       : 1px solid transparent;
+    border-radius: 4px;
+    font-weight  : 700;
+}
+
+
+
+
+
+// slider
+
+
+
+input[type='range'] {
+    width   : 194px;
+    height  : 30px;
+    overflow: hidden;
+    cursor  : pointer;
+    outline : none;
+}
+
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background        : none;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    width     : 200px;
+    height    : 2px;
+    background: #2f666f;
+}
+
+input[type='range']:nth-child(2)::-webkit-slider-runnable-track {
+    background: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    position     : relative;
+    height       : 15px;
+    width        : 15px;
+    margin-top   : -7px;
+    background   : #fff;
+    border       : 2px solid #2f666f;
+    border-radius: 25px;
+    z-index      : 1;
+}
+
+
+input[type='range']:nth-child(1)::-webkit-slider-thumb {
+    z-index: 2;
+}
+
+.rangeslider {
+    position        : relative;
+    height          : 60px;
+    width           : 194px;
+    display         : inline-block;
+    margin-top      : -5px;
+    //   margin-left: 20px;
+}
+
+.rangeslider input {
+    position: absolute;
+}
+
+.rangeslider {
+    position: absolute;
+}
+
+.rangeslider span {
+    position  : absolute;
+    margin-top: 30px;
+    left      : 0;
+}
+
+.rangeslider .right {
+    position    : relative;
+    float       : right;
+    margin-right: -5px;
+}
+
+
+/* Proof of concept for Firefox */
+@-moz-document url-prefix() {
+    .rangeslider::before {
+        content   : '';
+        width     : 100%;
+        height    : 3px;
+        background: #2f666f;
+        // border: 2px solid #c9e265;
+
+        display : block;
+        position: relative;
+        top     : 16px;
+    }
+
+    input[type='range']:nth-child(1) {
+        position: absolute;
+        top     : 35px !important;
+        overflow: visible !important;
+        height  : 0;
+    }
+
+    input[type='range']:nth-child(2) {
+        position: absolute;
+        top     : 35px !important;
+        overflow: visible !important;
+        height  : 0;
+    }
+
+    input[type='range']::-moz-range-thumb {
+        position     : relative;
+        height       : 15px;
+        width        : 15px;
+        margin-top   : -7px;
+        background   : #fff;
+        border       : 2px solid #2f666f;
+        border-radius: 25px;
+        z-index      : 1;
+    }
+
+    input[type='range']:nth-child(1)::-moz-range-thumb {
+        transform: translateY(-20px);
+    }
+
+    input[type='range']:nth-child(2)::-moz-range-thumb {
+        transform: translateY(-20px);
+    }
+}
+
+.year-title {
+    text-align   : center;
+    margin-bottom: 4px;
+    margin-top   : 0px;
+}

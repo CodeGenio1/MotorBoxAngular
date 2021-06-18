@@ -1,0 +1,67 @@
+<div class="signup-bg">
+  <img src="./assets/images/logo.png" alt="" [routerLink]="['/home']">
+  <form name="loginForm" [formGroup]="myForm" novalidate id="form-signup">
+
+  <div class="form-main">
+    <h5>Welcome!</h5>
+    <p>Sign Up for new Acount</p>
+    <!-- <form id="s" novalidate> -->
+
+      <div class="st-line">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <label>Email ID</label>
+            <input type="text" class="form-control" formControlName="email" placeholder="example@gmail.com">
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="fullName" placeholder="Name">
+          </div>
+        </div>
+      </div>
+
+      <div class="st-line">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <label>Password</label>
+            <input type="password" formControlName="password" class="form-control" placeholder="example@gmail.com">
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <label>Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control" placeholder="example@gmail.com">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="st-line">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <label>Phone Number</label>
+            <input type="text" class="form-control" formControlName="phoneNumber" placeholder="example@gmail.com">
+
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <label>Date Of Birth</label>
+            <input type="date" class="form-control" formControlName="dateOfBirth" placeholder="example@gmail.com">
+          </div>
+        </div>
+      </div>
+
+      <div class="term-condition">
+        <p> <span> <input type="checkbox"> </span> I agree with the <span style=" font-size: 13px;
+          color: #476f76;"> <b class="">terms and conditions</b> </span></p>
+
+      </div>
+
+      <div class="btn-box">
+        <button type="submit" (click)="signUp()" class="button-primary">Sign Up</button>
+      </div>
+
+      <p> <b class="fc-primary have-ac-p"  [routerLink]="['/sign-in']">Already have an acount? Sign In</b> </p>
+
+
+    <!-- </form> -->
+  </div>
+</form>
+</div>

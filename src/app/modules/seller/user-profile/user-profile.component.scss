@@ -1,0 +1,156 @@
+.main {
+    background: #f1f1f1;
+    padding   : 40px 20px;
+
+    .user-header {
+        // border: 1px solid #e0e0e07a;
+        width           : 98%;
+        margin          : auto;
+        padding         : 17px 22px;
+        // margin-top: 20px;
+        border-radius   : 5px;
+        box-shadow      : 0 4px 20px 0 rgb(0 0 0 / 5%);
+        background-color: white;
+        background-color: #2d626a;
+        color           : white;
+
+        h6 {
+            margin     : 0;
+            font-size  : 17px;
+            font-weight: 700;
+            font-family: 'Lato', sans-serif;
+        }
+    }
+
+    .user-main {
+        width : 98%;
+        margin: auto;
+
+        .image-main {
+            margin        : auto;
+            border-radius : 4px;
+            background    : white;
+            margin-top    : 14px;
+            text-align    : center;
+            /* padding    : 14px 10px; */
+            /* padding-top: 0px; */
+            border-radius : 5px;
+            padding-bottom: 10px;
+            margin-top    : 34px;
+
+            h1 {
+                font-family            : 'Lato', sans-serif;
+                font-weight            : bold;
+                font-size              : 16px;
+                text-align             : left;
+                background             : #2d626a40;
+                padding                : 4px 0px 4px 13px;
+                border-top-right-radius: 5px;
+                border-top-left-radius : 5px;
+                background-color       : #2d626a;
+                color                  : white;
+            }
+
+            i {
+                height       : 70px;
+                width        : 70px;
+                background   : rgba(0, 0, 0, .4);
+                font-size    : 43px;
+                color        : white;
+                padding-top  : 10px;
+                text-align   : center;
+                border-radius: 50%;
+                /* border    : 50px solid black; */
+                box-shadow   : 0px 0px 4px 8px #00000040;
+                margin-bottom: 16px;
+                margin-top   : 10px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            h6 {
+                font-size  : 17px;
+                font-weight: 700;
+                font-family: 'Lato', sans-serif;
+                color      : #2d626a;
+                margin     : 0;
+            }
+
+            p {
+                text-align: left;
+                margin    : 0;
+                margin-top: 34px;
+            }
+
+            .user-name {
+                text-align: center;
+            }
+        }
+
+        .detail-main {
+            margin        : auto;
+            border-radius : 4px;
+            background    : white;
+            margin-top    : 14px;
+            text-align    : center;
+            /* padding    : 14px 10px; */
+            /* padding-top: 0px; */
+            border-radius : 5px;
+            padding-bottom: 10px;
+            margin-top    : 34px;
+            margin-bottom : 20px;
+
+            h1 {
+                font-family            : 'Lato', sans-serif;
+                font-weight            : bold;
+                font-size              : 16px;
+                text-align             : left;
+                background             : #2d626a40;
+                padding                : 4px 0px 4px 13px;
+                border-top-right-radius: 5px;
+                border-top-left-radius : 5px;
+                background-color       : #2d626a;
+                color                  : white;
+            }
+
+            input {
+                display         : block;
+                width           : 100%;
+                height          : calc(1.5em + 0.75rem + 2px);
+                padding         : 0.375rem 0.75rem;
+                font-size       : 1rem;
+                font-weight     : 400;
+                line-height     : 1.5;
+                color           : #495057;
+                background-color: #fff;
+                background-clip : padding-box;
+                border          : 1px solid #ced4da;
+                border-radius   : 0.25rem;
+                transition      : border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            }
+
+            button {
+                background   : var(--secondary-color) !important;
+                color        : #676161 !important;
+                font-size    : 12px;
+                padding      : 10px 6px;
+                border       : 1px solid transparent !important;
+                border-radius: 4px;
+                width        : 20%;
+                margin-top   : 34px;
+            }
+
+            p {
+                text-align: left;
+                margin    : 0;
+                margin-top: 34px;
+            }
+        }
+    }
+}
+
+.bg-white {
+    background: white;
+}

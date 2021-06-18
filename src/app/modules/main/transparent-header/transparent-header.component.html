@@ -1,0 +1,53 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <a href="" [routerLink]="['/home']"> <img src="./../../../assets/images/green-logo.png" alt=""></a>
+      </div>
+      <div class="col-md-10">
+        <nav>
+          <ul>
+            <li [routerLink]="['/buyer/home']"><a>Browse</a></li>
+            <li [routerLink]="['/about-us']"><a>About Us</a></li>
+            <li [routerLink]="['/contact-us']"><a>Contact Us</a></li>
+            <li> <button [routerLink]="['/sign-in']">Log In / Sign Up</button> </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-4">
+        <a href="" [routerLink]="['/home']"> <img src="./../../../assets/images/green-logo.png" alt=""></a>
+      </div>
+      <div class="col-md-8 col-sm-8 col-8">
+        <div class="mobile-wrapper">
+          <div class="mobile mobile-one">
+            <div class="header">
+              <div class="menu-toggle">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+            </div>
+            <div class="mobile-nav">
+              <p class="mob-close"> <i class="fa fa-times nav-close" ></i> </p>
+              <!-- <a href="" [routerLink]="['/home']"> <img src="./../../../assets/images/logo.png" alt=""></a> -->
+              <ul>
+                <li [routerLink]="['/buyer/home']" class="nav-close"><a>Browse</a></li>
+                <li [routerLink]="['/about-us']"  class="nav-close"><a>About Us</a></li>
+                <li [routerLink]="['/contact-us']"  class="nav-close"><a>Contact Us</a></li>
+                <li> <a [routerLink]="['/sign-in']"  class="nav-close">Log In / Sign Up</a> </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

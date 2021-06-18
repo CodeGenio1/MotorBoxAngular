@@ -1,0 +1,129 @@
+.signup-bg {
+    background-image : url(/assets/images/signup-bg.jpg);
+    height           : 100vh;
+    background-repeat: no-repeat;
+    background-size  : cover;
+    padding-bottom   : 30px;
+    display: table;
+    width: 100%;
+    background-position: center;
+    img {
+        width      : 150px;
+        margin     : auto;
+        display    : block;
+        padding-top: 30px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+.mid-box-main{
+    height: calc(100vh - 180px);
+    width: 100%;
+    display: table;
+    .class-mid{
+        display: table-cell;
+        vertical-align: middle;
+        .form-main {
+            background   : white;
+            width        : 26%;
+            margin       : auto;
+            margin-top   : 45px;
+            padding      : 13px 19px;
+            border-radius: 15px;
+            @media (max-width:1125px) {
+                width: 30%;
+            }
+    
+            @media (max-width:991px) {
+                width: 40%;
+            }
+    
+            @media (max-width:767px) {
+                width: 60%;
+            }
+            @media (max-width:560px) {
+                width: 70%;
+            }
+            @media (max-width:460px) {
+                width: 80%;
+            }
+            form{
+                input{
+                    border-radius: 0.45rem !important;
+                }
+            }
+            h5 {
+                text-align : center;
+                color      : #476f76;
+                font-family: "Lato", sans-serif;
+                font-size  : 20px;
+                margin-top: 7px;
+                margin-bottom: 10px !important;
+            }
+    
+            p {
+                text-align : center;
+                font-size  : 13px;
+                font-family: "Lato", sans-serif;
+                margin-bottom: 14px;
+                color: #545151;
+                letter-spacing: 0.5px;
+            }
+    
+            .forget-line {
+                text-align: left;
+                margin    : 0;
+                font-size : 13px;
+                color     : #476f76;
+                font-weight: 600;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+    
+            .term-condition {
+                p {
+                    text-align : left;
+                    font-size  : 13px;
+                    line-height: 0;
+                    padding-top: 12px;
+                    font-family: "Lato", sans-serif;
+                 
+                }
+               
+            }
+    
+            .btn-box {
+                text-align: center;
+    
+                button {
+                    width    : 100% !important;
+                    margin   : 11px auto;
+                    color    : #415e62;
+                    font-size: 14px;
+                    font-family: "Lato", sans-serif;
+                   
+                }
+            }
+    
+            .have-ac-p {
+                font-size  : 13px;
+                font-family: "Lato", sans-serif;
+                color      : #476f76;
+                font-weight: 800;
+             
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+     
+            label{
+                font-size: 13px !important;
+            }
+
+        }
+    }
+}
+
+}

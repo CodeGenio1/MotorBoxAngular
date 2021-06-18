@@ -1,0 +1,755 @@
+header {
+	padding    : 22px 0px;
+	// position: absolute;
+	width      : 100%;
+	background : #30676f;
+
+	img {
+		width: 105px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	nav {
+		ul {
+			list-style-type: none;
+			text-align     : right;
+			margin         : 0;
+			padding-top    : 7px;
+
+			li {
+				display: inline;
+				padding: 0px 29px;
+
+				a {
+					font-size: 13px;
+					color    : white;
+				}
+
+				button {
+					background   : transparent;
+					padding      : 8px 26px;
+					border-radius: 5px;
+					font-size    : 13px;
+					font-weight  : bold;
+					border       : 1px solid #000;
+				}
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 991px) {
+		display: none;
+	}
+}
+
+.mobile-header {
+	display      : none;
+	background   : #30676f;
+	padding      : 12px 10px;
+	border-bottom: 1px solid #ffffff8f;
+
+	img {
+		width: 119px;
+	}
+
+	.mob-close {
+		margin        : 0;
+		border-bottom : 1px solid white;
+		padding-bottom: 9px;
+		text-align    : left;
+
+		i {
+			color       : white;
+			padding-left: 14px;
+			padding-top : 9px;
+			font-size   : 20px;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	.mobile-wrapper {
+		width     : 100%;
+		margin    : 0 auto;
+		text-align: center;
+
+		.mobile {
+			position: relative;
+		}
+
+		.mobile .header {
+			color  : #fff;
+			padding: 10px;
+		}
+
+		.line {
+			width           : 29px;
+			height          : 3px;
+			background-color: white;
+			margin          : 5px 0;
+		}
+
+		.menu-toggle {
+			width  : 11%;
+			display: table;
+			float  : right;
+		}
+
+		.menu-toggle:hover {
+			cursor: pointer;
+		}
+
+		.mobile-nav ul {
+			padding        : 0;
+			margin         : 0;
+			list-style-type: none;
+		}
+
+
+		.mobile-one .mobile-nav {
+			background-color: #30676f;
+			width           : 100%;
+			/* height       : 100%; */
+			transform       : translate(164%, 31px);
+			transition      : all 0.2s ease-in-out;
+			position        : fixed;
+			width           : 620px;
+			height          : calc(100vh - -47px);
+			z-index         : 999;
+			top             : -31px;
+			box-shadow      : 2px 2px 7px 2px #ffffff6e;
+		}
+
+		.mobile-nav img {
+			padding: 25px 20px;
+			width  : 200px;
+		}
+
+		.mobile-one .mobile-nav li {
+			transition   : 0.5s;
+			border-bottom: 1px solid white;
+			text-align   : left;
+		}
+
+		.mobile-one .mobile-nav li a {
+			color      : white;
+			display    : block;
+			padding    : 15px 20px;
+			text-align : left;
+			border-left: 3px solid transparent;
+		}
+
+		.mobile-one .mobile-nav li a:hover {
+			background-color: white;
+			color           : #30676f;
+			border-left     : 3px solid #30676f;
+			cursor          : pointer;
+			transition      : 0.5s;
+			text-decoration : none;
+		}
+
+	}
+
+	@media only screen and (max-width: 991px) {
+		display: block;
+	}
+}
+
+.registration-main {
+	// background-image: url('./../../../../assets/images/signup-bg.jpg');
+	padding-top   : 20px;
+	height        : 100vh;
+	padding-bottom: 30px;
+	display       : table;
+	width         : 100%;
+	// max-height: 100vh;
+	background    : #30676f;
+	position      : relative;
+
+	&:before {
+		content          : "";
+		display          : block;
+		width            : 520px;
+		height           : 470px;
+		position         : fixed;
+		bottom           : 0;
+		left             : -210px;
+		background-image : url('./../../../../assets/images/light-arrow.png');
+		background-size  : cover;
+		background-repeat: no-repeat;
+	}
+
+	&:after {
+		content          : "";
+		display          : block;
+		width            : 400px;
+		height           : 250px;
+		position         : fixed;
+		bottom           : -140px;
+		right            : -240px;
+		background-image : url('./../../../../assets/images/light-arrow.png');
+		background-size  : cover;
+		background-repeat: no-repeat;
+	}
+
+	.header-box {
+		h6 {
+			text-align   : center;
+			color        : white;
+			font-size    : 20px;
+			font-family  : "Lato", sans-serif;
+			margin-top   : 9px;
+			font-weight  : 600;
+			margin-bottom: 20px;
+		}
+
+		p {
+			text-align: center;
+
+			span {
+				color        : #cbe27a;
+				background   : #0000001c;
+				padding      : 10px 15px;
+				border-radius: 3px;
+				font-size    : 14px;
+				margin       : 0 auto;
+				word-spacing : 2px;
+
+				@media only screen and (max-width: 572px) {
+					font-size: 12px;
+				}
+
+				@media only screen and (max-width: 500px) {
+					font-size: 10px;
+					padding  : 7px 10px;
+				}
+
+				@media only screen and (max-width: 400px) {
+					font-size: 8px;
+					padding  : 5px 5px;
+				}
+
+				i {
+					height       : 18px;
+					width        : 18px;
+					background   : #cbe27a;
+					line-height  : 1.5;
+					border-radius: 50%;
+					color        : #316971;
+					text-align   : center;
+
+					@media only screen and (max-width: 500px) {
+						line-height: 1.8;
+					}
+
+					@media only screen and (max-width: 400px) {
+						height: 15px;
+						width : 15px;
+					}
+				}
+			}
+		}
+	}
+
+	#msform {
+		width     : 100%;
+		margin    : 0px auto;
+		text-align: center;
+		position  : relative;
+	}
+
+	#msform fieldset {
+		background   : white;
+		border       : 0 none;
+		border-radius: 7px;
+		padding      : 20px 30px;
+		box-sizing   : border-box;
+		width        : 60%;
+		position     : relative;
+		margin       : auto;
+		margin-top   : 25px !important;
+
+		@media only screen and (max-width: 1240px) {
+			width: 68%;
+		}
+
+		@media only screen and (max-width: 1024px) {
+			width: 82%;
+		}
+
+		@media only screen and (max-width: 991px) {
+			width: 85%;
+		}
+
+		@media only screen and (max-width: 877px) {
+			width: 95%;
+		}
+
+		form {
+			select {
+				width        : 100%;
+				padding      : 10px 5px;
+				border-radius: 4px;
+				border       : 1px solid #ccc;
+			}
+		}
+
+		.dummy {
+			width : 75%;
+			margin: 0 auto;
+		}
+
+		.form-heading {
+			text-align   : center;
+			color        : #316971;
+			font-size    : 18px;
+			padding-top  : 5px;
+			margin-bottom: 35px;
+		}
+
+		.form-sub-heading {
+			text-align : center;
+			font-size  : 16px;
+			font-weight: 600;
+		}
+
+
+
+
+		p {
+			text-align   : left;
+			margin-bottom: 7px;
+			font-size    : 13px;
+			font-weight  : 800;
+
+		}
+
+		.radio-box {
+			background   : #f1f1f1f1;
+			padding      : 6px 8px;
+			border-radius: 5px;
+		}
+
+		button {
+			width : 50%;
+			margin: auto;
+			color : black;
+		}
+
+		.color-top-box {
+			border       : 1px solid #a7a6a6;
+			border-radius: 3px;
+
+			.color-box {
+				height       : 50px;
+				background   : #c9e165;
+				border-radius: 3px;
+				margin       : 2px;
+			}
+		}
+
+		.thumbnail-image {
+			border       : 1px dashed #767d7f;
+			border-radius: 6px;
+			width        : 170px;
+			background   : #f0f2f4;
+			height       : 108px;
+			position     : relative;
+
+			figure {
+				height             : 100%;
+				background-size    : cover;
+				background-size    : contain;
+				background-repeat  : no-repeat;
+				background-position: center;
+				margin             : 0;
+
+				i {
+					font-size    : 16px;
+					padding      : 4px 5px;
+					width        : max-content;
+					float        : right;
+					margin-top   : 4px;
+					margin-right : 4px;
+					border-radius: 5px;
+					color        : white;
+					font-weight  : 100;
+					background   : #00000061;
+					position     : absolute;
+					right        : 0;
+				}
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.addional-image {
+			border       : 2px dashed #b1b3b2;
+			border-radius: 6px;
+
+			.main-image {
+				height         : 220px;
+				background-size: cover;
+				margin         : 10px;
+				@media(max-width:460px){
+					padding: 0 16px 0 0;
+				}
+			}
+
+			.upload-image-box {
+				margin    : 2px;
+				background: #f0f2f4;
+
+				.addional-item {
+					height             : 85px;
+					position           : relative;
+					background-size    : contain;
+					margin             : 0;
+					background-position: center;
+					background-repeat  : no-repeat;
+					border             : 1px solid #728591;
+
+					i {
+
+						font-size    : 16px;
+						padding      : 4px 5px;
+						width        : max-content;
+						float        : right;
+						margin-top   : 4px;
+						margin-right : 4px;
+						border-radius: 5px;
+						color        : white;
+						font-weight  : 100;
+						background   : #00000061;
+						@media(max-width:991px){
+							font-size: 12px;
+						}
+
+					}
+					@media(max-width:1024px){
+						height: 80px;
+					}
+					@media(max-width:560px){
+						height: 70px;
+					}
+				}
+
+				.additional-show-image {
+					height             : 85px;
+					position           : relative;
+					background-size    : contain;
+					border             : 1px dashed #b3b2ae;
+					border-radius      : 2px;
+					background-repeat  : no-repeat;
+					margin             : 0;
+					background-position: center;
+					@media(max-width:1024px){
+						height: 80px;
+					}
+					@media(max-width:560px){
+						height: 70px;
+					}
+				}
+			}
+		}
+
+		.term-condition {
+			p {
+				text-align : center;
+				font-size  : 13px;
+				line-height: 0;
+				padding-top: 16px;
+			}
+
+		}
+
+		.btn-box {
+			text-align: center;
+
+			button {
+				width : 48% !important;
+				margin: 11px auto
+			}
+		}
+	}
+
+	/*Hide all except first fieldset*/
+	#msform fieldset:not(:first-of-type) {
+		display: none;
+	}
+
+	/*inputs*/
+	#msform input,
+	#msform textarea {
+		padding      : 10px;
+		border       : 1px solid #ccc;
+		border-radius: 3px;
+		margin-bottom: 10px;
+		width        : 100%;
+		box-sizing   : border-box;
+		font-family  : montserrat;
+		color        : #2C3E50;
+		font-size    : 13px;
+		font-family  : 'Lato', sans-serif;
+
+		::placeholder {
+			font-family: 'Lato', sans-serif;
+		}
+	}
+
+	/*buttons*/
+	#msform .action-button {
+		width     : 100px;
+		background: #cbe27a;
+		;
+		font-weight  : bold;
+		color        : white;
+		border       : 0 none;
+		border-radius: 1px;
+		cursor       : pointer;
+		padding      : 10px 5px;
+		margin       : 10px 5px;
+	}
+
+	#msform .action-button:hover,
+	#msform .action-button:focus {
+		box-shadow: 0 0 0 2px white, 0 0 0 3px #cbe27a;
+		;
+	}
+
+	/*headings*/
+	.fs-title {
+		font-size     : 15px;
+		text-transform: uppercase;
+		color         : #2C3E50;
+		margin-bottom : 10px;
+	}
+
+	.fs-subtitle {
+		font-weight  : normal;
+		font-size    : 13px;
+		color        : #666;
+		margin-bottom: 20px;
+	}
+
+	/*progressbar*/
+	#progressbar {
+		margin-bottom: 30px;
+		overflow     : hidden;
+		/*CSS counters to number the steps*/
+		counter-reset: step;
+		width        : 60%;
+		margin       : auto;
+		margin       : 20px auto;
+
+		@media only screen and (max-width: 1240px) {
+			width: 68%;
+		}
+
+		@media only screen and (max-width: 1024px) {
+			width: 82%;
+		}
+
+		@media only screen and (max-width: 991px) {
+			width: 85%;
+		}
+
+		@media only screen and (max-width: 877px) {
+			width: 95%;
+		}
+	}
+
+	#progressbar li {
+		list-style-type: none;
+		color          : white;
+		text-transform : uppercase;
+		font-size      : 11px;
+		width          : 20%;
+		float          : left;
+		position       : relative;
+		font-family    : "Lato", sans-serif;
+		font-weight    : 600;
+
+		@media only screen and (max-width: 877px) {
+			font-size: 9px;
+		}
+
+		i {
+			position        : absolute;
+			top             : 0;
+			right           : 0;
+			left            : 0;
+			text-align      : center;
+			margin          : auto;
+			width           : 50px;
+			// background   : gray;
+			height          : 50px;
+			z-index         : 11;
+			border-radius   : 50%;
+			font-size       : 22px;
+			/* display      : flex; */
+			line-height     : 2.3;
+			cursor          : pointer;
+
+			.active {
+				background: #b7cc6d
+			}
+
+			@media only screen and (max-width: 877px) {
+				height   : 41px;
+				width    : 41px;
+				font-size: 18px;
+			}
+		}
+
+		.active {
+			background: #b7cc6d !important;
+		}
+
+		span {
+			display    : block;
+			width      : 100%;
+			padding-top: 5px;
+		}
+	}
+
+	#progressbar li:before {
+		content          : counter(step);
+		counter-increment: step;
+		width            : 50px;
+		line-height      : 50px;
+		display          : block;
+		font-size        : 14px;
+		color            : #fff;
+		background       : silver;
+		border-radius    : 50%;
+		margin           : 0 auto 5px auto;
+
+		@media only screen and (max-width: 877px) {
+			width      : 41px;
+			line-height: 41px;
+		}
+	}
+
+	/*progressbar connectors*/
+	#progressbar li:after {
+		content   : "";
+		width     : 70%;
+		height    : 3px;
+		background: white;
+		position  : absolute;
+		left      : -35%;
+		top       : 23px;
+		z-index   : 0;
+
+		@media only screen and (max-width: 877px) {
+			width     : 76%;
+			left      : -38%;
+			top       : 21px;
+			z-index   : 0;
+		}
+		@media only screen and (max-width: 830px) {
+			width: 74%;
+			left: -37%;
+			top: 20px;
+			z-index: 0;
+		}
+		@media only screen and (max-width: 751px) {
+			width: 72%;
+			left: -36%;
+			top: 20px;
+			z-index: 0;
+		}
+		@media only screen and (max-width: 683px) {
+			width: 67%;
+			left: -34%;
+			top: 20px;
+			z-index: 0;
+		}
+		@media only screen and (max-width: 560px) {
+			width: 62%;
+			left: -31%;
+		}
+		@media only screen and (max-width: 460px) {
+			width: 55%;
+			left: -27%;
+		}
+		@media only screen and (max-width: 414px) {
+			width: 50%;
+			left: -24%;
+		}
+		@media only screen and (max-width: 375px) {
+			width: 47%;
+			left: -21%;
+		}
+		@media only screen and (max-width: 360px) {
+			width: 38%;
+			left: -17%;
+		}
+	}
+
+	#progressbar li:first-child:after {
+		/*connector not needed before the first step*/
+		content: none;
+	}
+
+
+	#progressbar li:before,
+	#progressbar li:after {
+		background: silver;
+		color     : white;
+	}
+
+	#progressbar li.active:before {
+		background: #cbe27a;
+		;
+		color: white;
+
+	}
+
+	#progressbar li.active:after {
+		background: #cbe27a;
+		;
+		color: white;
+	}
+}
+
+input[type=file] {
+	opacity: 0;
+	height : 100%;
+	width  : 100%;
+	top    : 0;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.rating-list li {
+	float  : right;
+	color  : #ddd;
+	padding: 10px 5px;
+
+}
+
+.rating-list li:hover,
+.rating-list li:hover~li {
+	color : orange;
+	cursor: pointer;
+}
+
+.rating-list {
+	display   : inline-block;
+	list-style: none;
+}

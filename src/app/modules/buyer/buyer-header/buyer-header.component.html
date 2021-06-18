@@ -1,0 +1,45 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <img  [routerLink]="['/buyer/home']" src="./../../../assets/images/green-logo.png" alt="">
+      </div>
+      <div class="col-md-10">
+        <nav>
+          <ul>
+            <li  [routerLink]="['/buyer/advance-filter']"><a>Browse</a></li>
+            <li [routerLink]="['/about-us']"><a>About Us</a></li>
+            <li [routerLink]="['/contact-us']"><a>Contact Us</a></li>
+            <li>
+              <button class="chat-btn" [routerLink]="['/buyer/buyer-verification']"> Check Verification Status</button> 
+            </li>
+            <li>
+              <button class="chat-btn"  [routerLink]="['/chat']"> <i class="fa fa-comments"></i> Chat</button> 
+            </li>
+            <li (click)="toggle()">               <button class="user-btn">
+              <div class="row">
+                <div class="col-md-2">
+                  <i class="fa fa-user"></i>
+                </div>
+                <div class="col-md-6">
+                  <h6>John Doe</h6>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-sort-down"></i>
+                </div>
+              </div>
+            </button> 
+          
+            <ul *ngIf="show" class="sub-menu">
+              <li [routerLink]="['/user-profile']">Edit Profile</li>
+              <li>Change</li>
+              <li class="last">Sign Out</li>
+            </ul>
+
+          </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

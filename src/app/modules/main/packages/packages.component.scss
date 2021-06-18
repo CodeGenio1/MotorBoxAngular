@@ -1,0 +1,126 @@
+.selection-main {
+    background : #e9eef1;
+    // height: 100vh;
+    display    : table;
+    width      : 100%;
+    padding    : 80px 0px;
+    background : #e9eef1;
+    display    : table;
+    width      : 100%;
+    padding    : 80px 0px;
+    padding-top: 40px;
+
+    h3 {
+
+        font-size    : 30px;
+        font-family  : "Lato", sans-serif !important;
+        font-weight  : 800;
+        margin       : 0;
+        margin-bottom: 20px;
+
+    }
+
+    p {
+        font-size  : 11px;
+        color      : grey;
+        font-size  : 11px;
+        color      : grey;
+        font-size  : 14px;
+        font-family: "Lato", sans-serif !important;
+        margin-bottom: 29px;
+
+    }
+
+    .package-box {
+        width  : 60%;
+        margin : auto;
+        padding: 60px 0;
+
+        .package-item {
+            width        : 30%;
+            float        : left;
+            background   : white;
+            padding      : 21px 10px;
+            text-align   : center;
+            border-radius: 7px;
+
+            h2 {
+                font-size  : 23px;
+                font-family: "Lato", sans-serif !important;
+
+            }
+
+            h6 {
+                font-size  : 17px;
+                font-family: 'Lato', sans-serif;
+                font-weight: 800;
+                font-family: "Lato", sans-serif !important;
+
+            }
+
+            button {
+                width: 80%;
+        font-family  : "Lato", sans-serif !important;
+
+            }
+        }
+
+        .package-center-item {
+            width        : 40%;
+            float        : left;
+            background   : #2d626a;
+            padding      : 51px 10px;
+            text-align   : center;
+            border-radius: 7px;
+            position     : relative;
+            top          : -31px;
+            color        : white;
+        font-family  : "Lato", sans-serif !important;
+
+
+            h6 {
+                font-size  : 17px;
+                font-family: 'Lato', sans-serif;
+                font-weight: 800;
+        font-family  : "Lato", sans-serif !important;
+
+            }
+
+            .recom-btn {
+                width        : 62%;
+                background   : var(--secondary-color) !important;
+                border-radius: 18px;
+                color        : #676161 !important;
+                font-size    : 12px;
+                padding      : 3px 6px;
+                border       : 1px solid transparent !important;
+                border-radius: 17px;
+                margin       : 10px 0px;
+        font-family  : "Lato", sans-serif !important;
+
+            }
+
+            button {
+                width: 80%;
+            }
+
+            p {
+                color: white;
+            }
+        }
+    }
+}
+
+.green-icon {
+    color       : var(--secondary-color) !important;
+    margin-right: 10px;
+    // font-family  : "Lato", sans-serif !important;
+
+}
+
+.white-icon {
+    color       : white;
+    margin-right: 10px;
+    font-family  : "Lato", sans-serif !important;
+
+}
