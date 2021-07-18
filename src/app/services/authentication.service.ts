@@ -1,5 +1,5 @@
 import { ISignup } from './../Models/ISignup';
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../environments/environment';
 import { ILogin } from './../Models/ILogin';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
@@ -38,6 +38,17 @@ export class AuthenticationService {
     return this.http.post(environment.baseUrl + 'user/forgot-password',
       email
     ).toPromise();
+  }
+  changePassword(body: any) {
+    return this.http.post(environment.baseUrl + 'user/change-password', body).toPromise();
+  }
+
+  updateUser(body: any) {
+    return this.http.put(environment.baseUrl + 'user-info', body).toPromise();
+  }
+
+  getUser() {
+    return this.http.get(environment.baseUrl + 'user-info').toPromise();
   }
 
   test() {

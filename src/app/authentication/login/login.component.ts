@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { MessageService } from 'primeng/api';
+import { isArray, isNullOrUndefined } from 'util';
+import { SellerRegistrationService } from 'src/app/services/seller-registration.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   isError = false;
   loginForm: FormGroup;
   constructor(private messageService: MessageService, private fb: FormBuilder, public authService: AuthenticationService, private router: Router
-    , private _ActivatedRoute: ActivatedRoute, private userService: UserService) { }
+    , private _ActivatedRoute: ActivatedRoute, private userService: UserService, private sellerService: SellerRegistrationService) { }
 
   ngOnInit() {
     this.createForm();
@@ -33,10 +35,9 @@ export class LoginComponent implements OnInit {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: data });
   }
   showError(data: string) {
-    this.messageService.add({severity:'error', summary: 'Error', detail: data});
-}
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: data });
+  }
   async login() {
-    debugger;
     if (this.loginForm.valid) {
       try {
         this.userService.removeRefreshToken();
@@ -47,19 +48,33 @@ export class LoginComponent implements OnInit {
           this.isError = false;
           this.showSuccess('Login Successfull')
           // alert('Register Successfull');
-          this.router.navigate(['buyer/home']);
+          const user = this.userService.getUser();
+          // if (!isNullOrUndefined(user)) {
+            const role = user.user.role.find(x => x)
+          if (role === "Buyer") {
+            this.router.navigate(['/buyer/home']);
+          } else {
+            if (role === "Dealer") {
+             const isExpired = await this.sellerService.checkTrialExpiry();
+              this.userService.trialExpired(isExpired);
+            }
+            this.router.navigate(['/seller/seller-home']);
+          }
         } else {
           this.isError = true;
         }
       } catch (err) {
         this.isError = true;
-        err.error.message.forEach(element => {
-          // alert(element.msg);
-          this.showError(element.msg);
-        });
-
+        if (isArray(err.error.message)) {
+          err.error.message.forEach(element => {
+            this.showError(element.msg);
+            // this.messageService.add({ severity: 'error', summary: 'Error', detail: element.msg });
+          });
+        } else {
+          this.showError(err.error.message);
+        }
       }
-    }else{
+    } else {
       this.isError = true;
     }
   }

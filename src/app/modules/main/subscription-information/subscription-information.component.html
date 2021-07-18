@@ -1,92 +1,108 @@
 <header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2">
-                <img src="./assets/images/logo.png" alt="" style="width: 125px;
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <img src="./assets/images/logo.png" alt="" style="width: 125px;
                 margin-top: 16px;">
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </header>
 
 <div class="sub-main">
-    <div id="d-wrapper">
-        <div class="zig-zag-bottom">
-            <div class="form-head">
-                <div class="col-md-12">
-                    <div class="con-head">
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <h4>Subscription Informaton</h4>
-                                </div>
-                                <div class="col-md-2 text-right">
-                                    <i class="fa fa-times" (click)="onClose()"></i>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="con-head-bot">
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="col-lg-8 pd-tb">
-                                    <div class="package">
-                                        <h5>Package 2</h5>
-                                        <p>20 Listings</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 pd-tb">
-                                    <div class="head-price">
-                                        <p class="price">$79.00</p>
-                                    </div>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    </div>
-    <div class="selection-main">
-        <!-- <div class="container">
+  <div id="d-wrapper">
+    <div class="zig-zag-bottom">
+      <div class="form-head">
+        <div class="col-md-12">
+          <div class="con-head">
             <div class="row">
-              <div class="col-md-2">
-              <a href=""  >   <img src="./../../../assets/images/green-logo.png" alt="" width="100"></a>
+              <div class="col-md-10">
+                <h4>Subscription Informaton</h4>
               </div>
-          
+              <div class="col-md-2 text-right">
+                <i class="fa fa-times" (click)="onClose()"></i>
+              </div>
             </div>
-          </div> -->
-      <div class="form-main">
-      
-          <div class="payment-detail">
-              <div class="payment-title">
-                  <h4>Payment Detail</h4>
-              </div>
-                  <form action="">
-                      <div class="row">
-                          <div class="col-lg-12">
-                              <label for="">Name on Card</label>
-                              <input type="text" placeholder="Name">
-                          </div>
-                          <div class="col-lg-12">
-                              <label for="">Name on Card</label>
-                              <input type="text" placeholder="--- --- ---">
-                          </div>
-                          <div class="col-lg-6">
-                              <label for="">CVC</label>
-                              <input type="text" placeholder="xxx">
-                          </div>
-                          <div class="col-lg-6">
-                              <label for="">Expiration Date</label>
-                              <input type="date">
-                          </div>
-                      </div>
-                      <div class="col-lg-12">
-                          <div class="frm-button">
-                              <button>Pay Now ($ 79.00)</button>
-                          </div>
-                      </div>
-                  </form>
           </div>
+          <div class="con-head-bot">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-8 pd-tb">
+                  <div class="package">
+                    <h5>Package {{packageData.packageId}}</h5>
+                    <p>{{packageData.noOfListing}} Listings</p>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4 pd-tb">
+                  <div class="head-price">
+                    <p class="price">{{packageData.currency}} {{packageData.packageAmount}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+  </div>
+  <div class="selection-main">
+
+    <div class="form-main">
+
+      <div class="payment-detail">
+        <div class="payment-title">
+          <h4>Payment Detail</h4>
+        </div>
+        <form id="payment-form">
+          <div id="card-element">
+            <!--Stripe.js injects the Card Element-->
+          </div>
+
+          <button class="primay-button" [disabled]="isDisabled" (click)="pay()" id="submit">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay now</span>
+          </button>
+          <p id="card-error" role="alert"></p>
+          <p class="result-message hidden">
+            Payment succeeded, see the result in your
+            <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+            This will close in 10 seconds.
+          </p>
+        </form>
+
+
+        <form style="display: none;" name="payment" [formGroup]="paymentForm" novalidate id="form-payment">
+
+          <div class="row">
+            <div class="col-lg-12">
+              <label for="">Name on Card</label>
+              <input type="text" formControlName="nameOnCard" id="nameOnCard" placeholder="Name">
+            </div>
+            <div class="col-lg-12">
+              <label for="">Debit/Credit Card</label>
+              <input type="text" id="cardNo" formControlName="cardNo" placeholder="XXXX XXXX XXXX">
+            </div>
+            <div class="col-lg-6">
+              <label for="">CVC</label>
+              <input type="text" formControlName="cvc" id="cvc" placeholder="xxx">
+            </div>
+            <div class="col-lg-6">
+              <label for="">Expiration Date</label>
+              <input type="date" formControlName="expiryDate" id="expiryDate">
+            </div>
+            <div class="col-lg-6">
+              <label for="amount">Amount</label>
+              <input type="number" formControlName="amount" id="amount">
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="frm-button">
+              <button type="submit" [disabled]="!paymentForm.valid" (click)="pay()">Pay Now ($ 79.00)</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

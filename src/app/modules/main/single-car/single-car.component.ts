@@ -1,3 +1,6 @@
+import { MessageService } from 'primeng/api';
+import { CarService } from 'src/app/services/car.service';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 declare const $: any;
 @Component({
@@ -6,53 +9,44 @@ declare const $: any;
   styleUrls: ['./single-car.component.scss']
 })
 export class SingleCarComponent implements OnInit {
+  images = [];
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 6
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1
+    }
+  ];
+  data: any = null;
+  constructor(private route: ActivatedRoute, private carService: CarService,private messageService:MessageService) { }
 
-  constructor() { }
+  async ngOnInit() {
+    const id = this.route.snapshot.params['id'];
+    const sellerId = this.route.snapshot.params['sellerId'];
+    await this.getCarDetails(id);
+  }
+  async getCarDetails(id) {
 
-  ngOnInit() {
-  /*--------------*/
+    try {
+      const res = await this.carService.getCarDetails(id);
+      this.data = res;
+    } catch (err) {
+      if (Array.isArray(err.error.message)) {
+        err.error.message.forEach(element => {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: element.msg });
+        });
+      } else {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: err.error.message });
+      }
+    }
 
-
-
-// Main/Product image slider for product page
-$('#detail .main-img-slider').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  infinite: true,
-  arrows: true,
-  fade:true,
-  autoplay: false,
-  autoplaySpeed: 4000,
-  speed: 300,
-  lazyLoad: 'ondemand',
-  asNavFor: '.thumb-nav',
-  prevArrow: '<div class="slick-prev"><i class="i-prev"></i><span class="sr-only sr-only-focusable">Previous</span></div>',
-  nextArrow: '<div class="slick-next"><i class="i-next"></i><span class="sr-only sr-only-focusable">Next</span></div>'
-});
-// Thumbnail/alternates slider for product page
-$('.thumb-nav').slick({
-  slidesToShow: 6,
-  slidesToScroll: 1,
-  infinite: true,
-  centerPadding: '0px',
-  asNavFor: '.main-img-slider',
-  dots: false,
-  centerMode: false,
-  draggable: true,
-  speed:200,
-  focusOnSelect: true,
-  prevArrow: '',
-  nextArrow: ''  
-});
-
-
-//keeps thumbnails active when changing main image, via mouse/touch drag/swipe
-$('.main-img-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
-  //remove all active class
-  $('.thumb-nav .slick-slide').removeClass('slick-current');
-  //set active class for current slide
-  $('.thumb-nav .slick-slide:not(.slick-cloned)').eq(currentSlide).addClass('slick-current');  
-});
   }
 
 }

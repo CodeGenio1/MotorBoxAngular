@@ -1,0 +1,88 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <a href="" [routerLink]="['/seller/seller-home']"> <img src="./../../../assets/images/green-logo.png"
+            alt=""></a>
+      </div>
+      <div class="col-md-10">
+        <nav>
+          <ul>
+            <li [routerLink]="['/seller/about-us']"><a>About Us</a></li>
+            <li [routerLink]="['/seller/contact-us']"><a>Contact Us</a></li>
+            <li [routerLink]="['/seller/chat']"> <button class="chat-btn"> <i class="fa fa-comments"></i> Chat</button>
+            </li>
+            <li> <button class="vehicle-btn" [routerLink]="['/seller/seller-registration']"> <i class="fa fa-plus"></i>
+                List A Vehicle</button> </li>
+            <li (click)="toggle()">
+              <button class="user-btn">
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <div class="col-md-7">
+                    <h6><span *ngIf="user">{{user?.user?.fullName}}</span></h6>
+                    <span>Seller Account</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-sort-down"></i>
+                  </div>
+                </div>
+              </button>
+              <ul *ngIf="show" class="sub-menu">
+                <li [routerLink]="['/seller/user-profile']">Edit Profile</li>
+                <li>Change</li>
+                <li class="last" (click)="signOut()">Sign Out</li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<div class="mobile-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-4">
+        <img src="./../../../assets/images/green-logo.png" alt="" [routerLink]="['/seller/home']">
+      </div>
+      <div class="col-md-8 col-sm-8 col-8">
+        <div class="mobile-wrapper">
+          <div class="mobile mobile-one">
+            <div class="header">
+              <div class="menu-toggle">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+            </div>
+            <div class="mobile-nav">
+              <p class="mob-close"> <i class="fa fa-times nav-close"></i> </p>
+              <!-- <a href="" [routerLink]="['/home']"> <img src="./../../../assets/images/logo.png" alt=""></a> -->
+              <ul>
+                <li [routerLink]="['/about-us']"><a>About Us</a></li>
+                <li [routerLink]="['/contact-us']"><a>Contact Us</a></li>
+                <li [routerLink]="['/chat']"> <a class="chat-btn"> Chat</a> </li>
+                <li> <a class="vehicle-btn" [routerLink]="['/seller-registration']"> List A Vehicle</a> </li>
+                <li>
+                  <details>
+                    <h6><summary *ngIf="user">{{user?.user?.fullName}}</summary></h6>
+                    <!-- <summary>John Doe</summary> -->
+                    <a [routerLink]="['/user-profile']"> Edit Profile</a>
+                    <a href=""> Change</a>
+                    <a (click)="signOut()"> Sign Out</a>
+                  </details>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

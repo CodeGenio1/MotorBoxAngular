@@ -4,15 +4,15 @@
     // background-repeat: no-repeat;
     // background-size  : cover;
     // padding-bottom: 30px;
-    img {
-        width      : 137px;
-        margin     : auto;
-        display    : block;
-        padding-top: 40px;
-        &:hover{
-            cursor: pointer;
-        }
-    }
+    // img {
+    //     width      : 137px;
+    //     margin     : auto;
+    //     display    : block;
+    //     padding-top: 40px;
+    //     &:hover{
+    //         cursor: pointer;
+    //     }
+    // }
 
     .form-main {
         background: white;
@@ -36,7 +36,7 @@
             font-size: 18px;
         }
         p{
-            text-align: center;
+            text-align: left;
             font-size: 12px;
             font-family: "Lato", sans-serif;
         }
@@ -83,4 +83,24 @@
     &:hover{
         cursor: pointer;
     }
+}
+.eye-image-password{
+  position: absolute !important;
+  right: 25px !important;
+  top: 44px !important;
+  filter: opacity(0.5) !important;
+}
+button {
+  background   : var(--secondary-color) !important;
+  color        : #676161 !important;
+  font-size    : 12px;
+  padding      : 10px 6px;
+  border       : 1px solid transparent !important;
+  border-radius: 4px;
+  width        : 40%;
+  margin-top   : 34px;
+}
+button:disabled{
+  background   : gray !important;
+  color        : white !important;
 }

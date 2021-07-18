@@ -17,7 +17,10 @@
         font-weight  : 800;
         margin       : 0;
         margin-bottom: 20px;
-
+        @media(max-width:460px){
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
     }
 
     p {
@@ -60,8 +63,13 @@
 
             button {
                 width: 80%;
-        font-family  : "Lato", sans-serif !important;
-
+                font-family  : "Lato", sans-serif !important;
+            }
+            @media(max-width:560px){
+                width: 50%;
+            }
+            @media(max-width:460px){
+                width: 60%;
             }
         }
 
@@ -75,14 +83,14 @@
             position     : relative;
             top          : -31px;
             color        : white;
-        font-family  : "Lato", sans-serif !important;
+            font-family  : "Lato", sans-serif !important;
 
 
             h6 {
                 font-size  : 17px;
                 font-family: 'Lato', sans-serif;
                 font-weight: 800;
-        font-family  : "Lato", sans-serif !important;
+                font-family  : "Lato", sans-serif !important;
 
             }
 
@@ -96,7 +104,7 @@
                 border       : 1px solid transparent !important;
                 border-radius: 17px;
                 margin       : 10px 0px;
-        font-family  : "Lato", sans-serif !important;
+                font-family  : "Lato", sans-serif !important;
 
             }
 
@@ -107,7 +115,35 @@
             p {
                 color: white;
             }
+            @media(max-width:560px){
+                width: 60%;
+                margin-top: 60px;
+            }
+            @media(max-width:460px){
+                width: 70%;
+                margin-top: 60px;
+            }
         }
+        @media(max-width:1024px){
+            width: 70%;
+        }
+        @media(max-width:767px){
+            width: 85%;
+        }
+        @media(max-width:640px){
+            padding: 60px 15px 0 15px;
+            width: 100%;
+        }
+        @media(max-width:560px){
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: wrap;
+            padding: 0 15px;
+        }
+    }
+    @media(max-width:640px){
+        padding-bottom: 25px;
     }
 }
 

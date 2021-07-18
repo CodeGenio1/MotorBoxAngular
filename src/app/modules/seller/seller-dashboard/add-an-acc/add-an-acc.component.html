@@ -3,23 +3,63 @@
   <div class="form-main">
     <!-- <h5>Welcome!</h5>
     <p>Sign In to your Acount</p> -->
-    <form name="loginForm">
-        <div class="row ">
-          <div class="col-md-12 text-right">
-            <i class="fa fa-times" (click)="onClose()"></i>
-          </div>
+    <form name="representativeForm" [formGroup]="representativeForm" novalidate>
+      <div class="row ">
+        <div class="col-md-12 text-right">
+          <i class="fa fa-times" (click)="onClose()"></i>
         </div>
+      </div>
       <div class="st-line">
         <div class="row mb-3">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <label>User Name </label>
-            <input type="text" class="form-control" placeholder="User Name">
-            
+            <p>User Name <span class="star-error">*</span> </p>
+            <input type="text" class="form-control" placeholder="User Name" formControlName="userName"
+              placeholder="User Name" required>
+            <p class="custom-error"
+              *ngIf="representativeForm.get('userName').hasError('required') && (representativeForm.get('userName').touched || isError)">
+              Password is required.
+            </p>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <p> Password <span class="star-error">*</span></p>
+            <input [type]="hide ? 'password' : 'text'" id="Password" name="Password" formControlName="password"
+              placeholder="password" class="form-control" required (change)="checkPasswordRegex()">
+            <img [src]="icon" (click)="ShowPassword()" width="20" class="eye-image-password">
+
+            <p class="custom-error"
+              *ngIf="representativeForm.get('password').hasError('required') && (representativeForm.get('password').touched || isError)">
+              Password is required.
+            </p>
+
+            <p class="custom-error" *ngIf="RegexMatchError">
+              Password should be combination of one uppercase , one lower case, one special char, one digit
+              and min 8
+            </p>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <p> Confirm Password <span class="star-error">*</span></p>
+            <input [type]="hideConfirmPass ? 'password' : 'text'" id="confirmPassword" name="confirmPassword" required
+              class="form-control" formControlName="confirmPassword" placeholder="confirm password"
+              (ngModelChange)="onPasswordChange()">
+            <img [src]="iconConfirmPass" (click)="ShowConfirmPassword()" width="20" class="eye-image-password">
+
+            <p class="custom-error"
+              *ngIf="representativeForm.get('confirmPassword').hasError('required') && (representativeForm.get('confirmPassword').touched || isError)">
+              Confirm Password is required.
+            </p>
+            <p class="custom-error" *ngIf="representativeForm.get('confirmPassword').value !== '' && mismatchError">
+              Password not matched.
+            </p>
+          </div>
+
+          <div class="col-md-12  text-right">
+            <button
+              [disabled]="!(this.representativeForm.valid && !this.mismatchError && !this.RegexMatchError)"
+              (click)="addRepresentative()">Add</button>
           </div>
 
         </div>
-
-   
       </div>
     </form>
   </div>

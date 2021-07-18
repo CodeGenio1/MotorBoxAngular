@@ -1,0 +1,138 @@
+<div class="main">
+  <div class="user-header">
+    <h6>My Profile</h6>
+  </div>
+
+  <div class="user-main">
+    <div class="bg-top">
+      <div class="image-main">
+        <!-- <i class="fa fa-user"> -->
+        <div class="profileImage">
+
+        <figure (click)="changeProfile()" [style.background-image]="makeTrustedImage(profilePhoto !== '' ? profilePhoto :
+                './assets/images/click-image.png')" style="width: 100px; height: 100px; border-radius: 50px;">
+        
+        </figure>
+        <!-- <input type="file" (change)="onFileChange($event)"> -->
+        <!-- </i> -->
+        </div>
+        <h6>{{user?.fullName}}</h6>
+        <p class="user-name">{{user?.userRoles[0].name}}</p>
+      </div>
+      <form name="userForm" [formGroup]="userForm" *ngIf="userForm">
+        <div class="form">
+          <div class="detail-main">
+
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <p>Email</p>
+                  <span class="form-control" style="text-align:left ;">{{user?.email}}</span>
+                </div>
+                <div class="col-md-6">
+                  <p>Full Name</p>
+                  <input type="text" id="fullName" formControlName="fullName" placeholder="Full Name">
+                </div>
+                <div class="col-md-6">
+                  <p>Phone Number</p>
+                  <input type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="phoneNumber">
+                </div>
+
+                <div class="col-md-6">
+                  <br>
+                  <input type="file" class="changeProfile" (change)="onFileChange($event)">
+                </div>
+
+
+                <!-- <div class="col-md-6">
+                <p>Last Name</p>
+
+                <input type="text" placeholder="Last Name">
+              </div> -->
+
+              </div>
+            </div>
+
+            <div class="col-md-12 text-right">
+              <button (click)="updateUser()">Update</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+
+    <div class="">
+      <form name="changePasswordForm" [formGroup]="changePasswordForm" novalidate>
+        <div class="form">
+          <div class="login-form">
+            <div class="detail-main mt-1">
+              <h1>Change Password</h1>
+
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <p> Current Password<span class="star-error">*</span></p>
+                    <input [type]="hide ? 'password' : 'text'" id="password" formControlName="password"
+                      placeholder="current password" required>
+                    <img [src]="icon" (click)="ShowPassword()" width="20" class="eye-image-password">
+
+                    <p class="custom-error"
+                      *ngIf="changePasswordForm.get('password').hasError('required') && (changePasswordForm.get('password').touched || isError)">
+                      Current Password is required.
+                    </p>
+                  </div>
+
+                  <div class="col-md-6">
+                    <p> New Password</p>
+                    <input [type]="hideNewPass ? 'password' : 'text'" id="newPassword" formControlName="newPassword"
+                      placeholder="new password" required (change)="checkPasswordRegex()">
+                    <img [src]="iconNewPass" (click)="ShowNewPassword()" width="20" class="eye-image-password">
+
+                    <p class="custom-error"
+                      *ngIf="changePasswordForm.get('newPassword').hasError('required') && (changePasswordForm.get('newPassword').touched || isError)">
+                      New Password is required.
+                    </p>
+
+                    <p class="custom-error" *ngIf="RegexMatchError">
+                      Password should be combination of one uppercase , one lower case, one special char, one digit
+                      and min 8
+                    </p>
+
+                  </div>
+                  <div class="col-md-6">
+                    <p> Confirm Password</p>
+                    <input [type]="hideConfirmPass ? 'password' : 'text'" id="confirmPassword" required
+                      formControlName="confirmPassword" placeholder="confirm password"
+                      (ngModelChange)="onPasswordChange()">
+                    <img [src]="iconConfirmPass" (click)="ShowConfirmPassword()" width="20" class="eye-image-password">
+
+                    <p class="custom-error"
+                      *ngIf="changePasswordForm.get('confirmPassword').hasError('required') && (changePasswordForm.get('confirmPassword').touched || isError )">
+                      Confirm Password is required.
+                    </p>
+                    <p class="custom-error" *ngIf="mismatchError">
+                      Password not matched.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12  text-right">
+                <button
+                  [disabled]="changePasswordForm.get('newPassword').value === '' && changePasswordForm.get('confirmPassword').hasError('mismatch')"
+                  (click)="changePassword()">Change Password</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+
+<p-toast></p-toast>

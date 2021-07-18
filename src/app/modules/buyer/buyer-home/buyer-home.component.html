@@ -1,490 +1,270 @@
-    <app-buyer-header></app-buyer-header>
 <div class="banner">
   <div class="container-fluid">
-      <div class="banner-main">
-          <div class="limit-ban">
-            <div class="row">
-              <div class="col-lg-7 pr-0">
-                  <div class="form">
-                      <div class="form-title">
-                          <h2>Search For Your Perfect Car</h2>
-                      </div>
+    <div class="banner-main">
+      <div class="limit-ban">
+        <div class="row">
+          <div class="col-lg-7 col-md-12 col-sm-12 pr-0">
+            <form name="searchForm" [formGroup]="searchForm">
+              <div class="form">
+                <div class="form-title">
+                  <h2>Search For Your Perfect Car</h2>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-6 mg-tb">
+                    <p>
+                      <span>Year manufacture</span>
+                    </p>
+                    <p-dropdown [options]="Years" formControlName="year" optionValue="year" optionLabel="year"
+                      [filter]="true" filterBy="year" [virtualScroll]="true" [itemSize]="20"
+                      [showClear]="searchForm.value.year !== '' ? true : false" class="dropdown"
+                      placeholder="Select a year" (onChange)="yearSelected($event.value)">
+
+                    </p-dropdown>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-6 mg-tb">
+                    <p> <span>Make</span> </p>
+                    <p-dropdown [options]="makeList" formControlName="make" [filter]="true" [virtualScroll]="true"
+                      [itemSize]="20" [showClear]="searchForm.value.make !== '' ? true : false" class="dropdown"
+                      [disabled]="searchForm.get('year').value === '' || searchForm.get('year').value === null"
+                      placeholder="Select make" (onChange)="makeChange($event.value)">
+                    </p-dropdown>
+                  </div>
+
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-12 mg-tb">
+                    <div class="make-inpt">
+
+                      <p> <span>Model</span> </p>
+                      <p-dropdown [options]="modelList" formControlName="model" [filter]="true" [virtualScroll]="true"
+                        [itemSize]="20" [showClear]="searchForm.value.model !== '' ? true : false" class="dropdown"
+                        [disabled]="searchForm.get('make').value === '' || searchForm.get('make').value === null"
+                        placeholder="Select model">
+                      </p-dropdown>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12 offset-lg-2">
+                    <div class="chck-bx">
                       <div class="row">
-                          <div class="col-lg-4 mg-tb">
-                              <div class="make-inpt">                                  
-                                  <select class="" >
-                                      <option> Select Make  </option>
-                                      <option> AUDI </option>
-                                      <option> BMW</option>
-                                      <option> CHEVROLET</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="col-lg-4 mg-tb">
-                              <div class="make-inpt">                                 
-                                  <select class="" >
-                                    <option> Select Model  </option>
-                                    <optgroup label="AUDI">
-                                        <option> 100 </option>
-
-                                    </optgroup>
-                                    <optgroup label="BMW">
-                                        <option>  1 Series </option>
-                                    </optgroup>
-                                    <optgroup label="Chevrolet">
-                                        <option> 1500 Extended Cab</option>
-                                    </optgroup>
-                                    
-                                </select>
-                              </div>
+                        <div class="col-md-5 col-sm-4 col-12">
+                          <div class="mob-sc-box">
+                            <input type="checkbox">
+                            Manufacture Approved
                           </div>
 
-                          <div class="col-lg-4 mg-tb">
-                              <div class="make-inpt">
-                                  
-                                  <select class="" >
-                                    <option> Select Year  </option>
-                                    <option> 2021 </option>
-                                    <option> 2020</option>
-                                    <option> 2019</option>
-                                    <option> 2018</option>
-                                    <option> 2017</option>
-                                    <option> 2016</option>
-                                    <option> 2015</option>
-                                    <option> 2014</option>
-                                    <option> 2013</option>
-                                    <option> 2012</option>
-                                    <option> 2011</option>
-                                    <option> 2010</option>
-                                </select>
-                              </div>
+                        </div>
+                        <div class="col-md-5 col-sm-4 col-12">
+                          <div class="mob-sc-box">
+                            <input type="checkbox">
+                            Recommended Dealer
                           </div>
-
-                          <div class="col-lg-12 offset-lg-2">
-                              <div class="chck-bx">
-                                  <div class="row">
-                                      <div class="col-md-4">
-                                        <input type="checkbox">
-                                        Manufacture Approved
-                                      </div>
-                                      <div class="col-md-4">
-                                        <input type="checkbox">
-                                        Recommended Dealer
-                                      </div>
-                                      <div class="col-md-4 text-right">
-                                        <div (click)="openDialog()" style="cursor: pointer; text-decoration: underline;">
-                                            More Filters
-                                        </div>                                        
-                                      </div>
-                                  </div>
-                                  
-                                  
-                              </div>
+                        </div>
+                        <div class="col-md-2 text-right col-sm-4 col-12 ">
+                          <div class="text-xs-center" (click)="openDialog()"
+                            style="cursor: pointer; text-decoration: underline;">
+                            More Filters
                           </div>
-
-                          <div class="col-lg-12 offset-lg-4">
-                              <div class="butn">
-                                  <button [routerLink]="[ '/buyer/advance-filter' ]">Search</button>
-                              </div>
-                              
-                          </div>
+                        </div>
                       </div>
-                  </div>
-              </div>
 
-              <div class="col-lg-5 pl-0 bg-white">
-                  <div class="post-main">
-                      <div class="post-content">
-                          <h2>Post Your Requirements</h2>
-                          <p> <i class="fa fa-angle-right"></i> Let Us Do The Work For You</p>
-                          <p> <i class="fa fa-angle-right"></i> set Your a Receive Offers in Minutes</p>
-                          <div class="post-butn">
-                              <button (click)="openRequirmentDailoge()">Post Your Requirements</button>
-                          </div>
-                      </div>
+
+                    </div>
                   </div>
+
+                  <div class="col-lg-12 offset-lg-4">
+                    <div class="butn">
+                      <button [routerLink]="[ '/buyer/advance-filter' ]">Search</button>
+                    </div>
+
+                  </div>
+                </div>
               </div>
+            </form>
           </div>
+
+          <div class="col-lg-5 col-md-12 col-sm-12 pl-0 bg-white sm-border-radius">
+            <div class="post-main">
+              <div class="post-content">
+                <h2>Post Your Requirements</h2>
+                <p> <i class="fa fa-angle-right"></i> Let Us Do The Work For You</p>
+                <p> <i class="fa fa-angle-right"></i> set Your a Receive Offers in Minutes</p>
+                <div class="post-butn">
+                  <button (click)="openRequirmentDailoge()">Post Your Requirements</button>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 
 <div class="subbmit sec-padding">
   <div class="submit-container">
-      <div class="subbmit-title">
-          <h4>Submitted Requirements</h4>
-      </div>
-      <div class="row">
-
-          <div class="col-lg-6">
-              <div class="tesla-main">
-                  <div class="tesla-content">
-                      <div class="tesla-head">
-                          <h5>Tesla Model X</h5>
-                          <button><i class="fa fa-pencil"></i>Edit</button>
-                          <span><a href=""><i class="fa fa-trash"></i></a></span>
-                      </div>
-                      <div class="tesla-spec">
-                          <div class="row">
-                              <div class="col-lg-3">
-                                  <div class="fuel">
-                                      <p>Fuel Type</p>
-                                      <h5>Electric</h5>
-                                  </div>
-                              </div>
-                              <div class="col-lg-3">
-                                  <div class="fuel">
-                                      <p>Capacity</p>
-                                      <h5>1500 cc</h5>
-                                  </div>
-                              </div>
-                              <div class="col-lg-3">
-                                  <div class="blue">
-                                      <p>color</p>
-                                      <h5>Blue</h5>
-                                  </div>
-                              </div>
-                              <div class="col-lg-3">
-                                  <div class="fuel pd-right">
-                                      <p>Max Age</p>
-                                      <h5>6 Year</h5>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="date">
-                          <p class="view-1"><a href=""><i class="fa fa-calendar mr-2"></i></a> Posted 2 Days Ago</p>
-                          <p class="view-2"><a href=""><i class="fa fa-eye mr-2"></i></a> 344 views</p>
-                      </div>
+    <div class="subbmit-title">
+      <h4>Submitted Requirements</h4>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12" *ngFor="let item of postRequirementList">
+        <div class="tesla-main">
+          <div class="tesla-content">
+            <div class="tesla-head">
+              <h5> {{item.make }} Model {{item.model }} ({{item.year }} )</h5>
+              <button (click)="openRequirmentDailoge(item._id)"><i class="fa fa-pencil"></i>Edit</button>
+              <span><a (click)="deleteRequirement(item._id)"><i class="fa fa-trash"></i></a></span>
+            </div>
+            <div class="tesla-spec">
+              <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <div class="fuel">
+                    <p>Fuel Type</p>
+                    <h5>{{item.fuelType || 'N/A'}}</h5>
                   </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <div class="fuel">
+                    <p>Capacity</p>
+                    <h5>{{item.capacity || 'N/A'}}</h5>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <div class="fuel">
+                    <p>Max Age</p>
+                    <h5>{{item.carAge || 'N/A'}}</h5>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <div class="blue">
+                    <p>Color</p>
+                    <h5>{{item.color || 'N/A'}} </h5>
+                  </div>
+                </div>
+                <!-- <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                  <span class="color-ball"></span>
+                </div> -->
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                  <div class="fuel">
+                    <p>Preference</p>
+                    <h5>{{item.preferences || 'N/A'}}</h5>
+                  </div>
+                </div>
               </div>
+            </div>
+            <div class="date">
+              <p class="view-1"><a><i class="fa fa-calendar mr-2"></i></a> Posted
+                {{calculateDiff(item.createdDate)}}</p>
+              <p class="view-2"><a><i class="fa fa-eye mr-2"></i></a> {{item.noOfViews}}</p>
+            </div>
           </div>
-          <div class="col-lg-6">
-            <div class="tesla-main">
-                <div class="tesla-content">
-                    <div class="tesla-head">
-                        <h5>Tesla Model X</h5>
-                        <button><i class="fa fa-pencil"></i>Edit</button>
-                        <span><a href=""><i class="fa fa-trash"></i></a></span>
-                    </div>
-                    <div class="tesla-spec">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="fuel">
-                                    <p>Fuel Type</p>
-                                    <h5>Electric</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="fuel">
-                                    <p>Capacity</p>
-                                    <h5>1500 cc</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="blue">
-                                    <p>color</p>
-                                    <h5>Blue</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="fuel pd-right">
-                                    <p>Max Age</p>
-                                    <h5>6 Year</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="date">
-                        <p class="view-1"><a href=""><i class="fa fa-calendar mr-2"></i></a> Posted 2 Days Ago</p>
-                        <p class="view-2"><a href=""><i class="fa fa-eye mr-2"></i></a> 344 views</p>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <div class="col-lg-6">
-            <div class="tesla-main">
-                <div class="tesla-content">
-                    <div class="tesla-head">
-                        <h5>Tesla Model X</h5>
-                        <button><i class="fa fa-pencil"></i>Edit</button>
-                        <span><a href=""><i class="fa fa-trash"></i></a></span>
-                    </div>
-                    <div class="tesla-spec">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="fuel">
-                                    <p>Fuel Type</p>
-                                    <h5>Electric</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="fuel">
-                                    <p>Capacity</p>
-                                    <h5>1500 cc</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="blue">
-                                    <p>color</p>
-                                    <h5>Blue</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="fuel pd-right">
-                                    <p>Max Age</p>
-                                    <h5>6 Year</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="date">
-                        <p class="view-1"><a href=""><i class="fa fa-calendar-alt mr-2"></i></a> Posted 2 Days Ago</p>
-                        <p class="view-2"><a href=""><i class="fa fa-eye mr-2"></i></a> 344 views</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="col-lg-6">
-            <div class="tesla-main">
-                <div class="tesla-content">
-                    <div class="tesla-head">
-                        <h5>Tesla Model X</h5>
-                        <button><i class="fa fa-pencil"></i>Edit</button>
-                        <span><a href=""><i class="fa fa-trash"></i></a></span>
-                    </div>
-                    <div class="tesla-spec">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="fuel">
-                                    <p>Fuel Type</p>
-                                    <h5>Electric</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="fuel">
-                                    <p>Capacity</p>
-                                    <h5>1500 cc</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="blue">
-                                    <p>color</p>
-                                    <h5>Blue</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="fuel pd-right">
-                                    <p>Max Age</p>
-                                    <h5>6 Year</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="date">
-                        <p class="view-1"><a href=""><i class="fa fa-calendar mr-2"></i></a> Posted 2 Days Ago</p>
-                        <p class="view-2"><a href=""><i class="fa fa-eye mr-2"></i></a> 344 views</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
       </div>
+
+
+
+
+
+    </div>
   </div>
 </div>
 
 <div class="offer sec-padding pt-0">
   <div class="offer-container">
     <div class="offer-title">
-        <h4>Received Offers</h4>
+      <h4>Received Offers</h4>
     </div>
-    <div class="submitted-main-row">
+
+    <ng-container *ngFor="let item of allofferReceivedList">
+      <div class="submitted-main-row">
         <div class="row">
-            <div class="col-md-1">
-                <div class="image-box">
-                    <figure style="background-image: url('./assets/images/car-1.jpg');">
+          <div class="col-md-1 col-sm-2 col-12">
+            <div class="image-box">
+              <figure [routerLink]="['/single-car']" [style.background-image]="makeTrustedImage(item.image)">
 
-                    </figure>
-                </div>
+              </figure>
             </div>
-            <div class="col-md-11">
-                <div class="offer-main">
-                    <div class="row ">
-                        <div class="col-md-6">
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <h6 class="car-name">
-                                        Toyota Hilux
-                                    </h6>
-                                </div>
-                                <div class="col-md-8">
-                                    <p class="posted-time">
-                                        <i class="fa fa-calendar mr-1" style="color: black;"></i>
-                                        Posted 2 hrs ago
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="light-text">Sonic i 700 SL</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-2">
-                            <div class="price-box">
-                                <div class="price-middle-box">
-                                    <h6>Demand</h6>
-                                    <h4>$ 12,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="last-section">
-                                <p>Seller</p>
-                                <h6>Alex Bolten</h6>
-                                <p class="pap-name"> <i class="fa fa-paper-plane mr-2"></i> Los Angles, Taxes, USA </p>
-                                
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <button> <i class="fa fa-comment mr-1"></i> Start a Chat</button>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <button class="remove-btn"> Remove</button>
-                                    </div>
-                                </div>
-
-                               
-                                
-                            </div>
-                        </div>
+          </div>
+          <div class="col-md-11 col-sm-10 col-12">
+            <div class="offer-main">
+              <div class="row ">
+                <div class="col-md-6 col-sm-12 col-12">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <h6 class="car-name">
+                        {{item.make}}
+                      </h6>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="submitted-main-row">
-        <div class="row">
-            <div class="col-md-1">
-                <div class="image-box">
-                    <figure style="background-image: url('./assets/images/car-1.jpg');">
-
-                    </figure>
-                </div>
-            </div>
-            <div class="col-md-11">
-                <div class="offer-main">
-                    <div class="row ">
-                        <div class="col-md-6">
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <h6 class="car-name">
-                                        Toyota Hilux
-                                    </h6>
-                                </div>
-                                <div class="col-md-8">
-                                    <p class="posted-time">
-                                        <i class="fa fa-calendar mr-1" style="color: black;"></i>
-                                        Posted 2 hrs ago
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="light-text">Sonic i 700 SL</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p class="light-text">Type</p>
-                                    <p class="dark-text">Sonic i 700 SL</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-2">
-                            <div class="price-box">
-                                <div class="price-middle-box">
-                                    <h6>Demand</h6>
-                                    <h4>$ 12,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="last-section">
-                                <p>Seller</p>
-                                <h6>Alex Bolten</h6>
-                                <p class="pap-name"> <i class="fa fa-paper-plane mr-2"></i> Los Angles, Taxes, USA </p>
-                                
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <button> <i class="fa fa-comment mr-1"></i> Start a Chat</button>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <button class="remove-btn"> Remove</button>
-                                    </div>
-                                </div>
-
-                               
-                                
-                            </div>
-                        </div>
+                    <div class="col-md-8">
+                      <p class="posted-time">
+                        <i class="fa fa-calendar mr-1" style="color: black;"></i>
+                        {{calculateDiff(item.createdDate)}}
+                      </p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4 col-sm-4 col-6">
+                      <p class="light-text">Model</p>
+                      <p class="dark-text">{{item.model || 'N/A'}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-6">
+                      <p class="light-text">Color</p>
+                      <p class="dark-text">{{item.color || 'N/A'}}</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-6">
+                      <p class="light-text">Year</p>
+                      <p class="dark-text">{{item.year || 'N/A'}}</p>
+                    </div>
+                  </div>
 
-    
-    </div>
+                  <div class="row mb-3">
+                    <div class="col-md-4 col-sm-4 col-6">
+                      <p class="light-text">VRM No</p>
+                      <p class="dark-text">{{item.registrationNumber || 'N/A'}}</p>
+                    </div>
+                    <!-- <div class="col-md-4 col-sm-4 col-6">
+                      <p class="light-text">Type</p>
+                      <p class="dark-text">Sonic i 700 SL</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-6">
+                      <p class="light-text">Type</p>
+                      <p class="dark-text">Sonic i 700 SL</p>
+                    </div> -->
+                  </div>
+
+                </div>
+                <div class="col-md-2 col-sm-6 col-12">
+                  <div class="price-box">
+                    <div class="price-middle-box">
+                      <h6>Demand</h6>
+                      <h4>{{environmentData.defaultCurrency}} {{item.offeredAmount  || 'N/A'}}</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                  <div class="last-section">
+                    <p>Seller</p>
+                    <h6>{{item.seller }}</h6>
+                    <!-- <p class="pap-name"> <i class="fa fa-paper-plane mr-2"></i> Los Angles, Taxes, USA </p> -->
+
+                    <div class="row">
+                      <div class="col-md-7 col-sm-12">
+                        <button (click)="startChat(item.sellerId, item.buyerId)"> <i class="fa fa-comment mr-1"></i>
+                          Start a Chat</button>
+                      </div>
+                      <div class="col-md-5 col-sm-12">
+                        <button class="remove-btn"> Remove</button>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
 </div>
-<app-buyer-footer></app-buyer-footer>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
 @Component({
@@ -12,8 +13,12 @@ export class SignupComponent implements OnInit {
 
   isError = false;
   myForm: FormGroup;
-  constructor(private fb: FormBuilder, public authService: AuthenticationService, private router: Router
-    , private _ActivatedRoute: ActivatedRoute,private userService:UserService) { }
+  isAgree = false;
+  isAgreeError = false;
+  RegexMatchError = false;
+  mismatchError = false;
+  constructor(private messageService: MessageService, private fb: FormBuilder, public authService: AuthenticationService, private router: Router
+    , private _ActivatedRoute: ActivatedRoute, private userService: UserService) { }
   ngOnInit() {
     this.createForm();
   }
@@ -39,25 +44,93 @@ export class SignupComponent implements OnInit {
   //   "password" :"Panda123@",
   //   "confirmPassword" :"Panda123@",
   //   "role" :"Buyer"
-
+  async login(data) {
+    try {
+      this.userService.removeRefreshToken();
+      this.userService.removeToken();
+      const res = await this.authService.login(data);
+      if (res) {
+        this.userService.loginUser(res);
+        this.isError = false;
+        this.showSuccess('Login Successfull')
+        // alert('Register Successfull');
+        const user = this.userService.getUser();
+        // if (!isNullOrUndefined(user)) {
+        if (user.user.role[0] === "Buyer") {
+          this.router.navigate(['/buyer/home']);
+        } else {
+          this.router.navigate(['/seller/seller-home']);
+        }
+      } else {
+        this.isError = true;
+      }
+    } catch (err) {
+      this.isError = true;
+      this.showError(err.message);
+    }
+  }
+  showSuccess(data: string) {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: data });
+  }
+  showError(data: string) {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: data });
+  }
   async signUp() {
+    if (!this.isAgree) {
+      this.isAgreeError = true;
+    }
     if (this.myForm.valid) {
       try {
         const res = await this.authService.signUp(this.myForm.value);
         if (res) {
           this.userService.loginUser(res);
           this.isError = false;
-          alert('Register Successfull');
-          this.router.navigate(['seller-dashboard']);
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Successfull' });
+          const data = {
+            email: this.myForm.value.email,
+            password: this.myForm.value.password,
+          }
+          await this.login(data);
+          // this.router.navigate(['/buyer/home']);
         } else {
           this.isError = true;
         }
       } catch (err) {
         this.isError = true;
-        err.error.message.forEach(element => {
-          alert(element.msg);
-        });
+        if (Array.isArray(err.error.message)) {
+          err.error.message.forEach(element => {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: element.msg });
+          });
+        } else {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: err.error.message });
+        }
       }
+    } else {
+      this.isError = true;
     }
   }
+  checkPasswordRegex() {
+    const a = this.myForm.value.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)
+    if (!a) {
+      this.RegexMatchError = true
+    } else {
+      this.RegexMatchError = false
+    }
+    this.onPasswordChange();
+  }
+  onPasswordChange() {
+    if (this.myForm.value.confirmPassword !== ''  && (this.myForm.value.confirmPassword !== this.myForm.value.password)) {
+      this.mismatchError = true;
+
+    } else {
+      this.mismatchError = false;
+    }
+  }
+  onCheck() {
+    this.isAgree = !this.isAgree
+    if (this.isAgree) {
+      this.isAgreeError = false;
+    }
+  }
+
 }

@@ -1,8 +1,10 @@
 #offer-pop-main {
+    margin-top: 40px;
     .fa-times {
         position: absolute;
         right   : 11px;
         top     : 6px;
+        z-index: 99999999;
     }
 
     .title {
@@ -30,6 +32,9 @@
             font-size    : 17px;
             background   : white;
             color        : black;
+            @media only screen and (max-width: 767px) {
+                margin-bottom: 10px;
+            }
         }
 
         h6 {
@@ -64,12 +69,14 @@
             font-family  : 'Lato', sans-serif !important;
             font-weight: 800;
             padding    : 10px;
+            white-space: nowrap;
         }
 
         td {
             font-family  : 'Lato', sans-serif !important;
             border-bottom: 1px solid #80808040;
             padding      : 10px;
+            white-space: nowrap;
 
             img {
                 border-radius: 7px;
@@ -100,4 +107,5 @@
     background: white;
     padding: 2px 3px;
     border-radius: 5px;
+    overflow: scroll;
 }

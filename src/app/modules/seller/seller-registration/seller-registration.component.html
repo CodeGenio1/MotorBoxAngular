@@ -1,24 +1,24 @@
-<header>
+<!-- <header>
   <div class="container">
     <div class="row">
       <div class="col-md-2">
-        <img src="./../../../assets/images/logo.png" alt="" [routerLink]="['/seller/home']">
+        <img src="./../../../assets/images/logo.png" alt="" [routerLink]="['/seller/seller-home']">
       </div>
       <div class="col-md-10">
         <nav>
           <ul>
-            <li [routerLink]="['/buyer/advance-filter']"><a>Browse</a></li>
-            <li [routerLink]="['/about-us']"><a>About Us</a></li>
-            <li [routerLink]="['/contact-us']"><a>Contact Us</a></li>
+            <li [routerLink]="['/seller/advance-filter']"><a>Browse</a></li>
+            <li [routerLink]="['/seller/about-us']"><a>About Us</a></li>
+            <li [routerLink]="['/seller/contact-us']"><a>Contact Us</a></li>
           </ul>
         </nav>
       </div>
     </div>
   </div>
-</header>
+</header> -->
 
 
-<div class="mobile-header">
+<!-- <div class="mobile-header">
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-sm-4 col-4">
@@ -48,9 +48,10 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
+<p-toast></p-toast>
 <div class="registration-main">
   <div class="header-box">
     <h6>Post A Vehicle</h6>
@@ -59,7 +60,7 @@
   </div>
   <form id="msform">
     <!-- progressbar -->
-    <ul id="progressbar">
+    <ul id="progressbar" class="progressbar">
       <li [ngClass]="{'active': currentTab >= 1}" (click)="showNew(1)"> <i class="fa fa-car"></i> <span>Vehicel
           Regisration</span></li>
       <li [ngClass]="{'active': currentTab >= 2}" (click)="showNew(2)"> <i class="fa fa-clipboard"></i> <span>SMMT
@@ -68,451 +69,323 @@
           information</span></li>
       <li [ngClass]="{'active': currentTab >= 4}" (click)="showNew(4)"> <i class="fa fa-image"></i><span> Additional
           Information</span></li>
-      <li [ngClass]="{'active': currentTab >= 5}" (click)="showNew(5)"> <i class="fa fa-id-card"></i> <span>Contactl
-          Details</span></li>
+      <li *ngIf="!userService.isLoggedIn()" [ngClass]="{'active': currentTab >= 5}" (click)="showNew(5)"> <i
+          class="fa fa-id-card"></i>
+        <span>Contactl
+          Details</span>
+      </li>
     </ul>
     <!-- fieldsets -->
-    <fieldset *ngIf="currentTab == 1">
-      <form>
+    <form name='registrationForm' [formGroup]="registrationForm" novalidate *ngIf="registrationForm">
+      <fieldset *ngIf="currentTab == 1">
 
         <h6 class="form-heading">Vehicle Registration</h6>
         <div class="row mb-2">
           <div class="col-md-6">
-            <p>KM Number</p>
-            <input type="text" name="" id="">
+            <p> <span>VRM Number</span> <span class="star-error">*</span> </p>
+            <input type="text" name="registrationNumber" formControlName="registrationNumber" id="registrationNumber"
+              (keyup)="getData()" autocomplete="off">
+            <p class="custom-error"
+              *ngIf="registrationForm.get('registrationNumber').hasError('required') && (registrationForm.get('registrationNumber').touched || formError.step1)">
+              VRM Number is required.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p>
+              <span>Year manufacture</span> <span class="star-error">*</span>
+            </p>
+            <p-dropdown [options]="Years" formControlName="year" optionValue="year" optionLabel="year" [filter]="true"
+              filterBy="year" [virtualScroll]="true" [itemSize]="20"
+              [showClear]="registrationForm.value.year !== '' ? true : false" class="dropdown"
+              placeholder="Select a year" (onChange)="yearSelected($event.value)">
+
+            </p-dropdown>
+
+            <p class="custom-error"
+              *ngIf="registrationForm.get('year').hasError('required') && (registrationForm.get('year').touched || formError.step1)">
+              Year manufacture is required.
+            </p>
+
           </div>
 
           <div class="col-md-6">
-            <p>Make</p>
-            <select class="">
-              <option> Make </option>
-              <option> AUDI </option>
-              <option> BMW</option>
-              <option> CHEVROLET</option>
-            </select>
+            <p> <span>Make</span> <span class="star-error">*</span> </p>
+            <p-dropdown [options]="makeList" formControlName="make" [filter]="true"
+              [virtualScroll]="true" [itemSize]="20"
+              [showClear]="registrationForm.value.make !== '' ? true : false" class="dropdown"
+              [disabled]="registrationForm.get('year').value === '' || registrationForm.get('year').value === null"
+              placeholder="Select make" (onChange)="makeChange($event.value)">
+            </p-dropdown>
+            <p class="custom-error"
+              *ngIf="registrationForm.get('make').hasError('required') && (registrationForm.get('make').touched || formError.step1)">
+              Make is required.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p> <span>Model</span> <span class="star-error">*</span> </p>
+            <p-dropdown [options]="modelList" formControlName="model"
+              [filter]="true" [virtualScroll]="true" [itemSize]="20"
+              [showClear]="registrationForm.value.model !== '' ? true : false" class="dropdown"
+              [disabled]="registrationForm.get('make').value === '' || registrationForm.get('make').value === null"
+              placeholder="Select model">
+            </p-dropdown>
+
+            <p class="custom-error"
+              *ngIf="registrationForm.get('model').hasError('required') && (registrationForm.get('model').touched || formError.step1)">
+              Model is required.
+            </p>
+          </div>
+
+
+
+
+          <div class="col-md-6">
+            <p> <span>Engine Number</span> <!-- <span class="star-error">*</span> --> </p>
+            <input type="text" id="engineNumber" formControlName="engineNumber" autocomplete="off">
+           <!--  <p class="custom-error"
+              *ngIf="registrationForm.get('engineNumber').hasError('required') && (registrationForm.get('engineNumber').touched || formError.step1)">
+              Engine Number is required.
+            </p> -->
+          </div>
+
+          <div class="col-md-6">
+            <p>
+              <span>Color</span> <!-- <span class="star-error">*</span> -->
+            </p>
+            <input type="text" id="color" formControlName="color" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('color').hasError('required') && (registrationForm.get('color').touched || formError.step1)">
+              Color is required.
+            </p> -->
+          </div>
+
+          <div class="col-md-6">
+            <p> <span>Gearbox</span> <!-- <span class="star-error">*</span> --> </p>
+            <input type="text" id="gearbox" formControlName="gearbox" autocomplete="off">
+           <!--  <p class="custom-error"
+              *ngIf="registrationForm.get('gearbox').hasError('required') && (registrationForm.get('gearbox').touched || formError.step1)">
+              Gear Box is required.
+            </p> -->
+          </div>
+
+          <div class="col-md-6">
+            <p> <span>Fuel</span> <!-- <span class="star-error">*</span> --> </p>
+            <input type="text" id="fuel" formControlName="fuel" autocomplete="off">
+          <!--   <p class="custom-error"
+              *ngIf="registrationForm.get('fuel').hasError('required') && (registrationForm.get('fuel').touched || formError.step1)">
+              Fuel is required.
+            </p> -->
 
           </div>
 
-        </div>
 
+          <div class="col-md-6">
+            <p> <span>Seating capacity</span> <!-- <span class="star-error">*</span> --> </p>
+            <input type="text" id="seating" formControlName="seating" autocomplete="off">
+           <!--  <p class="custom-error"
+              *ngIf="registrationForm.get('seating').hasError('required') && (registrationForm.get('seating').touched || formError.step1)">
+              Seating capacity is required.
+            </p> -->
 
-        <div class="row mb-2">
+          </div>
           <div class="col-md-6">
             <p>VRM</p>
-            <input type="text" name="" id="">
+            <input type="text" id="vrm" formControlName="vrm" autocomplete="off">
           </div>
-
           <div class="col-md-6">
-            <p>Full VIN / Chassis</p>
-            <input type="text" name="" id="">
+            <p> First registered </p>
+            <input type="text" id="firstRegisterd" formControlName="firstRegisterd" autocomplete="off">
+            <!-- <p class="custom-error"
+            *ngIf="registrationForm.get('firstRegisterd').hasError('required') && (registrationForm.get('firstRegisterd').touched || formError.step1)">
+            First registered is required.
+          </p> -->
+
           </div>
-
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Engine number</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>First registered</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>First registered UK</p>
-            <input type="date" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Year manufacture</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Colour</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Gearbox</p>
-            <input type="text" name="" id="">
-          </div>
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Forward gears</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Gearbox type</p>
-            <input type="text" name="" id="">
-          </div>
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Fuel</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Engine capacity</p>
-            <input type="text" name="" id="">
-          </div>
-        </div>
-
-        <div class="row mb-2">
           <div class="col-md-6">
             <p>Door plan</p>
-            <input type="text" name="" id="">
+            <input type="text" id="doorPlan" formControlName="doorPlan" autocomplete="off">
           </div>
-
-          <div class="col-md-6">
-            <p>Seating capacity</p>
-            <input type="text" name="" id="">
-          </div>
-        </div>
-
-
-        <div class="row mb-2">
           <div class="col-md-6">
             <p>CO2</p>
-            <input type="text" name="" id="">
+            <input type="text" id="co2Emissions" formControlName="co2Emissions" autocomplete="off">
           </div>
 
           <div class="col-md-6">
             <p>Date scrapped</p>
-            <input type="date" name="" id="">
-          </div>
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Kerb weight</p>
-            <input type="text" name="" id="">
+            <input type="date" id="scrapped" formControlName="scrapped" autocomplete="off">
           </div>
 
-          <div class="col-md-6">
-            <p>VIN last 5</p>
-            <input type="date" name="" id="">
-          </div>
-        </div>
-
-
-        <div class="row mb-2">
           <div class="col-md-6">
             <p>Scrapped</p>
-            <input type="text" name="" id="">
+            <input type="text" id="scrapped" formControlName="scrapped" autocomplete="off">
           </div>
 
           <div class="col-md-6">
             <p>Exported</p>
-            <input type="date" name="" id="">
-          </div>
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Date exported</p>
-            <input type="date" name="" id="">
+            <input type="text" id="exported" formControlName="exported" autocomplete="off">
           </div>
 
           <div class="col-md-6">
-            <p>Imported</p>
-            <input type="date" name="" id="">
-          </div>
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Imported Non EU</p>
-            <input type="date" name="" id="">
+            <p>Irish Import</p>
+            <input type="text" id="irishImport" formControlName="irishImport" autocomplete="off">
           </div>
 
           <div class="col-md-6">
-            <p>Euro status</p>
-            <input type="date" name="" id="">
-          </div>
-        </div>
+            <p> <span>Euro status</span> <!-- <span class="star-error">*</span> -->
+            </p>
+            <input type="text" id="euroStatus" formControlName="euroStatus" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('euroStatus').hasError('required') && (registrationForm.get('euroStatus').touched || formError.step1)">
+              Euro status is required.
+            </p> -->
 
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Driven Axle</p>
-            <input type="date" name="" id="">
           </div>
 
           <div class="col-md-6">
-            <p>Type approval</p>
-            <input type="date" name="" id="">
-          </div>
-        </div>
+            <p> <span>Type approval</span> <!-- <span class="star-error">*</span>  -->
+            </p>
+            <input type="text" id="typeApproval" formControlName="typeApproval" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('typeApproval').hasError('required') && (registrationForm.get('typeApproval').touched || formError.step1)">
+              Type approval is required.
+            </p> -->
 
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Driven Axle</p>
-            <input type="date" name="" id="">
           </div>
 
-          <div class="col-md-6">
-            <p>Vehicle Class</p>
-            <input type="date" name="" id="">
-          </div>
         </div>
 
 
 
-      </form>
-      <button type="button" name="next" class="next button-primary" (click)="currentTab = currentTab+1">Next</button>
-    </fieldset>
+        <button type="button" name="next" class="next button-primary" (click)="validateStep1(currentTab)">Next</button>
+      </fieldset>
 
-    <fieldset *ngIf="currentTab == 2">
-      <form>
+      <fieldset *ngIf="currentTab == 2">
 
         <h6 class="form-heading">SMMT Details</h6>
 
         <div class="row mb-2">
+
           <div class="col-md-6">
-            <p>SMMT Marque</p>
-            <input type="text" name="" id="">
+            <p> <span>Body</span> <!-- <span class="star-error">*</span> --> </p>
+            <input type="text" id="bodyStyle" formControlName="bodyStyle" autocomplete="off">
+           <!--  <p class="custom-error"
+              *ngIf="registrationForm.get('bodyStyle').hasError('required') && (registrationForm.get('bodyStyle').touched || formError.step2)">
+              Body is required.
+            </p> -->
           </div>
 
           <div class="col-md-6">
-            <p>SMMT Range</p>
-            <input type="text" name="" id="">
+            <p> <span>Mileage</span><!--  <span class="star-error">*</span> --> </p>
+            <input type="text" id="mileage" formControlName="mileage" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('mileage').hasError('required') && (registrationForm.get('mileage').touched || formError.step2)">
+              Mileage is required.
+            </p> -->
           </div>
 
-        </div>
-
-
-        <div class="row mb-2">
           <div class="col-md-6">
             <p>Model Variant</p>
-            <input type="text" name="" id="">
+            <input type="text" id="modelVariant" formControlName="modelVariant" autocomplete="off">
           </div>
 
           <div class="col-md-6">
-            <p>Series</p>
-            <input type="text" name="" id="">
+            <p>Keeper Change</p>
+            <input type="text" id="keeperChange" formControlName="keeperChange" autocomplete="off">
+          </div>
+          <div class="col-md-6">
+            <p>Keeper Count</p>
+            <input type="text" id="keeperCount" formControlName="keeperCount" autocomplete="off">
           </div>
 
-        </div>
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Gearbox</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>No of Gears</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Country of origin</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <p>Fuel</p>
-            <input type="text" name="" id="">
-          </div>
+            <input type="text" id="fuel" formControlName="fuel">
+          </div> -->
 
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Engine size</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Body</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>No of doors</p>
-            <input type="text" name="" id="">
-          </div>
 
           <div class="col-md-6">
             <p>Model start date</p>
-            <input type="date" name="" id="">
-          </div>
-
-        </div>
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>System setup date</p>
-            <input type="date" name="" id="">
+            <input type="date" id="modelSetupDate" formControlName="modelSetupDate" autocomplete="off">
           </div>
 
           <div class="col-md-6">
-            <p>Termination datee</p>
-            <input type="date" name="" id="">
+            <p> Plate Change </p>
+            <input type="text" id="plateChange" formControlName="plateChange" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('plateChange').hasError('required') && (registrationForm.get('plateChange').touched || isError)">
+              Plate Change is required.
+            </p> -->
           </div>
 
-        </div>
-
-        <div class="row mb-2">
           <div class="col-md-6">
-            <p>Drive type</p>
-            <input type="date" name="" id="">
+            <p> MPG </p>
+            <input type="text" id="mpg" formControlName="mpg" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('mpg').hasError('required') && (registrationForm.get('mpg').touched || isError)">
+              MPG is required.
+            </p> -->
           </div>
+
+
 
         </div>
 
 
 
 
+        <button type="button" name="next" class="next button-primary" (click)="validateStep2(currentTab)">Next</button>
+      </fieldset>
 
-
-
-
-
-
-
-
-
-
-      </form>
-
-      <button type="button" name="next" class="next button-primary" (click)="currentTab = currentTab+1">Next</button>
-    </fieldset>
-
-    <fieldset *ngIf="currentTab == 3">
-      <form>
+      <fieldset *ngIf="currentTab == 3">
 
         <h6 class="form-heading">Technicle Information</h6>
         <p class="form-sub-heading"> Weight And Demensions</p>
         <div class="row mb-2">
           <div class="col-md-6">
-            <p>Kerb weight</p>
-            <input type="text" name="" id="">
+            <p> <span>Length</span> <!-- <span class="star-error">*</span> --> </p>
+            <input type="text" id="length" formControlName="length" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('length').hasError('required') && (registrationForm.get('length').touched || formError.step3)">
+              Length is required.
+            </p> -->
           </div>
 
           <div class="col-md-6">
-            <p>Gross Weight</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Lenght</p>
-            <input type="text" name="" id="">
+            <p> <span>Width</span> <!-- <span class="star-error">*</span> --> </p>
+            <input type="text" id="width" formControlName="width" autocomplete="off">
+          <!--   <p class="custom-error"
+              *ngIf="registrationForm.get('width').hasError('required') && (registrationForm.get('width').touched || formError.step3)">
+              Width is required.
+            </p> -->
           </div>
 
           <div class="col-md-6">
-            <p>Height</p>
-            <input type="text" name="" id="">
+            <p> Weight </p>
+            <!-- <p> <span>Weight</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="weight" formControlName="weight" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('weight').hasError('required') && (registrationForm.get('weight').touched || formError.step3)">
+              Weight is required.
+            </p> -->
           </div>
-
-        </div>
-
-        <div class="row mb-2">
           <div class="col-md-6">
-            <p>Width</p>
-            <input type="text" name="" id="">
+            <p>Towing Weight</p>
+            <input type="text" id="towingWeight" formControlName="towingWeight" autocomplete="off">
           </div>
 
-          <div class="col-md-6">
-            <p>Body Capacity</p>
-            <input type="text" name="" id="">
-          </div>
 
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Fuel Capacity</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-
-        <p class="form-sub-heading"> Performance</p>
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Power Bhp</p>
-            <input type="text" name="" id="">
-          </div>
 
           <div class="col-md-6">
-            <p>Power kw</p>
-            <input type="text" name="" id="">
+            <p> Height </p>
+            <!-- <p> <span>Height</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="height" formControlName="height" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('height').hasError('required') && (registrationForm.get('height').touched || formError.step3)">
+              Height is required.
+            </p> -->
           </div>
 
-        </div>
 
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Peek Power</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Torque FtLB</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Torque Nm</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Peak Torque</p>
-            <input type="date" name="" id="">
-          </div>
-
-        </div>
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Max Speed</p>
-            <input type="date" name="" id="">
-          </div>
 
         </div>
 
@@ -521,82 +394,111 @@
 
         <div class="row mb-2">
           <div class="col-md-6">
-            <p>Engine Code</p>
-            <input type="text" name="" id="">
+            <p> Cylinder </p>
+            <!-- <p> <span>Cylinder</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="cylinderType" formControlName="cylinderType" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('cylinderType').hasError('required') && (registrationForm.get('cylinderType').touched || formError.step3)">
+              Cylinder is required.
+            </p> -->
+
           </div>
 
           <div class="col-md-6">
-            <p>Engine Manufacturer</p>
-            <input type="text" name="" id="">
+            <p> Valves/cyl </p>
+            <!-- <p> <span>Valves/cyl</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="valves" formControlName="valves" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('valves').hasError('required') && (registrationForm.get('valves').touched || formError.step3)">
+              Valves/cyl is required.
+            </p> -->
+
+          </div>
+          <div class="col-md-6">
+            <p> Valve Gear</p>
+            <!-- <p> <span>Valve Gear</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="valveGear" formControlName="valveGear" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('valveGear').hasError('required') && (registrationForm.get('valveGear').touched || formError.step3)">
+              Valve Gear is required.
+            </p> -->
+
+          </div>
+
+          <div class="col-md-6">
+            <p> Stroke </p>
+            <!-- <p> <span>Stroke</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="stroke" formControlName="stroke" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('stroke').hasError('required') && (registrationForm.get('stroke').touched || formError.step3)">
+              Stroke is required.
+            </p> -->
+
+          </div>
+
+          <div class="col-md-6">
+            <p> Bore </p>
+            <!-- <p> <span>Bore</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="bore" formControlName="bore" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('bore').hasError('required') && (registrationForm.get('bore').touched || formError.step3)">
+              Bore is required.
+            </p> -->
+
+          </div>
+          <div class="col-md-6">
+            <p> Wheel Base </p>
+            <!-- <p> <span>Wheel Base</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="wheelBase" formControlName="wheelBase" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('wheelBase').hasError('required') && (registrationForm.get('wheelBase').touched || formError.step3)">
+              Wheel Base is required.
+            </p> -->
+
+          </div>
+          <div class="col-md-6">
+            <p> axels </p>
+            <!-- <p> <span>axels</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="axels" formControlName="axels" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('axels').hasError('required') && (registrationForm.get('axels').touched || formError.step3)">
+              axels is required.
+            </p> -->
+          </div>
+
+          <div class="col-md-6">
+            <p> Aspiration </p>
+            <!-- <p> <span>Aspiration</span> <span class="star-error">*</span> </p> -->
+            <input type="text" id="aspiration" formControlName="aspiration" autocomplete="off">
+            <!-- <p class="custom-error"
+              *ngIf="registrationForm.get('aspiration').hasError('required') && (registrationForm.get('aspiration').touched || formError.step3)">
+              Aspiration is required.
+            </p> -->
+
+          </div>
+          <div class="col-md-6">
+            <p>V5 Certification Count</p>
+            <input type="text" id="v5CertificationCount" formControlName="v5CertificationCount" autocomplete="off">
+          </div>
+          <div class="col-md-6">
+            <p>VIC Status</p>
+            <input type="text" id="vicStatus" formControlName="vicStatus" autocomplete="off">
+          </div>
+          <div class="col-md-6">
+            <p>Ved Rate</p>
+            <input type="text" id="vedRate" formControlName="vedRate" autocomplete="off">
+          </div>
+          <div class="col-md-6">
+            <p>Ved Year</p>
+            <input type="text" id="vedYear" formControlName="vedYear" autocomplete="off">
           </div>
 
         </div>
 
+        <button type="button" name="next" class="next button-primary" (click)="validateStep3(currentTab)">Next</button>
+      </fieldset>
 
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Cylinder</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Valves/cyl</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Strok</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Bour</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Arrengment</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Cam Type</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <p>Engine</p>
-            <input type="text" name="" id="">
-          </div>
-
-          <div class="col-md-6">
-            <p>Aspiration</p>
-            <input type="text" name="" id="">
-          </div>
-
-        </div>
-
-
-
-
-
-      </form>
-
-      <button type="button" name="next" class="next button-primary" (click)="currentTab = currentTab+1">Next</button>
-    </fieldset>
-
-    <fieldset *ngIf="currentTab == 4">
-      <form class="dummy">
+      <fieldset *ngIf="currentTab == 4">
         <h6 class="form-heading">Additional Information </h6>
 
 
@@ -606,27 +508,58 @@
           <div class="col-md-3">
             <p>Thumbnail Image</p>
             <div class="thumbnail-image">
-              <figure style="background-image: url({{thumbnail != '' ? thumbnail:'./assets/images/click-image.png'}} );">
-                <i _ngcontent-fpu-c279="" class="fa fa-times"></i>
-                <input type="file" (change)="onThumbnailChange($event)">
-              </figure>
+
+              <span *ngIf="!this.vehicleId">
+                <figure [style.background-image]="makeTrustedImage(thumbnail?.data ? thumbnail?.data :
+                './assets/images/click-image.png')">
+                  <input type="file" (change)="onThumbnailChange($event)">
+                </figure>
+              </span>
+              <span *ngIf="this.vehicleId && !thumbnail">
+                <figure style="background-image: url('./assets/images/click-image.png');">
+                  <input type="file" (change)="onThumbnailChange($event)">
+                </figure>
+              </span>
+              <span *ngIf="this.vehicleId && thumbnail">
+                <figure *ngIf="thumbnail?.imageUrl" class="addional-item" [style.background-image]="makeTrustedImage(thumbnail?.imageUrl ? thumbnail?.imageUrl :
+                  './assets/images/click-image.png')">
+                  <i *ngIf="this.vehicleId && thumbnail?.imageUrl" class="fa fa-times" (click)="deleteThumbnail()"></i>
+                </figure>
+                <figure *ngIf="!thumbnail?.imageUrl" class="addional-item" [style.background-image]="makeTrustedImage(thumbnail?.data ? thumbnail?.data :
+                  './assets/images/click-image.png')">
+                  <i *ngIf="this.vehicleId && thumbnail?.data" class="fa fa-times" (click)="deleteThumbnail()"></i>
+                </figure>
+              </span>
             </div>
           </div>
         </div>
 
-
-
         <div class="row mt-4 mb-3">
           <div class="col-md-12 mt-4">
-            <p>Additional Image</p>
+            <p> <span>Additional Image</span><!--  <span class="star-error">*</span> --> </p>
             <div class="addional-image">
               <figure class="main-image">
                 <div class="row">
-                  <div class="col-md-2 col-sm-3 col-6 pr-0" *ngFor="let url of images">
-                    <div class="upload-image-box" >
-                      <figure class="addional-item"  style="background-image: url({{url}});">
-                        <i class="fa fa-times"></i>
-                      </figure>
+                  <div class="col-md-2 col-sm-3 col-6 pr-0" *ngFor="let url of images; let i = index">
+                    <div class="upload-image-box">
+                      <span>
+                        <figure *ngIf="!this.vehicleId" class="addional-item"
+                          style="background-image: url({{url.data}});">
+                          <i class="fa fa-times" (click)="deleteImage(i)"></i>
+                        </figure>
+                      </span>
+                      <span>
+                        <!-- <span *ngFor="let img of item.images"> -->
+                        <figure *ngIf="this.vehicleId && url.imageUrl" class="addional-item"
+                          [style.background-image]="makeTrustedImage(url.imageUrl)">
+                          <i class="fa fa-times" (click)="deleteImage(i)"></i>
+                        </figure>
+                        <figure *ngIf="this.vehicleId && !url.imageUrl" class="addional-item"
+                          [style.background-image]="makeTrustedImage(url.data)">
+                          <i class="fa fa-times" (click)="deleteImage(i)"></i>
+                        </figure>
+                        <!-- </span> -->
+                      </span>
                     </div>
                   </div>
 
@@ -648,13 +581,20 @@
           <div class="col-md-6">
             <div class="row mb-1">
               <div class="col-md-12">
-                <p>Overall Condition</p>
+                <p> <span>Overall Condition</span><!--  <span class="star-error">*</span> --> </p>
               </div>
               <div class="col-md-12 text-left">
                 <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
-                  <li (click)="countStar(star)"><i class="fa fa-star "></i></li>
+                  <li (click)="countStar(star)" [ngClass]="{'selected': (star <= selectedValue)}">
+                    <i class="fa fa-star "></i>
+                  </li>
                 </ul>
+                <span style="display: flex;"> {{selectedValue}} stars</span>
               </div>
+              <p class="custom-error"
+                *ngIf="registrationForm.get('condition').hasError('required') && (registrationForm.get('condition').touched || formError.step4)">
+                Condition is required.
+              </p>
 
 
             </div>
@@ -665,64 +605,113 @@
           <div class="col-md-6">
             <div class="row mb-1">
               <div class="col-md-12">
-                <p>Expected Price</p>
-                <input type="text" class="form-control">
+                <p> <span>Expected Price</span><!--  <span class="star-error">*</span> --> </p>
+                <input type="number" id="price" formControlName="price" autocomplete="off">
+            <!--     <p class="custom-error"
+                  *ngIf="registrationForm.get('price').hasError('required') && (registrationForm.get('price').touched || formError.step4)">
+                  Expected Price is required.
+                </p> -->
               </div>
             </div>
           </div>
         </div>
-      </form>
-      <button type="button" name="next" class="next button-primary" (click)="currentTab = currentTab+1">Next</button>
-    </fieldset>
-
-    <fieldset *ngIf="currentTab == 5">
+        <button type="button" name="next" class="next button-primary" (click)="validateStep4(currentTab);"><span
+            *ngIf="!userService.isLoggedIn()">Next</span> <span *ngIf="userService.isLoggedIn()">Post</span> </button>
+        <!-- <button *ngIf="userService.isLoggedIn()" type="button" name="next" class="next button-primary" (click)="postCar()">Post</button> -->
+      </fieldset>
+    </form>
+    <fieldset *ngIf="currentTab == 5 && !userService.isLoggedIn()">
       <form [formGroup]="myForm" novalidate id="form-signup">
         <h6 class="form-heading">Contact Detail </h6>
 
         <div class="row">
-          <div class="col-md-6">
-            <p>Email ID</p>
-            <input type="text" formControlName="email" placeholder="example@gmail.com" class="form-control">
-          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <p> <span>Email ID</span> <span class="star-error">*</span> </p>
 
-          <div class="col-md-6">
-            <p>Name</p>
-            <input type="text" formControlName="fullName" placeholder="Name" class="form-control">
-          </div>
+            <input type="text" formControlName="email" placeholder="example@gmail.com" class="form-control"
+              autocomplete="off">
+            <p class="custom-error"
+              *ngIf="myForm.get('email').hasError('required') && (myForm.get('email').touched || isError)">
+              Email is required.
+            </p>
 
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <p> <span>Name</span> <span class="star-error">*</span> </p>
+            <input type="text" formControlName="fullName" placeholder="Name" class="form-control" autocomplete="off">
+            <p class="custom-error"
+              *ngIf="myForm.get('fullName').hasError('required') && (myForm.get('fullName').touched || isError)">
+              Name is required.
+            </p>
+          </div>
         </div>
 
         <div class="row">
-          <div class="col-md-6">
-            <p>Phone Number</p>
-            <input type="text" class="form-control" formControlName="phoneNumber" placeholder="example@gmail.com">
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <p> <span>Password</span> <span class="star-error">*</span> </p>
+            <input type="password" formControlName="password" class="form-control" placeholder="password"
+              autocomplete="off">
+            <p class="custom-error"
+              *ngIf="myForm.get('password').hasError('required') && (myForm.get('password').touched || isError)">
+              Password is required.
+            </p>
           </div>
-
-          <div class="col-md-6">
-            <p>Date Of Birth</p>
-            <input type="date" class="form-control" formControlName="dateOfBirth" >
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <p> <span>Confirm Password</span> <span class="star-error">*</span> </p>
+            <input type="password" formControlName="confirmPassword" class="form-control" placeholder="confirm password"
+              autocomplete="off">
+            <p class="custom-error"
+              *ngIf="myForm.get('confirmPassword').hasError('required') && (myForm.get('confirmPassword').touched || isError)">
+              Confirm Password is required.
+            </p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
-            <p>Password</p>
-            <input type="password" formControlName="password" class="form-control" placeholder="example@gmail.com">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <p> <span>Phone Number</span> <span class="star-error">*</span> </p>
+            <input type="text" class="form-control" formControlName="phoneNumber" placeholder="+44 7911 123456"
+              autocomplete="off">
+            <p class="custom-error"
+              *ngIf="myForm.get('phoneNumber').hasError('required') && (myForm.get('phoneNumber').touched || isError)">
+              Phone Number is required.
+            </p>
           </div>
-
-          <div class="col-md-6">
-            <p>Confirm Password</p>
-            <input type="password" formControlName="confirmPassword" class="form-control" placeholder="example@gmail.com">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <p> <span>Date Of Birth</span> <span class="star-error">*</span> </p>
+            <input type="date" class="form-control" formControlName="dateOfBirth" placeholder="Date of Birth"
+              autocomplete="off">
+            <p class="custom-error"
+              *ngIf="myForm.get('dateOfBirth').hasError('required') && (myForm.get('dateOfBirth').touched || isError)">
+              Date Of Birth is required.
+            </p>
           </div>
-
         </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <p>Business Information</p>
+            <textarea class="form-control" formControlName="businessInformation" placeholder="Business Information"
+              cols="1" rows="2" autocomplete="off"> </textarea>
 
 
+          </div>
+        </div>
         <div class="term-condition">
-          <p> <span> <input type="checkbox" style="width: 4%;"> </span> I agree with the <span style="color: #326b73;">
-              <b>Terms and
-                conditions</b>
-            </span></p>
+          <div class="row">
+            <div class="col-md-6 text-left">
 
+              <input type="checkbox" formControlName="standardDealer" style="width: 4%;">
+              Standard Dealer
+
+            </div>
+            <div class="col-md-6">
+
+              <input type="checkbox" formControlName="acceptTerms" style="width: 4%;"> I agree with the <span
+                style="color: #326b73;">
+                <b>Terms and
+                  conditions</b>
+              </span>
+            </div>
+          </div>
         </div>
 
 

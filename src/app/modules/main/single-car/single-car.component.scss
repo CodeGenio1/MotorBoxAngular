@@ -41,6 +41,9 @@
   
   .model_sec .detailcar {
     padding: 20px;
+    @media only screen and (max-width: 767px) {
+      text-align: center;
+    }
   }
   
   .model_sec .detailcar h2 {
@@ -49,9 +52,7 @@
   }
   
   .model_sec .detailcar ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+
   }
   
   .model_sec .detailcar ul li {
@@ -59,6 +60,7 @@
     padding: 0px 11px;
     border-right: 1px solid black;
     font-size: 13px;
+    display: inline;
   }
   
   .model_sec .detailcardec {
@@ -104,16 +106,27 @@
   
   .additionaldetail_sec .chatbox .col-lg-2 {
     border-right: 1px solid gainsboro;
+    @media only screen and (max-width: 480px) {
+      border: unset;
+    }
   }
   
   .additionaldetail_sec .chatbox .col-lg-2 h2 {
     font-size: 22px;
     font-weight: 600;
     padding: 12px 0px 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .additionaldetail_sec .chatbox .user {
     padding: 0px 30px;
+    @media only screen and (max-width: 480px) {
+      padding: 0;
+    }
   }
   
   .additionaldetail_sec .chatbox .user h3 {
@@ -129,9 +142,14 @@
     padding: 3px;
     border: none;
     color: white;
-    padding: 6px 10px;
-    font-size: 12px;
+    padding: 2px 12px;
+    font-size: 11px;
     border-radius: 23px;
+    @media only screen and (max-width: 320px) {
+      display: block;
+      padding: 0px 14px;
+      line-height: 2;
+    }
   }
   
   .additionaldetail_sec .chatbox .user h3 span i {
@@ -166,10 +184,22 @@
     background-color: #2c676f;
     color: white;
     border: none;
-    padding: 16px 37px 13px;
-    border: -ra;
-    border-radius: 14px;
+    padding: 12px 34px 11px;
+    border-radius: 4px;
     font-size: 17px;
+    @media only screen and (max-width: 480px) {
+      width: 100%;
+      margin-top: 10px;
+    }
+    @media only screen and (max-width: 320px) {
+      color: white;
+      border: none;
+      padding: 12px 34px 11px;
+      border-radius: 4px;
+      font-size: 17px;
+      padding: 4px 4px !important;
+      font-size: 11px !important;
+    }
   }
   
   .additionaldetail_sec .chatbox .chatoption button i {
@@ -203,9 +233,14 @@
     padding: 3px;
     border: none;
     color: white;
-    padding: 6px 10px;
-    font-size: 12px;
+    padding: 2px 12px;
+    font-size: 11px;
     border-radius: 23px;
+    @media only screen and (max-width: 320px) {
+      display: block;
+      padding: 0px 14px;
+      line-height: 2;
+    }
   }
   
   .additionaldetail_sec .desc .user h3 span i {
@@ -239,6 +274,13 @@
     .additionaldetail_sec .chatbox .col-lg-2 h2 {
       font-size: 20px;
       padding: 12px 0px 0;
+      font-size: 20px;
+      padding: 12px 0px 0;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .additionaldetail_sec .chatbox .chatoption button {
       padding: 16px 34px 13px;
@@ -362,4 +404,18 @@
   }
   .single-car-main{
       background: #eff0f2;
+  }
+  .main-image{
+    height: 300px;
+    display: table !important;
+    width: 100%;
+    background-size: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .thumbnail-image{
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
   }

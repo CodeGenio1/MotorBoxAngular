@@ -753,3 +753,10 @@ input[type=file] {
 	display   : inline-block;
 	list-style: none;
 }
+.rating-list li.selected {
+  color: #ffd700;
+}
+.progressbar{
+  display: flex;
+  justify-content: center
+}

@@ -1,0 +1,26 @@
+<div class="delete-dailogue-main">
+  <div class="dailogue-header">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-8">
+          <h2 matDialogTitle>Delete?</h2>
+        </div>
+        <div class="col-md-4 text-right">
+          <i class="fa fa-times" (click)="cancel()"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="col-md-12">
+    <div mat-dialog-content>
+      <p class="sub-title">Are you sure you want to delete?</p>
+    </div>
+    <div class="action-btn">
+      <div mat-dialog-actions align="end">
+        <button class="btn btn-secondary" style="margin-right: 5px;" (click)="cancel()">Cancel</button>
+        <button class="btn btn-danger" (click)="delete('confirm')">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

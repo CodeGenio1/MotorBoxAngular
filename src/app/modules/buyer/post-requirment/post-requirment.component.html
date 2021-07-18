@@ -1,6 +1,5 @@
 <p-toast></p-toast>
 <div class="forget-bg">
-  
   <!-- <img src="./assets/images/logo.png" alt="" [routerLink]="['/home']" class="top-logo"> -->
   <div class="login-page">
     <i mat-button mat-dialog-close class="fa fa-times"></i>
@@ -10,62 +9,117 @@
       <div class="form">
         <div class="login-form">
           <div class="row">
-            <div class="col-md-6">
-              <label>Car Age </label><span class="star-error">*</span>
-              <input type="text" formControlName="carAge" placeholder="Car Age" />
-              <p class="custom-error"
-              *ngIf="myForm.get('carAge').hasError('required') && (myForm.get('carAge').touched || isError)">
-              Car Age is required.
-            </p>
-            </div>
-
-            <div class="col-md-6">
-              <label>color </label><span class="star-error">*</span>
-              <input type="text" formControlName="color" placeholder="color" />
-              <p class="custom-error"
-              *ngIf="myForm.get('color').hasError('required') && (myForm.get('color').touched || isError)">
-              Color is required.
-            </p>
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <label>Capacity </label><span class="star-error">*</span>
-              <input type="text" formControlName="capacity" placeholder="Capacity" />
-              <p class="custom-error"
-              *ngIf="myForm.get('capacity').hasError('required') && (myForm.get('capacity').touched || isError)">
-              Capacity is required.
-            </p>
-            </div>
-
-            <div class="col-md-6">
-              <label>Fuel Type </label><span class="star-error">*</span>
-              <input type="text" formControlName="fuelType" placeholder="Fuel Type" />
-              <p class="custom-error"
-                *ngIf="myForm.get('fuelType').hasError('required') && (myForm.get('fuelType').touched || isError)">
-                Fuel Type is required.
-              </p>
-            </div>
-
-          </div>
-
-
-          <div class="row">
             <div class="col-md-12">
-              <label>Preferences </label><span class="star-error">*</span>
-              <input type="text" formControlName="preferences" placeholder="Preferences" />
+              <label>Year </label>
+              <p-dropdown [options]="Years" formControlName="year" optionValue="year" optionLabel="year" [filter]="true"
+                filterBy="year" [virtualScroll]="true" [itemSize]="20" (onChange)="yearSelected($event.value)"
+                [showClear]="myForm.value.year !== '' ? true : false" class="dropdown" placeholder="Select a year">
+              </p-dropdown>
+
+            </div>
+            <div class="col-md-6">
+              <label>Make </label><span class="star-error">*</span>
+              <p-dropdown [options]="makeList" formControlName="make"
+                [filter]="true"  [virtualScroll]="true" [itemSize]="20"
+                [showClear]="myForm.value.make !== '' ? true : false" class="dropdown" placeholder="Select make"
+                (onChange)="makeChange($event.value)" [disabled]="myForm.get('year').value === '' || myForm.get('year').value === null">
+              </p-dropdown>
+
               <p class="custom-error"
-                *ngIf="myForm.get('preferences').hasError('required') && (myForm.get('preferences').touched || isError)">
-                Preferences is required.
+                *ngIf="myForm.get('make').hasError('required') && (myForm.get('make').touched || isError)">
+                Make is required.
               </p>
+            </div>
+
+            <div class="col-md-6">
+              <label>Model </label><span class="star-error">*</span>
+              <p-dropdown [options]="modelList" formControlName="model"
+                [filter]="true"  [virtualScroll]="true" [itemSize]="20"
+                [showClear]="myForm.value.model !== '' ? true : false" class="dropdown" placeholder="Select model"
+                [disabled]="myForm.get('make').value === '' || myForm.get('make').value === null">
+              </p-dropdown>
+
+              <p class="custom-error"
+                *ngIf="myForm.get('model').hasError('required') && (myForm.get('model').touched || isError)">
+                Model is required.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Car Age </label>
+              <input type="text" formControlName="carAge" placeholder="Car Age" />
+            </div>
+
+            <div class="col-md-6">
+              <label>Color </label>
+              <!-- <input type="text" formControlName="color" placeholder="Color" /> -->
+
+              <p-dropdown [options]="color" formControlName="color"
+                [filter]="true"  [virtualScroll]="true" [itemSize]="20"
+                [showClear]="myForm.value.model !== '' ? true : false" class="dropdown" placeholder="Select Color">
+              </p-dropdown>
             </div>
 
           </div>
 
+          <div class="row">
+            <div class="col-md-6">
+              <label>Capacity </label>
+              <input type="text" formControlName="capacity" placeholder="Capacity" />
+            </div>
 
-          <button type="submit" (click)="PostRequirement()">Submit</button>
+            <div class="col-md-6">
+              <label>Fuel Type </label>
+              <input type="text" formControlName="fuelType" placeholder="Fuel Type" />
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label>Preferences </label>
+              <input type="text" formControlName="preferences" placeholder="Preferences" />
+            </div>
+            <div class="col-md-6">
+              <label>Performance </label>
+              <input type="text" formControlName="performance" placeholder="Performance" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Body Style </label>
+              <input type="text" formControlName="bodyStyle" placeholder="Body Style" />
+            </div>
+
+            <div class="col-md-6">
+              <label>Engine Size </label>
+              <input type="text" formControlName="engineSize" placeholder="Engine Size" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label>No Of Seats </label>
+              <input type="text" formControlName="noOfSeats" placeholder="No Of Seats" />
+            </div>
+
+            <div class="col-md-6">
+              <label>Door Plan </label>
+              <input type="text" formControlName="noOfDoors" placeholder="Door Plan" />
+            </div>
+          </div>
+          <!-- <div class="row mb-2">
+
+          </div> -->
+          <button type="submit" (click)="PostRequirement()">
+            <ng-container *ngIf="data.id; else elseTemplate">
+              Update
+            </ng-container>
+            <ng-template #elseTemplate>
+              Submit
+            </ng-template>
+          </button>
         </div>
       </div>
     </form>

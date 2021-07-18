@@ -1,0 +1,118 @@
+<header [ngClass]="{'selectionBg':selectionHeader, 'buyerHomeHeaderBG': buyerHomeHeader, 'sellerHomeHeaderBG':sellerHomeHeader,'moreFilterBG':moreFilterHeader,'registrationBG':sellerRgHeader}" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <img [routerLink]="['/buyer/home']" src="./../../../assets/images/green-logo.png" alt="">
+      </div>
+      <div class="col-md-10">
+        <nav>
+          <ul>
+            <li  [routerLink]="['/buyer/advance-filter']"><a [ngClass]="{'change-link-fc': changeLinkFc}">Browse</a></li>
+            <li [routerLink]="['/about-us']"><a [ngClass]="{'change-link-fc': changeLinkFc}">About Us</a></li>
+            <li [routerLink]="['/contact-us']"><a [ngClass]="{'change-link-fc': changeLinkFc}">Contact Us</a></li>
+            <li *ngIf="userService.isLoggedIn()" [routerLink]="['/seller/seller-dashboard']" ><a [ngClass]="{'change-link-fc': changeLinkFc,'sign-btn-hide': hideBtn}">Dashboard</a></li>
+            <li *ngIf="!userService.isLoggedIn()"  [ngClass]="{'sign-btn-hide': hideBtn}"> <button [routerLink]="['/sign-in']"  class="nav-close">Log In / Sign Up</button> </li>
+            <li *ngIf="userService.isLoggedIn()">
+              <ng-container *ngIf="this.userService.checkBuyerLogin(); else elseTemplate">
+                <button class="chat-btn" [ngClass]="{'status-btn': statusBtn,'btn-color-rg': btnColorChange}"  [routerLink]="['/buyer/car-verification']"> Check Verification Status</button>
+
+              </ng-container>
+
+
+
+
+            </li>
+
+            <li>
+              <ng-template #elseTemplate>
+
+                <button class="vehicle-btn" [ngClass]="{'btn-color-rg': btnColorChange}" [routerLink]="['/seller/seller-registration']"> <i class="fa fa-plus"></i>
+                  List A Vehicle</button>
+
+
+              </ng-template>
+            </li>
+            <li *ngIf="userService.isLoggedIn()">
+              <button [ngClass]="{'btn-color-rg': btnColorChange}" class="chat-btn" [routerLink]="['/chat']"> <i class="fa fa-comments"></i> Chat</button>
+            </li>
+            <li *ngIf="userService.isLoggedIn()" (click)="toggle()">
+              <button mat-button [matMenuTriggerFor]="menu" class="user-btn">
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-user"></i>
+                  </div>
+                  <div class="col-md-7">
+                    <h6 [title]="userService.getUserFullname().fullName">{{userService.getUserFullname().fullName}}</h6>
+                    <span>{{userService.getUserFullname().role[0]}}</span>
+                  </div>
+                  <div class="col-md-1">
+                    <i class="fa fa-sort-down"></i>
+                  </div>
+                </div>
+              </button>
+                <mat-menu #menu="matMenu" class="sub-menu">
+                  <button mat-menu-item [routerLink]="['/user-profile']">Edit Profile</button>
+                  <button mat-menu-item class="last" (click)="signOut()">Sign Out</button>
+                </mat-menu>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="mobile-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-4">
+        <img src="./../../../assets/images/green-logo.png" alt="" [routerLink]="['/seller/home']">
+      </div>
+      <div class="col-md-8 col-sm-8 col-8">
+        <div class="mobile-wrapper">
+          <div class="mobile mobile-one">
+            <div class="header">
+              <div class="menu-toggle">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+            </div>
+            <div class="mobile-nav">
+              <p class="mob-close"> <i class="fa fa-times nav-close" ></i> </p>
+              <!-- <a href="" [routerLink]="['/home']"> <img src="./../../../assets/images/logo.png" alt=""></a> -->
+              <ul>
+                <li [routerLink]="['/buyer/advance-filter']" class="nav-close"><a>Browse</a></li>
+                <li  [routerLink]="['/about-us']" class="nav-close"><a>About Us</a></li>
+                <li [routerLink]="['/contact-us']" class="nav-close"><a>Contact Us</a></li>
+                <li *ngIf="!userService.isLoggedIn()"> <a [routerLink]="['/sign-in']"  class="nav-close" class="nav-close">Log In / Sign Up</a> </li>
+
+                <li *ngIf="userService.isLoggedIn()">
+                  <ng-container *ngIf="this.userService.checkBuyerLogin(); else elseTemplate">
+                    <a class="chat-btn" [routerLink]="['/buyer/car-verification']"> Check Verification Status</a>
+
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                    <a class="vehicle-btn" [routerLink]="['/seller/seller-registration']"> <i class="fa fa-plus"></i>
+                      List A Vehicle</a>
+                  </ng-template>
+
+
+
+                </li>
+
+                <li *ngIf="userService.isLoggedIn()">
+                  <details>
+                    <summary>{{userService.getUserFullname().fullName}}</summary>
+                    <a [routerLink]="['/user-profile']"> Edit Profile</a>
+                    <a (click)="signOut()"> Sign Out</a>
+                  </details>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

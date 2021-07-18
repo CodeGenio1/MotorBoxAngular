@@ -1,10 +1,13 @@
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../environments/environment';
 import { HttpHeaders, HttpParams, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import jwt_decode from 'jwt-decode';
+import { isNullOrUndefined } from 'util';
 const ACCESS_TOKEN = 'access_token';
 const REFRESH_TOKEN = 'refresh_token';
+const IS_TRAIL_EXP = 'isTrialExp'
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded'
@@ -15,7 +18,7 @@ const HTTP_OPTIONS = {
 })
 export class UserService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   loginUser(userObj: any) {
     this.saveToken(userObj.access_token);
@@ -26,15 +29,30 @@ export class UserService {
     localStorage.clear();
   }
 
-  getUser() {
-    const user = localStorage.getItem('user');
+  getUser(): any {
+    const user = this.getToken();
     if (user) {
-      return JSON.parse(user);
+      return jwt_decode(user);
+    }
+    return null;
+  }
+  getUserFullname(): any {
+    let users: any;
+    const user = this.getToken();
+    if (user) {
+      users = jwt_decode(user);
+      return users.user;
     }
     return null;
   }
   getToken(): string {
-    return localStorage.getItem(ACCESS_TOKEN);
+    const token = localStorage.getItem(ACCESS_TOKEN);
+    if (token) {
+      return token;
+    } else {
+      return null;
+
+    }
   }
 
   getRefreshToken(): string {
@@ -78,6 +96,40 @@ export class UserService {
     this.removeToken();
     this.removeRefreshToken();
   }
+  getUserById(id) {
+    return this.http.get<any>(environment.baseUrl + '/user-info');
+  }
+  public isLoggedIn() {
+    // tslint:disable-next-line: deprecation
+    if (!isNullOrUndefined(localStorage.getItem(ACCESS_TOKEN)) && localStorage.getItem(ACCESS_TOKEN) !== '') {
+      return true
+    } else {
+      return false;
+
+    }
+  }
+
+  checkBuyerLogin() {
+    const user = this.getUser();
+    if (user.user.role.find(x => x === "Buyer")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  resetPassword(body: any) {
+    return this.http.post(environment.baseUrl + `user/reset-password`, body).toPromise();
+  }
+
+  trialExpired(res) {
+    localStorage.setItem(IS_TRAIL_EXP, res);
+  }
+
+  isTrialExpired() {
+    return localStorage.getItem(IS_TRAIL_EXP) === 'true' ? true : false;
+  }
+
 }
 
 

@@ -1,1174 +1,468 @@
-<app-dark-header></app-dark-header>
-<div class="expire-popup">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1 text-right mt-2 pr-0">
-                <i class="fa fa-exclamation-triangle"></i>
-            </div>
-            <div class="col-md-9">
-                <h6>Free Trial Expired</h6>
-                <p>Your Free Trial Is Expired. You can buy our premium packages to continiue great experience.</p>
-            </div>
-            <div class="col-md-2">
-                <div class="package-btn">
-                    <button [routerLink]="['/packages']">See Our Package</button>
-                </div>
-            </div>
+<div class="expire-popup"  *ngIf="isExpired">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1 text-right mt-2 pr-0 col-sm-1 col-1">
+        <i class="fa fa-exclamation-triangle"></i>
+      </div>
+      <div class="col-md-9 col-sm-7 col-11">
+        <h6>Free Trial Expired</h6>
+        <p>Your Free Trial Is Expired. You can buy our premium packages to continiue great experience.</p>
+      </div>
+      <div class="col-md-2 col-sm-4 col-12">
+        <div class="package-btn">
+          <button [routerLink]="['/packages']">See Our Package</button>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <div class="tab-main">
 
-    <div class="tab-button-main">
-        <div class="tab-button-bg">
-            <ul class="tabs">
-                <li class="tab-link current" data-tab="tab-1">Submitted Offer</li>
-                <li class="tab-link" data-tab="tab-2">Vehicle Manager</li>
-                <li class="tab-link" data-tab="tab-3">Manage Subscription</li>
-                <li class="tab-link" data-tab="tab-4">Browse Posted Requirment</li>
-            </ul>
-        </div>
+  <div class="tab-button-main">
+    <div class="tab-button-bg">
+      <ul class="tabs">
+        <li class="tab-link" [ngClass]="{'current': currentTab === 1}" (click)="currentTab=1">Submitted Offer</li>
+        <li class="tab-link" [ngClass]="{'current': currentTab === 2}" (click)="currentTab=2">Vehicle Manager</li>
+        <li class="tab-link" [ngClass]="{'current': currentTab === 3}" (click)="currentTab=3">Manage Representative</li>
+        <li class="tab-link" [ngClass]="{'current': currentTab === 4}" (click)="currentTab=4">Browse Posted Requirment
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <div class="offer-section">
-        <div class="container">
+  <div class="offer-section">
+    <div class="container">
 
-            <div id="tab-1" class="tab-content current">
+      <div id="tab-1" *ngIf="currentTab==1" [ngClass]="{'current': currentTab === 1}" class="tab-content">
 
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <h5>Submitted Offers</h5>
-                    </div>
-                    <div class="col-md-6">
+        <div class="row mb-3">
+          <div class="col-md-6 col-sm-4 col-12">
+            <h5>Submitted Offers</h5>
+          </div>
+          <!-- <div class="col-md-3">
 
-                    </div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-4 text-right">
-                                <p class="mt-2">Sort</p>
-                            </div>
-                            <div class="col-md-8">
-                                <select name="" id="">
-                                    <option value="">Delete Added</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="submitted-main-row">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div  class="image-box">
-                                <figure [routerLink]="['/single-car']" style="background-image: url('./assets/images/car-1.jpg');">
-
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="offer-main">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <h6 class="car-name">
-                                                    Toyota Hilux
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p class="posted-time">
-                                                    <i class="fa fa-calendar mr-1"></i>
-                                                    Posted 2 hrs ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="light-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="price-box">
-                                            <div class="price-middle-box">
-                                                <h6>Demand</h6>
-                                                <h4>$ 12,000</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="last-section">
-                                            <p>Required By</p>
-                                            <h6>Alex Bolten</h6>
-                                            <button> <i class="fa fa-pencil"></i> Edit</button> <br>
-                                            <button> <i class="fa fa-times"></i> Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="submitted-main-row">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="image-box">
-                                <figure style="background-image: url('./assets/images/car-1.jpg');">
-
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="offer-main">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <h6 class="car-name">
-                                                    Toyota Hilux
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p class="posted-time">
-                                                    <i class="fa fa-calendar mr-1"></i>
-                                                    Posted 2 hrs ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="light-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="price-box">
-                                            <div class="price-middle-box">
-                                                <h6>Demand</h6>
-                                                <h4>$ 12,000</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="last-section">
-                                            <p>Required By</p>
-                                            <h6>Alex Bolten</h6>
-                                            <button> <i class="fa fa-pencil"></i> Edit</button> <br>
-                                            <button> <i class="fa fa-times"></i> Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="submitted-main-row">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="image-box">
-                                <figure style="background-image: url('./assets/images/car-1.jpg');">
-
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="offer-main">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <h6 class="car-name">
-                                                    Toyota Hilux
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p class="posted-time">
-                                                    <i class="fa fa-calendar mr-1"></i>
-                                                    Posted 2 hrs ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="light-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="price-box">
-                                            <div class="price-middle-box">
-                                                <h6>Demand</h6>
-                                                <h4>$ 12,000</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="last-section">
-                                            <p>Required By</p>
-                                            <h6>Alex Bolten</h6>
-                                            <button> <i class="fa fa-pencil"></i> Edit</button> <br>
-                                            <button> <i class="fa fa-times"></i> Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="submitted-main-row">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="image-box">
-                                <figure style="background-image: url('./assets/images/car-1.jpg');">
-
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="offer-main">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <h6 class="car-name">
-                                                    Toyota Hilux
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p class="posted-time">
-                                                    <i class="fa fa-calendar mr-1"></i>
-                                                    Posted 2 hrs ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="light-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="price-box">
-                                            <div class="price-middle-box">
-                                                <h6>Demand</h6>
-                                                <h4>$ 12,000</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="last-section">
-                                            <p>Required By</p>
-                                            <h6>Alex Bolten</h6>
-                                            <button> <i class="fa fa-pencil"></i> Edit</button> <br>
-                                            <button> <i class="fa fa-times"></i> Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="pagination-row">
-                    <ul>
-                        <li class="active">
-                            <i class="fa fa-angle-left"></i>
-                        </li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li class="active">
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                    </ul>
-                </div>
+                  </div> -->
+          <div class="col-md-6 col-sm-8 col-12">
+            <div class="row">
+              <div class="col-lg-8 col-md-4  col-sm-4 text-right col-6 ">
+                <p class="mt-2 text-xs-left">Sort</p>
+              </div>
+              <div class="col-lg-4 col-md-8 col-sm-8 col-6">
+                <p-dropdown [options]="sortType" optionValue="id" optionLabel="name" class="dropdown"
+                  (onChange)="sortOffer($event.value)">
+                </p-dropdown>
+                <!-- <select name="" id="" (change)="sort($event)">
+                  <option value="1">Ascending Order</option>
+                  <option value="2">Descending Order</option>
+                </select> -->
+              </div>
             </div>
-            <div id="tab-2" class="tab-content">
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <h5>Vehicle Manager</h5>
-                    </div>
-                    <div class="col-md-6">
 
-                    </div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-4 text-right">
-                                <p class="mt-2">Sort</p>
-                            </div>
-                            <div class="col-md-8">
-                                <select name="" id="">
-                                    <option value="">Delete Added</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+
+          </div>
+        </div>
+
+        <ng-container *ngFor="let item of OfferList">
+          <div class="submitted-main-row">
+            <div class="row">
+              <div class="col-md-1">
+                <div class="image-box">
+                  <figure  (click)="openSingleCar(item.id)"
+                    [style.background-image]="makeTrustedImage(item.thumbnail)">>
+                  </figure>
                 </div>
-
-                <div class="submitted-main-row">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="image-box">
-                                <figure style="background-image: url('./assets/images/car-1.jpg');">
-
-                                </figure>
-                            </div>
+              </div>
+              <div class="col-md-11">
+                <div class="offer-main">
+                  <div class="row ">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                      <div class="row mb-3">
+                        <div class="col-md-5">
+                          <h6 class="car-name">
+                            {{item.make}}
+                          </h6>
                         </div>
-                        <div class="col-md-11">
-                            <div class="offer-main">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <h6 class="car-name">
-                                                    Toyota Hilux
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p class="posted-time">
-                                                    <i class="fa fa-calendar mr-1"></i>
-                                                    Posted 2 hrs ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="light-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="price-box">
-                                            <div class="price-middle-box">
-                                                <h6>Demand</h6>
-                                                <h4>$ 12,000</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="last-section">
-                                            <p>Required By</p>
-                                            <h6>Alex Bolten</h6>
-                                            <button> <i class="fa fa-pencil"></i> Edit</button> <br>
-                                            <button> <i class="fa fa-times"></i> Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="submitted-main-row">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="image-box">
-                                <figure style="background-image: url('./assets/images/car-1.jpg');">
-
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="offer-main">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <h6 class="car-name">
-                                                    Toyota Hilux
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p class="posted-time">
-                                                    <i class="fa fa-calendar mr-1"></i>
-                                                    Posted 2 hrs ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="light-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="price-box">
-                                            <div class="price-middle-box">
-                                                <h6>Demand</h6>
-                                                <h4>$ 12,000</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="last-section">
-                                            <p>Required By</p>
-                                            <h6>Alex Bolten</h6>
-                                            <button> <i class="fa fa-pencil"></i> Edit</button> <br>
-                                            <button> <i class="fa fa-times"></i> Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="submitted-main-row">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="image-box">
-                                <figure style="background-image: url('./assets/images/car-1.jpg');">
-
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="offer-main">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <h6 class="car-name">
-                                                    Toyota Hilux
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p class="posted-time">
-                                                    <i class="fa fa-calendar mr-1"></i>
-                                                    Posted 2 hrs ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="light-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="price-box">
-                                            <div class="price-middle-box">
-                                                <h6>Demand</h6>
-                                                <h4>$ 12,000</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="last-section">
-                                            <p>Required By</p>
-                                            <h6>Alex Bolten</h6>
-                                            <button> <i class="fa fa-pencil"></i> Edit</button> <br>
-                                            <button> <i class="fa fa-times"></i> Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="submitted-main-row">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="image-box">
-                                <figure style="background-image: url('./assets/images/car-1.jpg');">
-
-                                </figure>
-                            </div>
-                        </div>
-                        <div class="col-md-11">
-                            <div class="offer-main">
-                                <div class="row ">
-                                    <div class="col-md-6">
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <h6 class="car-name">
-                                                    Toyota Hilux
-                                                </h6>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p class="posted-time">
-                                                    <i class="fa fa-calendar mr-1"></i>
-                                                    Posted 2 hrs ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="light-text">Sonic i 700 SL</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p class="light-text">Type</p>
-                                                <p class="dark-text">Sonic i 700 SL</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="price-box">
-                                            <div class="price-middle-box">
-                                                <h6>Demand</h6>
-                                                <h4>$ 12,000</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="last-section">
-                                            <p>Required By</p>
-                                            <h6>Alex Bolten</h6>
-                                            <button> <i class="fa fa-pencil"></i> Edit</button> <br>
-                                            <button> <i class="fa fa-times"></i> Remove</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pagination-row">
-                    <ul>
-                        <li class="active">
-                            <i class="fa fa-angle-left"></i>
-                        </li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li class="active">
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="tab-3" class="tab-content">
-                <div class="subscription-row">
-                    <div class="row mb-4">
                         <div class="col-md-7">
-                            <h5>Manage Subscription</h5>
+                          <p class="posted-time">
+                            <i class="fa fa-calendar mr-1"></i>
+                            {{calculateDiff(item.createdDate)}}
+                          </p>
                         </div>
-                        <div class="col-md-5 text-right">
-                            <button class="add-ac-btn" (click)="openAnAccount()">
-                                <i class="fa fa-plus" ></i> Add An Account
-                            </button>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                          <p class="light-text">Model</p>
+                          <p class="dark-text">{{item.model}}</p>
                         </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                          <p class="light-text">Color</p>
+                          <p class="dark-text">{{item.color}}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                          <p class="light-text">Year</p>
+                          <p class="dark-text">{{item.year}}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                          <p class="light-text">VRM No</p>
+                          <p class="dark-text">{{item.registrationNumber}}</p>
+                        </div>
+                        <!-- <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                                                <p class="light-text">Fuel</p>
+                                                <p class="light-text">{{item.fuel}}</p>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                                                <p class="light-text">First Registerd</p>
+                                                <p class="dark-text">{{item.firstRegisterd}}</p>
+                                            </div> -->
+                      </div>
+
                     </div>
-                    <div class="table-box">
-                        <table>
-                            <tr>
-                                <th>Sr #</th>
-                                <th>User Name </th>
-                                <th class="text-right">Action </th>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>john@gmail.com</td>
-                                <td class="text-right"><i class="fa fa-trash" style="color: red;"></i></td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>john@gmail.com</td>
-                                <td class="text-right"><i class="fa fa-trash" style="color: red;"></i></td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>john@gmail.com</td>
-                                <td class="text-right"><i class="fa fa-trash" style="color: red;"></i></td>
-                            </tr>
-
-
-                            <tr>
-                                <td>1</td>
-                                <td>john@gmail.com</td>
-                                <td class="text-right"><i class="fa fa-trash" style="color: red;"></i></td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>john@gmail.com</td>
-                                <td class="text-right"><i class="fa fa-trash" style="color: red;"></i></td>
-                            </tr>
-
-                        </table>
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-12">
+                      <div class="price-box">
+                        <div class="price-middle-box">
+                          <h6>Demand</h6>
+                          <h4>{{environmentData.defaultCurrency}} {{item?.offeredAmount}}</h4>
+                        </div>
+                      </div>
                     </div>
+                    <div class="col-lg-3 col-md-8 col-sm-8 col-12">
+                      <div class="last-section">
+                        <p>Required By</p>
+                        <h6>{{item.buyerName}}</h6>
+                        <button> <i class="fa fa-pencil"></i> Edit</button> <br>
+                        <button> <i class="fa fa-times"></i> Remove</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div id="tab-4" class="tab-content ">
-                <div class="row mb-4 align-items-center">
-                    <div class="col-md-3">
-                        <h5>Posted Requirment</h5>
-                    </div>
-                    <div class="col-md-7">
+          </div>
+        </ng-container>
 
-                    </div>
-                    <div class="col-md-2">
-                        <div class="row align-items-center">
-                            <div class="col-md-2">
-                                <p class="mt-2"> Sort</p>
-                            </div>
-                            <div class="col-md-10">
-                                <select name="" id="">
-                                    <option value="">Date Added</option>
-                                </select>
-                            </div>
-                        </div>
+        <app-custom-paginator [totalRecords]="allOfferList.length" [recordsPerPage]="rows"
+          (onPageChange)="displayActivePage($event)"></app-custom-paginator>
+      </div>
 
+      <div id="tab-2" *ngIf="currentTab==2" [ngClass]="{'current': currentTab === 2}" class="tab-content ">
+        <div class="row mb-3">
+          <div class="col-md-6 col-sm-4 col-12">
+            <h5>Vehicle Manager</h5>
+          </div>
 
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="posted-main">
-                            <div class="row mb-2">
-                                <div class="col-md-6">
-                                    <div class="user-box">
-                                        <div class="row">
-                                            <div class="col-md-1 text-right">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <h6>Same Jones</h6>
-                                                <p>Aurora, Colondra</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="col-md-3 text-right">
-                                    <p class="posted-par"> <i class="fa fa-eye"></i>344 Views</p>
-                                </div> -->
-
-                                <div class="col-md-6 text-right">
-                                    <p class="posted-par"> <i class="fa fa-eye"></i>344 Views <i class="fa fa-calendar ml-3"></i> Posted 2 hrs ago</p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <div class="function-box">
-                                                <p>Fuel Type</p>
-                                                <h6>Electric</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="function-box">
-                                                <p>Color</p>
-                                                <p class="color-ball"></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="offer-btn-box">
-                                        <button (click)="openDialog()"> <i class="fa fa-paper-plane"></i> Send An Offer
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="posted-main">
-                            <div class="row mb-2">
-                                <div class="col-md-6">
-                                    <div class="user-box">
-                                        <div class="row">
-                                            <div class="col-md-1 text-right">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <h6>Same Jones</h6>
-                                                <p>Aurora, Colondra</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="col-md-3 text-right">
-                                    <p class="posted-par"> <i class="fa fa-eye"></i>344 Views</p>
-                                </div> -->
-
-                                <div class="col-md-6 text-right">
-                                    <p class="posted-par"> <i class="fa fa-eye"></i>344 Views <i class="fa fa-calendar ml-3"></i> Posted 2 hrs ago</p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <div class="function-box">
-                                                <p>Fuel Type</p>
-                                                <h6>Electric</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="function-box">
-                                                <p>Color</p>
-                                                <p class="color-ball"></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="offer-btn-box">
-                                        <button (click)="openDialog()"> <i class="fa fa-paper-plane"></i> Send An Offer
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="posted-main">
-                            <div class="row mb-2">
-                                <div class="col-md-6">
-                                    <div class="user-box">
-                                        <div class="row">
-                                            <div class="col-md-1 text-right">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <h6>Same Jones</h6>
-                                                <p>Aurora, Colondra</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="col-md-3 text-right">
-                                    <p class="posted-par"> <i class="fa fa-eye"></i>344 Views</p>
-                                </div> -->
-
-                                <div class="col-md-6 text-right">
-                                    <p class="posted-par"> <i class="fa fa-eye"></i>344 Views <i class="fa fa-calendar ml-3"></i> Posted 2 hrs ago</p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <div class="function-box">
-                                                <p>Fuel Type</p>
-                                                <h6>Electric</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="function-box">
-                                                <p>Color</p>
-                                                <p class="color-ball"></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="offer-btn-box">
-                                        <button (click)="openDialog()"> <i class="fa fa-paper-plane"></i> Send An Offer
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="posted-main">
-                            <div class="row mb-2">
-                                <div class="col-md-6">
-                                    <div class="user-box">
-                                        <div class="row">
-                                            <div class="col-md-1 text-right">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                            <div class="col-md-10">
-                                                <h6>Same Jones</h6>
-                                                <p>Aurora, Colondra</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="col-md-3 text-right">
-                                    <p class="posted-par"> <i class="fa fa-eye"></i>344 Views</p>
-                                </div> -->
-
-                                <div class="col-md-6 text-right">
-                                    <p class="posted-par"> <i class="fa fa-eye"></i>344 Views <i class="fa fa-calendar ml-3"></i> Posted 2 hrs ago</p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <div class="function-box">
-                                                <p>Fuel Type</p>
-                                                <h6>Electric</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="function-box">
-                                                <p>Color</p>
-                                                <p class="color-ball"></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="function-box">
-                                        <p>Fuel Type</p>
-                                        <h6>Electric</h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="offer-btn-box">
-                                        <button (click)="openDialog()"> <i class="fa fa-paper-plane"></i> Send An Offer
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="pagination-row">
-                    <ul>
-                        <li class="active">
-                            <i class="fa fa-angle-left"></i>
-                        </li>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li class="active">
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                    </ul>
-                </div>
-
+          <div class="col-md-6 col-sm-8 col-12">
+            <div class="row">
+              <div class="col-lg-8 col-md-4  col-sm-4 text-right col-6 ">
+                <p class="mt-2 text-xs-left">Sort</p>
+              </div>
+              <div class="col-lg-4 col-md-8 col-sm-8 col-6">
+                <p-dropdown [options]="sortType" optionValue="id" optionLabel="name" class="dropdown"
+                (onChange)="sort(PostedCarsList, $event.value)">
+              </p-dropdown>
+                <!-- <select name="" id="">
+                  <option value="">Delete Added</option>
+                </select> -->
+              </div>
             </div>
+
+
+          </div>
         </div>
+
+        <div class="submitted-main-row" *ngFor="let item of PostedCarsList">
+          <div class="row">
+            <div class="col-md-1">
+              <div class="image-box">
+                <figure [routerLink]="['/single-car']"
+                  [style.background-image]="makeTrustedImage(item.thumbnail?.imageUrl)">
+
+                </figure>
+              </div>
+            </div>
+            <div class="col-md-11">
+              <div class="offer-main">
+                <div class="row ">
+                  <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="row mb-3">
+                      <div class="col-md-5">
+                        <h6 class="car-name">
+                          {{item.make}}
+                        </h6>
+                      </div>
+                      <div class="col-md-7">
+                        <p class="posted-time">
+                          <i class="fa fa-calendar mr-1"></i>
+                          {{calculateDiff(item.createdDate)}}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                        <p class="light-text">Model</p>
+                        <p class="dark-text">{{item.model}}</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                        <p class="light-text">Color</p>
+                        <p class="dark-text">{{item.color}}</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                        <p class="light-text">Year</p>
+                        <p class="dark-text">{{item.year}}</p>
+                      </div>
+
+                      <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                        <p class="light-text">VRM No</p>
+                        <p class="dark-text">{{item.registrationNumber}}</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                        <p class="light-text">Fuel</p>
+                        <p class="dark-text">{{item.fuel}}</p>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-4 col-6 mb-3">
+                        <p class="light-text">First Registerd</p>
+                        <p class="dark-text">{{item.firstRegisterd}}</p>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-12">
+                    <div class="price-box">
+                      <div class="price-middle-box">
+                        <h6>Demand</h6>
+                        <h4>{{environmentData.defaultCurrency}} {{item.price}}</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-8 col-sm-8 col-12">
+                    <div class="last-section">
+                      <!-- <p>Required By</p>
+                      <h6>Alex Bolten</h6> -->
+                      <button class="bg-primary text-white" (click)="editVehicle(item._id)"> <i
+                          class="fa fa-pencil"></i>
+                        Edit</button> <br>
+                      <button class="bg-danger text-white" (click)="deletePostedCar(item._id)"> <i
+                          class="fa fa-times"></i>
+                        Remove</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="pagination-row">
+          <ul>
+            <li class="active">
+              <i class="fa fa-angle-left"></i>
+            </li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li class="active">
+              <i class="fa fa-angle-right"></i>
+            </li>
+          </ul>
+        </div> -->
+        <app-custom-paginator [totalRecords]="allPostedCarsList.length" [recordsPerPage]="rows"
+          (onPageChange)="changeVehiclePage($event)"></app-custom-paginator>
+
+      </div>
+
+      <div id="tab-3" *ngIf="currentTab==3" [ngClass]="{'current': currentTab === 3}" class="tab-content ">
+        <div class="subscription-row">
+          <div class="row mb-4">
+            <div class="col-md-7 col-sm-7 col-7">
+              <h5>Manage sellerRepresentative</h5>
+            </div>
+            <div class="col-md-5 text-right col-sm-5 col-5">
+              <button class="add-ac-btn" (click)="openAnAccount()">
+                <i class="fa fa-plus"></i> Add An Account
+              </button>
+            </div>
+          </div>
+          <div class="table-box">
+            <table>
+              <tr>
+                <th>Sr #</th>
+                <th>User Name </th>
+                <th class="text-right">Action </th>
+              </tr>
+              <tr *ngFor="let item of sellerRepresentative; let i = index;">
+                <td>{{i + 1}}</td>
+                <td>{{item.email}}</td>
+                <td class="text-right"><i class="fa fa-trash" style="color: red;"
+                    (click)="deleteRepresentative(item._id)"></i></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="tab-4" *ngIf="currentTab==4" [ngClass]="{'current': currentTab === 4}" class="tab-content ">
+
+        <div class="row mb-3">
+          <div class="col-md-6 col-sm-4 col-12">
+            <h5>Posted Requirment</h5>
+          </div>
+
+          <div class="col-md-6 col-sm-8 col-12">
+            <div class="row">
+              <div class="col-lg-8 col-md-4  col-sm-4 text-right col-6 ">
+                <p class="mt-2 text-xs-left">Sort</p>
+              </div>
+              <div class="col-lg-4 col-md-8 col-sm-8 col-6">
+                <p-dropdown [options]="sortType" optionValue="id" optionLabel="name" class="dropdown"
+                (onChange)="sort(allRequirementList, $event.value)">
+              </p-dropdown>
+                <!-- <select name="" id="">
+                  <option value="">Date Added</option>
+                </select> -->
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <ng-container *ngFor="let item of allRequirementList">
+            <div class="col-md-12" >
+              <!-- *ngFor="let item of u.requirements" -->
+              <div class="posted-main">
+                <div class="row mb-2 align-items-center">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12">
+                    <div class="user-box">
+                      <div class="row">
+                        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-2 col-2 text-right">
+                          <i class="fa fa-user"></i>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-10">
+                          <p>{{item.user}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 text-right">
+                    <p class="posted-par"> <i class="fa fa-retweet" (click)="showMoreInfo(item)"></i> <i
+                        class="fa fa-eye"></i>{{item.noOfViews}} Views <i class="fa fa-calendar ml-3"></i> Posted
+                      {{calculateDiff(item.createdDate)}}</p>
+                  </div>
+                </div>
+
+                <div class="row align-items-center justify-content-center">
+                  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 col-6">
+                    <div class="function-box">
+                      <p>Year</p>
+                      <h6>{{item.year}}</h6>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 col-6">
+                    <div class="function-box">
+                      <p>Make</p>
+                      <h6>{{item.make}}</h6>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
+                    <div class="row">
+                      <div class="col-md-7 col-sm-5 col-xs-5 col-5">
+                        <div class="function-box">
+                          <p>Model</p>
+                          <h6>{{item.model}}</h6>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-5 col-xs-5 col-5">
+                        <div class="function-box">
+                          <p>Color</p>
+                          <h6>{{item.color}}</h6>
+                          <!-- <p class="color-ball"></p> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 col-6">
+                    <div class="function-box">
+                      <p>Body</p>
+                      <h6>{{item.bodyStyle}}</h6>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-md-12">
+                    <div class="offer-btn-box">
+                      <button (click)="openDialog(item)"> <i class="fa fa-paper-plane"></i> Send An Offer
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="my_class1">
+                  <div [ngClass]="{'my_class': item.collapse === true}" *ngIf="item.collapse == true">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <div class="function-box">
+                          <p>Fuel Type</p>
+                          <h6>{{item.fuelType}}</h6>
+                        </div>
+                      </div>
+
+                      <div class="col-md-2">
+                        <div class="function-box">
+                          <p>Engine Size</p>
+                          <h6>{{item.engineSize}}</h6>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-2">
+                        <div class="function-box">
+                          <p>Preferences</p>
+                          <h6>{{item.preferences}}</h6>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-2">
+                        <div class="function-box">
+                          <p>No Of Seats</p>
+                          <h6>{{item.noOfSeats}}</h6>
+                        </div>
+                      </div>
+
+
+
+                      <div class="col-md-2">
+                        <div class="function-box">
+                          <p>No Of Doors</p>
+                          <h6>{{item.noOfDoors}}</h6>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-2">
+                        <div class="function-box">
+                          <p>Capacity</p>
+                          <h6>{{item.capacity}}</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+            </div>
+          </ng-container>
+
+        </div>
+      </div>
     </div>
 
-</div>
-
-<app-seller-footer></app-seller-footer>
+  </div>
+  <p-toast></p-toast>

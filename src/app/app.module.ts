@@ -13,6 +13,7 @@ import { SharedModule } from './shared-module/shared-module';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { InterceptorService } from './services/interceptors/spinner.service';
 import { MatProgressSpinnerModule } from '@angular/material';
+import { CarService } from './services/car.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatProgressSpinnerModule } from '@angular/material';
     MatProgressSpinnerModule
   ],
   providers: [
+    CarService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

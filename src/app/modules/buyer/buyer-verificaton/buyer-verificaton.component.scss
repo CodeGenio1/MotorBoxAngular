@@ -49,3 +49,16 @@
 
     }
 }
+.verif-main{
+    width: 60%;
+    margin: auto;
+    @media(max-width:1024px) {
+        width: 70%;
+    }
+    @media(max-width:991px) {
+        width: 92%;
+    }
+    @media(max-width:767px) {
+        width: 100%;
+    }
+}

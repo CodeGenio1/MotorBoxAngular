@@ -1,21 +1,30 @@
 <div class="signup-bg">
   <img src="./assets/images/logo.png" alt="" [routerLink]="['/home']">
-  <form name="loginForm" [formGroup]="myForm" novalidate id="form-signup">
+  <form name="myForm" [formGroup]="myForm" novalidate id="form-signup">
 
-  <div class="form-main">
-    <h5>Welcome!</h5>
-    <p>Sign Up for new Acount</p>
-    <!-- <form id="s" novalidate> -->
+    <div class="form-main">
+      <h5>Welcome!</h5>
+      <p>Sign Up for new Acount</p>
+      <!-- <form id="s" novalidate> -->
 
       <div class="st-line">
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <label>Email ID</label>
-            <input type="text" class="form-control" formControlName="email" placeholder="example@gmail.com">
+            <label>Email ID</label> <span class="star-error">*</span>
+            <input type="text" class="form-control" formControlName="email" placeholder="example@gmail.com"
+              autocomplete="off">
+            <p class="custom-error"
+              *ngIf="myForm.get('email').hasError('required') && (myForm.get('email').touched || isError)">
+              Email is required.
+            </p>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <label>Name</label>
+            <label>Name</label><span class="star-error">*</span>
             <input type="text" class="form-control" formControlName="fullName" placeholder="Name">
+            <p class="custom-error"
+              *ngIf="myForm.get('fullName').hasError('required') && (myForm.get('fullName').touched || isError)">
+              Name is required.
+            </p>
           </div>
         </div>
       </div>
@@ -23,12 +32,30 @@
       <div class="st-line">
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-6">
-            <label>Password</label>
-            <input type="password" formControlName="password" class="form-control" placeholder="example@gmail.com">
+            <label>Password</label><span class="star-error">*</span>
+            <input type="text" formControlName="password" class="form-control" placeholder="********" required
+              (change)="checkPasswordRegex()">
+            <i class="fa fa-eye-closed"></i>
+            <p class="custom-error"
+              *ngIf="myForm.get('password').hasError('required') && (myForm.get('password').touched || isError)">
+              Password is required.
+            </p>
+            <p class="custom-error" *ngIf="RegexMatchError">
+              Password should be combination of one uppercase , one lower case, one special char, one digit
+              and min 8
+            </p>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-6">
-            <label>Confirm Password</label>
-            <input type="password" formControlName="confirmPassword" class="form-control" placeholder="example@gmail.com">
+            <label>Confirm Password</label><span class="star-error">*</span>
+            <input type="text" formControlName="confirmPassword" class="form-control" placeholder="********"
+              (ngModelChange)="onPasswordChange()">
+            <p class="custom-error"
+              *ngIf="myForm.get('confirmPassword').hasError('required') && (myForm.get('confirmPassword').touched || isError)">
+              Confirm Password is required.
+            </p>
+            <p class="custom-error" *ngIf="mismatchError">
+              Password not matched.
+            </p>
           </div>
         </div>
       </div>
@@ -37,31 +64,41 @@
       <div class="st-line">
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <label>Phone Number</label>
-            <input type="text" class="form-control" formControlName="phoneNumber" placeholder="example@gmail.com">
-
+            <label>Phone Number</label><span class="star-error">*</span>
+            <input type="text" class="form-control" formControlName="phoneNumber" placeholder="">
+            <p class="custom-error"
+              *ngIf="myForm.get('phoneNumber').hasError('required') && (myForm.get('phoneNumber').touched || isError)">
+              Phone Number is required.
+            </p>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <label>Date Of Birth</label>
-            <input type="date" class="form-control" formControlName="dateOfBirth" placeholder="example@gmail.com">
+            <label>Date Of Birth</label><span class="star-error">*</span>
+            <input type="date" class="form-control" formControlName="dateOfBirth">
+            <p class="custom-error"
+              *ngIf="myForm.get('dateOfBirth').hasError('required') && (myForm.get('dateOfBirth').touched || isError)">
+              Date Of Birth is required.
+            </p>
           </div>
         </div>
       </div>
 
       <div class="term-condition">
-        <p> <span> <input type="checkbox"> </span> I agree with the <span style=" font-size: 13px;
+        <p> <span> <input type="checkbox" [(ngModel)]="isAgree" (click)="onCheck()"> </span> I agree with the <span style=" font-size: 13px;
           color: #476f76;"> <b class="">terms and conditions</b> </span></p>
-
+        <p class="custom-error" style="text-align: center !important;" *ngIf="isAgreeError">
+          Please check to agree .
+        </p>
       </div>
 
       <div class="btn-box">
         <button type="submit" (click)="signUp()" class="button-primary">Sign Up</button>
       </div>
 
-      <p> <b class="fc-primary have-ac-p"  [routerLink]="['/sign-in']">Already have an acount? Sign In</b> </p>
+      <p> <b class="fc-primary have-ac-p" [routerLink]="['/sign-in']">Already have an acount? Sign In</b> </p>
 
 
-    <!-- </form> -->
-  </div>
-</form>
+      <!-- </form> -->
+    </div>
+  </form>
 </div>
+<p-toast></p-toast>

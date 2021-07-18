@@ -1,0 +1,15 @@
+<div class="pagination-row">
+  <ul>
+    <li class="active">
+      <i class="fa fa-angle-left" (click)="onClickPage(activePage - 1)"></i>
+    </li>
+    <li [ngClass]="{'active': activePage === item}" *ngFor="let item of pages"
+    (click)="onClickPage(item)">{{item}}</li>
+    <!-- <li>2</li>
+    <li>3</li>
+    <li>4</li> -->
+    <li class="active">
+      <i class="fa fa-angle-right" (click)="onClickPage(activePage + 1)"></i>
+    </li>
+  </ul>
+</div>

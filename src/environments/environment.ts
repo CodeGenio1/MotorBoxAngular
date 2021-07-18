@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  loginUrl:'http://65.0.184.144:8080/api/connect/token',
-  baseUrl:'http://65.0.184.144:8080/api/'
+  loginUrl:'http://localhost:8080/api/connect/token',
+  baseUrl:'http://localhost:8080/api/',
+  socketServerUrl:'http://localhost:8000',
+  defaultCurrency: '$'
 };
 
 /*

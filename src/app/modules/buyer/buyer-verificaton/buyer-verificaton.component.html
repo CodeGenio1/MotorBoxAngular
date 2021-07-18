@@ -1,72 +1,73 @@
-<app-buyer-header></app-buyer-header>
 <div class="verify-main">
   <img src="./assets/images/verify-girl.png" alt="">
   <div class="container">
     <h6 class="title">Check Vehicle Verification</h6>
-    <div class="row mb-5">
-      <div class="col-md-4 offset-md-4">
-        <input type="text" placeholder="Enter Vehicle Regiration Number">
+    <div class="verif-main">
+      <div class="row mb-5">
+        <div class="col-md-8 col-sm-8 col-8">
+          <input type="text" [(ngModel)]="registrationNo" placeholder="Enter Vehicle VRM Number"
+            autocomplete="off">
+        </div>
+        <div class="col-md-2 col-sm-4 col-4">
+          <button (click)="checkVehicle()">Verify</button>
+        </div>
       </div>
-      <div class="col-md-2">
-        <button>Verify</button>
+      <div class=" row mb-3">
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>Make</p>
+          <h6> <span *ngIf="VehicleData">{{VehicleData?.make}}</span></h6>
+        </div>
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>Model</p>
+          <h6><span *ngIf="VehicleData">{{VehicleData?.model}}</span></h6>
+        </div>
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>Color</p>
+          <h6><span *ngIf="VehicleData?.colour">{{VehicleData.colour}}</span></h6>
+        </div>
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>Year Of Manufacture</p>
+          <h6><span *ngIf="VehicleData">{{VehicleData?.yearOfManufacture}}</span></h6>
+        </div>
       </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-md-2 offset-md-3">
-        <p>Type</p>
-        <h6>Sonic</h6>
-      </div>
-      <div class="col-md-2">
-        <p>Transmission</p>
-        <h6>Manual</h6>
-      </div>
-      <div class="col-md-2">
-        <p>Type</p>
-        <h6>Manual</h6>
-      </div>
-      <div class="col-md-2">
-        <p>Transmission</p>
-        <h6>Manual</h6>
-      </div>
-    </div>
 
-    <div class="row mb-3">
-      <div class="col-md-2 offset-md-3">
-        <p>Color</p>
-        <h6>Yelloe</h6>
+      <div class="row mb-3">
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>Vrm</p>
+          <h6><span *ngIf="VehicleData">{{VehicleData?.vrm}}</span></h6>
+        </div>
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>Ved Expiry Date </p>
+          <h6><span *ngIf="MotVed">{{MotVed?.VedExpiryDate}}</span></h6>
+        </div>
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>Ved Days Remaining</p>
+          <h6><span *ngIf="MotVed">{{MotVed?.VedDaysRemaining}}</span></h6>
+        </div>
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>Revenue Weight</p>
+          <h6><span *ngIf="MotVed">{{MotVed?.RevenueWeight}}</span></h6>
+        </div>
       </div>
-      <div class="col-md-2">
-        <p>Fuel </p>
-        <h6>Petrol</h6>
-      </div>
-      <div class="col-md-2">
-        <p>Color</p>
-        <h6>Yelloe</h6>
-      </div>
-      <div class="col-md-2">
-        <p>Type</p>
-        <h6>Manual</h6>
-      </div>
-    </div>
 
-    <div class="row ">
-      <div class="col-md-2 offset-md-3">
-        <p>Type</p>
-        <h6>Sonic</h6>
-      </div>
-      <div class="col-md-2">
-        <p>Transmission</p>
-        <h6>Manual</h6>
-      </div>
-      <div class="col-md-2">
-        <p>Type</p>
-        <h6>Manual</h6>
-      </div>
-      <div class="col-md-2">
-        <p>Transmission</p>
-        <h6>Manual</h6>
+      <div class="row ">
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>VedCo2Emissions</p>
+          <h6><span *ngIf="MotVed">{{MotVed?.VedCo2Emissions}}</span></h6>
+        </div>
+        <div class="col-md-3 col-sm-4 col-6">
+          <p>VedBand</p>
+          <h6><span *ngIf="MotVed">{{MotVed?.VedBand}}</span></h6>
+        </div>
+        <!-- <div class="col-md-2">
+          <p>VedRate</p>
+          <h6>Manual</h6>
+        </div>
+        <div class="col-md-2">
+          <p>Transmission</p>
+          <h6>Manual</h6>
+        </div> -->
       </div>
     </div>
   </div>
 </div>
-<app-buyer-footer></app-buyer-footer>

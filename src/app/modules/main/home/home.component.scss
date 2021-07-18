@@ -10,7 +10,9 @@
         height  : calc(100vh - 119px);
         position: relative;
     }
-
+    @media only screen and (max-width: 480px) {
+        height: calc(100vh - 124px) !important;
+    }
     &::before {
         content          : "";
         background-image : url('../../../../assets/images/green-arrow.png');
@@ -53,6 +55,9 @@
                 width   : 351px;
                 right   : -105px;
                 bottom  : 0;
+            }
+            @media only screen and (max-width: 320px) {
+                height: 199px;
             }
         }
 
